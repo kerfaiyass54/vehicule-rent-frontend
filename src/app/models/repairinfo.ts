@@ -1,3 +1,5 @@
 export interface Repairinfo{
-  id:number
+  id:number,
+  status:String,
+  date:Date
 }
