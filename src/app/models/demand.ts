@@ -1,3 +1,6 @@
 export interface Demand{
-  id:number
+  id:number,
+  type:String,
+  date:Date,
+  status:String
 }
