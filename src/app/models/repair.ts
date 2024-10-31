@@ -1,3 +1,7 @@
 export interface Repair{
-  id:number
+  id:number,
+  name:String,
+  email:String,
+  pass:String,
+  role:String
 }
