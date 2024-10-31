@@ -1,3 +1,5 @@
 export interface Location{
-  id:number
+  id:number,
+  name:String,
+  country:String
 }
