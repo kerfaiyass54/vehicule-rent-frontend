@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import {NavBarAdminComponent} from "../nav-bar-admin/nav-bar-admin.component";
 
 @Component({
   selector: 'app-admin-update',
   standalone: true,
-  imports: [],
+    imports: [
+        NavBarAdminComponent
+    ],
   templateUrl: './admin-update.component.html',
   styleUrl: './admin-update.component.css'
 })
