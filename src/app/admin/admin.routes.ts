@@ -1,4 +1,4 @@
-import {Routes} from "@angular/router";
+import {provideRouter, RouterModule, Routes} from "@angular/router";
 import {AdminComponent} from "./admin.component";
 import {AdminDetailsComponent} from "./admin-details/admin-details.component";
 import {AdminUpdateComponent} from "./admin-update/admin-update.component";
@@ -35,3 +35,5 @@ const adminRoutes:Routes = [
     ]
   }
 ]
+
+export const ADMIN_ROUTERS = provideRouter(adminRoutes);
