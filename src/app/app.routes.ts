@@ -21,6 +21,7 @@ import {DemandManagementComponent} from "./repair/demand-management/demand-manag
 import {RepairDetailsComponent} from "./repair/repair-details/repair-details.component";
 import {TicketsManagementComponent} from "./repair/tickets-management/tickets-management.component";
 import {VehiculesRepairComponent} from "./repair/vehicules-repair/vehicules-repair.component";
+import {AdminHomeComponent} from "./admin/admin-home/admin-home.component";
 
 export const routes: Routes = [
   {
@@ -28,6 +29,7 @@ export const routes: Routes = [
     component:ClientComponent,
     title:"Client Dashboard",
     children:[
+
       {
         path:'details',
         component:ClientDetailsComponent
@@ -51,6 +53,10 @@ export const routes: Routes = [
     component:AdminComponent,
     title:'Admin Dashboard',
     children:[
+      {
+        path:'home',
+        component:AdminHomeComponent
+      },
       {
         path:'details',component:AdminDetailsComponent,
       },
