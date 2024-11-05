@@ -1,0 +1,34 @@
+nav{
+  padding: 10px 30px;
+  border-style: groove;
+  border-radius: 18px;
+  background-color: aqua;
+  margin: 15px 15px;
+}
+
+a{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  color: #dccccc;
+
+}
+
+a:hover{
+  background-color: #5caeed;
+  transform: scale(1.05);
+}
+
+a:active{
+  transform: scale(0.95);
+
+}
+
+.navbar-brand{
+  color: #8e2727;
+  background-color: #dccccc;
+}
+
+.navbar-brand:hover{
+  background-color: #dccccc;
+}
