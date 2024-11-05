@@ -12,6 +12,15 @@ import {ClientDetailsComponent} from "./client/client-details/client-details.com
 import {RepairTicketsComponent} from "./client/repair-tickets/repair-tickets.component";
 import {SubscriptionsManagementComponent} from "./client/subscriptions-management/subscriptions-management.component";
 import {VehiculesBuyingsComponent} from "./client/vehicules-buyings/vehicules-buyings.component";
+import {AdressesManagementComponent} from "./supplier/adresses-management/adresses-management.component";
+import {DemandsDashboardComponent} from "./supplier/demands-dashboard/demands-dashboard.component";
+import {ManagementCategoriesComponent} from "./supplier/management-categories/management-categories.component";
+import {SubscriptionsDetailsComponent} from "./supplier/subscriptions-details/subscriptions-details.component";
+import {VehiculesManagementComponent} from "./supplier/vehicules-management/vehicules-management.component";
+import {DemandManagementComponent} from "./repair/demand-management/demand-management.component";
+import {RepairDetailsComponent} from "./repair/repair-details/repair-details.component";
+import {TicketsManagementComponent} from "./repair/tickets-management/tickets-management.component";
+import {VehiculesRepairComponent} from "./repair/vehicules-repair/vehicules-repair.component";
 
 export const routes: Routes = [
   {
@@ -64,10 +73,53 @@ export const routes: Routes = [
   },{
     path:'supplier',
     component:SupplierComponent,
-    title:'Supplier Dashboard'
+    title:'Supplier Dashboard',
+    children:[
+      {
+        path:'adresses',
+        component: AdressesManagementComponent
+      },
+      {
+        path:'demands',
+        component: DemandsDashboardComponent
+      },
+      {
+        path:'categories',
+        component: ManagementCategoriesComponent
+      },
+      {
+        path:'subscriptions',
+        component: SubscriptionsDetailsComponent
+      },
+      {
+        path:'vehicules',
+        component: VehiculesManagementComponent
+      },
+
+    ]
   },{
     path:'repair',
     component:RepairComponent,
-    title:'Repair Dashboard'
+    title:'Repair Dashboard',
+    children:[
+      {
+        path:'demand',
+        component: DemandManagementComponent
+      },
+      {
+        path:'details',
+        component: RepairDetailsComponent
+      },
+      {
+        path:'ticket',
+        component: TicketsManagementComponent
+      },
+      {
+        path:'veh-repair',
+        component: VehiculesRepairComponent
+      },
+
+
+    ]
   }
 ];
