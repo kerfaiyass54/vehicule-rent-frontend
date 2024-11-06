@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CancelTicketComponent } from './cancel-ticket.component';
+import { ConsultCategoryComponent } from './consult-category.component';
 
-describe('CancelTicketComponent', () => {
-  let component: CancelTicketComponent;
-  let fixture: ComponentFixture<CancelTicketComponent>;
+describe('ConsultCategoryComponent', () => {
+  let component: ConsultCategoryComponent;
+  let fixture: ComponentFixture<ConsultCategoryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CancelTicketComponent]
+      imports: [ConsultCategoryComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(CancelTicketComponent);
+    fixture = TestBed.createComponent(ConsultCategoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

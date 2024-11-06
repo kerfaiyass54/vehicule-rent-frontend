@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReturnVehiculeComponent } from './return-vehicule.component';
+import { AddCategoryComponent } from './add-category.component';
 
-describe('ReturnVehiculeComponent', () => {
-  let component: ReturnVehiculeComponent;
-  let fixture: ComponentFixture<ReturnVehiculeComponent>;
+describe('AddCategoryComponent', () => {
+  let component: AddCategoryComponent;
+  let fixture: ComponentFixture<AddCategoryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReturnVehiculeComponent]
+      imports: [AddCategoryComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ReturnVehiculeComponent);
+    fixture = TestBed.createComponent(AddCategoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
