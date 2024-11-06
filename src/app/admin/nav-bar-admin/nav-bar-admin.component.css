@@ -2,8 +2,8 @@ nav{
   padding: 10px 30px;
   border-style: groove;
   border-radius: 18px;
-  border-color: #8e2727;
-  background-color: aqua;
+  border-color: #243642;
+  background-color: #387478;
   margin: 15px 15px;
 }
 
@@ -11,7 +11,7 @@ a{
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  color: #dccccc;
+  color: #629584;
 
 }
 
@@ -26,10 +26,10 @@ a:active{
 }
 
 .navbar-brand{
-  color: #8e2727;
-  background-color: #dccccc;
+  color: #E2F1E7;
+  background-color: #243642;
 }
 
 .navbar-brand:hover{
-  background-color: #dccccc;
+  background-color: #243642;
 }

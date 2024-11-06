@@ -38,10 +38,11 @@ th:hover{
 }
 
 div{
-  background-color: #b3a492;
+  background-color: #eddcc7;
   opacity: 0; /* Hidden at start */
   transform: translateX(-100%); /* Start off the screen */
   animation: slide-in 0.5s forwards;
+  border-radius: 30px;
 }
 
 @keyframes slide-in {
