@@ -2,7 +2,7 @@
 table{
   margin: 200px;
   border-style: groove;
-  border-color: #8e2727;
+  border-color: #243642;
   border-radius: 350px;
   width: 1500px;
   height: auto;
@@ -25,6 +25,7 @@ tr{
   color: #387478;
   transition: background-color 0.6s ease, transform 0.6s ease;
   border-radius: 25px;
+  border-style: inset;
 }
 
 tr:hover{

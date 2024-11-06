@@ -23,6 +23,45 @@ import {TicketsManagementComponent} from "./repair/tickets-management/tickets-ma
 import {VehiculesRepairComponent} from "./repair/vehicules-repair/vehicules-repair.component";
 import {AdminHomeComponent} from "./admin/admin-home/admin-home.component";
 import {ClientsManagementComponent} from "./admin/clients-management/clients-management.component";
+import {AddClientComponent} from "./admin/clients-management/add-client/add-client.component";
+import {UpdateClientComponent} from "./admin/clients-management/update-client/update-client.component";
+import {AddLocationComponent} from "./admin/location-management/add-location/add-location.component";
+import {LocationDetailsComponent} from "./admin/location-management/location-details/location-details.component";
+import {AddRepairComponent} from "./admin/repair-management/add-repair/add-repair.component";
+import {UpdateRepairComponent} from "./admin/repair-management/update-repair/update-repair.component";
+import {AddSupplierComponent} from "./admin/supplier-management/add-supplier/add-supplier.component";
+import {UpdateSupplierComponent} from "./admin/supplier-management/update-supplier/update-supplier.component";
+import {UpdateBudgetComponent} from "./client/client-details/update-budget/update-budget.component";
+import {UpdateDetailsComponent} from "./client/client-details/update-details/update-details.component";
+import {UpdateTicketComponent} from "./client/repair-tickets/update-ticket/update-ticket.component";
+import {ConsultTicketComponent} from "./client/repair-tickets/consult-ticket/consult-ticket.component";
+import {AddTicketComponent} from "./client/repair-tickets/add-ticket/add-ticket.component";
+import {
+  RenewSubscriptionComponent
+} from "./client/subscriptions-management/renew-subscription/renew-subscription.component";
+import {AddSubscriptionComponent} from "./client/subscriptions-management/add-subscription/add-subscription.component";
+import {BuyVehiculeComponent} from "./client/vehicules-buyings/buy-vehicule/buy-vehicule.component";
+import {ConsultVehiculeComponent} from "./client/vehicules-buyings/consult-vehicule/consult-vehicule.component";
+import {UpdateDemandComponent} from "./repair/demand-management/update-demand/update-demand.component";
+import {ConsultDemandComponent} from "./repair/demand-management/consult-demand/consult-demand.component";
+import {CreateDemandComponent} from "./repair/demand-management/create-demand/create-demand.component";
+import {
+  ConsultTicketDetailsComponent
+} from "./repair/tickets-management/consult-ticket-details/consult-ticket-details.component";
+import {ConsultRepairComponent} from "./repair/vehicules-repair/consult-repair/consult-repair.component";
+import {LaunchRepairComponent} from "./repair/vehicules-repair/launch-repair/launch-repair.component";
+import {UpdateAdressComponent} from "./supplier/adresses-management/update-adress/update-adress.component";
+import {AddAdressComponent} from "./supplier/adresses-management/add-adress/add-adress.component";
+import {ConsultCategoryComponent} from "./supplier/management-categories/consult-category/consult-category.component";
+import {AddCategoryComponent} from "./supplier/management-categories/add-category/add-category.component";
+import {
+  ConsultSubscriptionComponent
+} from "./supplier/subscriptions-details/consult-subscription/consult-subscription.component";
+import {UpdateVehiculeComponent} from "./supplier/vehicules-management/update-vehicule/update-vehicule.component";
+import {AddVehiculeComponent} from "./supplier/vehicules-management/add-vehicule/add-vehicule.component";
+import {
+  ConsultCategoriesComponent
+} from "./supplier/vehicules-management/consult-categories/consult-categories.component";
 
 export const routes: Routes = [
   {
@@ -33,19 +72,49 @@ export const routes: Routes = [
 
       {
         path:'details',
-        component:ClientDetailsComponent
+        component:ClientDetailsComponent, children:[
+          {
+            path: 'update-budget/:id',component:UpdateBudgetComponent
+          },
+          {
+            path: 'update/:id', component:UpdateDetailsComponent
+          },
+        ]
       },
       {
         path:'tickets',
-        component: RepairTicketsComponent
+        component: RepairTicketsComponent, children:[
+          {
+            path: 'update-ticket/:id',component:UpdateTicketComponent
+          },
+          {
+            path: 'consult/:id', component:ConsultTicketComponent
+          },{
+            path: 'add-ticket',component:AddTicketComponent
+          },
+        ]
       },
       {
         path:'subscriptions',
-        component: SubscriptionsManagementComponent
+        component: SubscriptionsManagementComponent, children:[
+          {
+            path: 'renew-subs/:id',component:RenewSubscriptionComponent
+          },
+          {
+            path: 'add-subs',component:AddSubscriptionComponent
+          },
+        ]
       },
       {
         path:'buyings',
-        component: VehiculesBuyingsComponent
+        component: VehiculesBuyingsComponent, children:[
+          {
+            path: 'buy/:id',component:BuyVehiculeComponent
+          },
+          {
+            path: 'consult/:id', component:ConsultVehiculeComponent
+          }
+        ]
       }
     ]
   },
@@ -65,16 +134,48 @@ export const routes: Routes = [
         path:'update', component:AdminUpdateComponent
       },
       {
-        path:'clients', component:ClientsManagementComponent
+        path:'clients', component:ClientsManagementComponent,
+        children:[
+          {
+            path: 'add-client',component:AddClientComponent
+          },
+          {
+            path: 'details/:id', component:ClientDetailsComponent
+          },
+          {
+            path: 'update/:id', component:UpdateClientComponent
+          }
+        ]
       },
       {
-        path:'location', component:LocationManagementComponent
+        path:'location', component:LocationManagementComponent, children:[
+          {
+            path: 'add-location',component:AddLocationComponent
+          },
+          {
+            path: 'details/:id', component:LocationDetailsComponent
+          },
+        ]
       },
       {
-        path:'repair', component:RepairManagementComponent
+        path:'repair', component:RepairManagementComponent, children:[
+          {
+            path: 'add-repair',component:AddRepairComponent
+          },
+          {
+            path: 'update/:id', component:UpdateRepairComponent
+          },
+        ]
       },
       {
-        path:'supplier', component:SupplierManagementComponent
+        path:'supplier', component:SupplierManagementComponent, children:[
+          {
+            path: 'add-supplier',component:AddSupplierComponent
+          },
+          {
+            path: 'update/:id', component:UpdateSupplierComponent
+          },
+        ]
       }
     ]
   },{
@@ -84,23 +185,56 @@ export const routes: Routes = [
     children:[
       {
         path:'adresses',
-        component: AdressesManagementComponent
+        component: AdressesManagementComponent, children:[
+          {
+            path: 'update-adress/:id',component:UpdateAdressComponent
+          },
+          {
+            path: 'add-ticket',component:AddAdressComponent
+          },
+        ]
       },
       {
         path:'demands',
-        component: DemandsDashboardComponent
+        component: DemandsDashboardComponent, children:[
+
+          {
+            path: 'consult/:id', component:ConsultDemandComponent
+          }
+        ]
       },
       {
         path:'categories',
-        component: ManagementCategoriesComponent
+        component: ManagementCategoriesComponent, children:[
+          {
+            path: 'consult/:id', component:ConsultCategoryComponent
+          },{
+            path: 'add-category',component:AddCategoryComponent
+          },
+        ]
       },
       {
         path:'subscriptions',
-        component: SubscriptionsDetailsComponent
+        component: SubscriptionsDetailsComponent, children:[
+          {
+            path: 'consult/:id', component:ConsultSubscriptionComponent
+          }
+        ]
       },
       {
         path:'vehicules',
-        component: VehiculesManagementComponent
+        component: VehiculesManagementComponent, children:[
+          {
+            path: 'update/:id',component:UpdateVehiculeComponent
+          },
+          {
+            path: 'consult/:id', component:ConsultVehiculeComponent
+          },{
+            path: 'add',component:AddVehiculeComponent
+          },{
+            path: 'consult-categories', component:ConsultCategoriesComponent
+          }
+        ]
       },
 
     ]
@@ -111,7 +245,16 @@ export const routes: Routes = [
     children:[
       {
         path:'demand',
-        component: DemandManagementComponent
+        component: DemandManagementComponent, children:[
+          {
+            path: 'update/:id',component:UpdateDemandComponent
+          },
+          {
+            path: 'consult/:id', component:ConsultDemandComponent
+          },{
+            path: 'add-demand',component:CreateDemandComponent
+          },
+        ]
       },
       {
         path:'details',
@@ -119,11 +262,21 @@ export const routes: Routes = [
       },
       {
         path:'ticket',
-        component: TicketsManagementComponent
+        component: TicketsManagementComponent, children:[
+  {
+    path: 'consult/:id', component:ConsultTicketDetailsComponent
+  }
+]
       },
       {
         path:'veh-repair',
-        component: VehiculesRepairComponent
+        component: VehiculesRepairComponent, children:[
+          {
+            path: 'consult/:id', component:ConsultRepairComponent
+          },{
+            path: 'launch/:id',component:LaunchRepairComponent
+          },
+        ]
       },
 
 
