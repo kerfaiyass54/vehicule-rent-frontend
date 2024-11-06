@@ -3,7 +3,7 @@ table{
   margin: 200px;
   border-style: groove;
   border-color: #8e2727;
-  border-radius: 50px;
+  border-radius: 350px;
   width: 1500px;
   height: auto;
   position: relative;
@@ -14,7 +14,7 @@ table{
 }
 
 th{
-  color: #dccccc;
+  color: #E2F1E7;
   background-color: #5d5da1;
   transition: background-color 0.6s ease, transform 0.6s ease;
 
@@ -22,32 +22,48 @@ th{
 
 tr{
   background-color: #5da195;
+  color: #387478;
   transition: background-color 0.6s ease, transform 0.6s ease;
+  border-radius: 25px;
 }
 
 tr:hover{
   background-color: #4e4ea6;
-  transform: scale(1.01);
-  color: #dccccc;
+  transform: scale(1.1);
+  color: #eddcc7;
+  border-radius: 45px;
+
 }
 
 
 th:hover{
-  background-color: #5caeed;
+  background-color: #E2F1E7;
   transform: scale(1.01);
+  color:#243642;
+  border-radius: 8px;
 }
 
 div{
-  background-color: #eddcc7;
-  opacity: 0; /* Hidden at start */
-  transform: translateX(-100%); /* Start off the screen */
+  background-color: #387478;
+  opacity: 0;
+  transform: translateX(-100%);
   animation: slide-in 0.5s forwards;
   border-radius: 30px;
+  margin: 25px
 }
+
+button{
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 400px;
+  width: 1125px
+}
+
+
 
 @keyframes slide-in {
   to {
     opacity: 1;
-    transform: translateX(0); /* Move to its final position */
+    transform: translateX(0);
   }
 }
