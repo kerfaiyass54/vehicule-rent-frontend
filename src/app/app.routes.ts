@@ -121,8 +121,11 @@ export const routes: Routes = [
   {
     path:'admin',
     component:AdminComponent,
-    title:'Admin Dashboard',
-    children:[
+    title:'Vehicule App',
+    children:[{
+      path:'',
+      component:AdminHomeComponent
+    },
       {
         path:'home',
         component:AdminHomeComponent
