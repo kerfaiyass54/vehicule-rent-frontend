@@ -22,6 +22,7 @@ import {RepairDetailsComponent} from "./repair/repair-details/repair-details.com
 import {TicketsManagementComponent} from "./repair/tickets-management/tickets-management.component";
 import {VehiculesRepairComponent} from "./repair/vehicules-repair/vehicules-repair.component";
 import {AdminHomeComponent} from "./admin/admin-home/admin-home.component";
+import {ClientsManagementComponent} from "./admin/clients-management/clients-management.component";
 
 export const routes: Routes = [
   {
@@ -64,7 +65,7 @@ export const routes: Routes = [
         path:'update', component:AdminUpdateComponent
       },
       {
-        path:'clients', component:ClientComponent
+        path:'clients', component:ClientsManagementComponent
       },
       {
         path:'location', component:LocationManagementComponent

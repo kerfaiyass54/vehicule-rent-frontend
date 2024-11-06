@@ -1,0 +1,52 @@
+
+table{
+  margin: 200px;
+  border-style: groove;
+  border-color: #8e2727;
+  border-radius: 50px;
+  width: 1500px;
+  height: auto;
+  position: relative;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+
+}
+
+th{
+  color: #dccccc;
+  background-color: #5d5da1;
+  transition: background-color 0.6s ease, transform 0.6s ease;
+
+}
+
+tr{
+  background-color: #5da195;
+  transition: background-color 0.6s ease, transform 0.6s ease;
+}
+
+tr:hover{
+  background-color: #4e4ea6;
+  transform: scale(1.01);
+  color: #dccccc;
+}
+
+
+th:hover{
+  background-color: #5caeed;
+  transform: scale(1.01);
+}
+
+div{
+  background-color: #b3a492;
+  opacity: 0; /* Hidden at start */
+  transform: translateX(-100%); /* Start off the screen */
+  animation: slide-in 0.5s forwards;
+}
+
+@keyframes slide-in {
+  to {
+    opacity: 1;
+    transform: translateX(0); /* Move to its final position */
+  }
+}
