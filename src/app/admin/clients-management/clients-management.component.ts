@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NavBarAdminComponent} from "../nav-bar-admin/nav-bar-admin.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-clients-management',
@@ -12,4 +13,11 @@ import {NavBarAdminComponent} from "../nav-bar-admin/nav-bar-admin.component";
 })
 export class ClientsManagementComponent {
 
+  constructor(private router:Router) {
+
+  }
+
+  goToAddClient(){
+    this.router.navigate(['admin/clients/add-client']);
+  }
 }
