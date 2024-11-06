@@ -49,14 +49,38 @@ div{
   transform: translateX(-100%);
   animation: slide-in 0.5s forwards;
   border-radius: 30px;
-  margin: 25px
+  margin: 25px;
+  display: block;
 }
+
+td button{
+  width: 70px;
+  margin: 5px;
+  color: #eddcc7;
+  background-color: #243642;
+  transition: background-color 0.6s ease, transform 0.6s ease;
+  border-radius: 25px;
+}
+
+td button:hover{
+  background-color: #E2F1E7;
+  transform: scale(1.01);
+  color:#243642;
+}
+
+
+
+
 
 button{
   margin-top: 30px;
   margin-bottom: 10px;
   margin-left: 400px;
-  width: 1125px
+  width: 1125px;
+  color: #eddcc7;
+  background-color: #243642;
+  transition: background-color 0.6s ease, transform 0.6s ease;
+  border-radius: 25px;
 }
 
 
