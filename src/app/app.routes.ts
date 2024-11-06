@@ -135,20 +135,18 @@ export const routes: Routes = [
         path: 'add-client',component:AddClientComponent
       },
       {
-        path: 'details/:id', component:ClientDetailsComponent
+        path: 'details-client/:id', component:ClientDetailsComponent
       },
       {
         path: 'update/:id', component:UpdateClientComponent
+      },{
+        path: 'add-location',component:AddLocationComponent
       },
       {
-        path:'location', component:LocationManagementComponent, children:[
-          {
-            path: 'add-location',component:AddLocationComponent
-          },
-          {
-            path: 'details/:id', component:LocationDetailsComponent
-          },
-        ]
+        path: 'details-loc/:id', component:LocationDetailsComponent
+      },
+      {
+        path:'location', component:LocationManagementComponent
       },{
         path: 'add-repair',component:AddRepairComponent
       },

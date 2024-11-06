@@ -15,37 +15,14 @@
 
 
     </thead>
-    <tbody>
+    <tbody *ngFor="let client of listClients">
     <tr>
-
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>Mark</td>
-      <td><button type="button" class="btn btn-info">Info</button></td>
-
-
-    </tr>
-    <tr>
-
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>Mark</td>
-      <td><button type="button" class="btn btn-info">Info</button></td>
-
-    </tr>
-    <tr>
-
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>Mark</td>
-      <td><button type="button" class="btn btn-info">Info</button></td>
-
+      <td>{{client.id}}</td>
+      <td>{{client.nameClient}}</td>
+      <td>{{client.cin}}</td>
+      <td>{{client.budget}}</td>
+      <td>{{client.email}}</td>
+      <td><button type="button" class="btn btn-info" [routerLink]="['admin/details',client.id]" >Info</button></td>
     </tr>
     </tbody>
   </table>

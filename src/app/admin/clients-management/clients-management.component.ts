@@ -1,23 +1,29 @@
 import { Component } from '@angular/core';
 import {NavBarAdminComponent} from "../nav-bar-admin/nav-bar-admin.component";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
+import {ClientServiceAdminService} from "../Services/client-service-admin.service";
+import {Client} from "../../models/client";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-clients-management',
   standalone: true,
-    imports: [
-        NavBarAdminComponent
-    ],
+  imports: [
+    NavBarAdminComponent,
+    NgForOf,
+    RouterLink
+  ],
   templateUrl: './clients-management.component.html',
   styleUrl: './clients-management.component.css'
 })
 export class ClientsManagementComponent {
 
-  constructor(private router:Router) {
+  listClients: Client[] = [];
+  constructor(private router:Router,private clientService:ClientServiceAdminService) {
 
   }
 
   goToAddClient(){
-    this.router.navigate(['admin/clients/add-client']);
+    this.router.navigate(['admin/add-client']);
   }
 }
