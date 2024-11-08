@@ -34,12 +34,21 @@ tr:hover{
   border-radius: 45px;
 
 }
+td{
+  transition: background-color 0.6s ease, transform 0.6s ease;
+}
+td:hover{
+  background-color: #4e4ea6;
+  transform: scale(1.1);
+  color: #eddcc7;
+  border-radius: 8px;
+}
 
 
 th:hover{
-  background-color: #E2F1E7;
+  background-color:#243642;
   transform: scale(1.01);
-  color:#243642;
+  color:#E2F1E7;
   border-radius: 8px;
 }
 
