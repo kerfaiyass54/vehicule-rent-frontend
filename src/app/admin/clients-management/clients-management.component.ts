@@ -4,6 +4,7 @@ import {Router, RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../Services/client-service-admin.service";
 import {Client} from "../../models/client";
 import {NgForOf} from "@angular/common";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-clients-management',
@@ -11,7 +12,8 @@ import {NgForOf} from "@angular/common";
   imports: [
     NavBarAdminComponent,
     NgForOf,
-    RouterLink
+    RouterLink,
+    HttpClientModule
   ],
   templateUrl: './clients-management.component.html',
   styleUrl: './clients-management.component.css'

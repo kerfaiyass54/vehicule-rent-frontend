@@ -1,21 +1,26 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgIf} from "@angular/common";
+import {RouterLink} from "@angular/router";
+import {ClientServiceAdminService} from "../../Services/client-service-admin.service";
+import {Client} from "../../../models/client";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-add-client',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgIf
-  ],
+    NgIf,
+    RouterLink,HttpClientModule  ],
   templateUrl: './add-client.component.html',
   styleUrl: './add-client.component.css'
 })
 export class AddClientComponent {
   newClientForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+
+  constructor(private fb: FormBuilder, private clientService:ClientServiceAdminService ) {
     this.newClientForm = this.fb.group({
       name: ['', Validators.required, Validators.minLength(3), Validators.pattern('^[A-Za-z ]+$')],
       cin:['',Validators.required,Validators.pattern('^[0-9]{8}$')],
@@ -41,5 +46,19 @@ export class AddClientComponent {
   }
 
 
-
+  addClient() {
+    let client : Client = {
+      nameClient: this.newClientForm.value.name,
+      cin: this.newClientForm.value.cin,
+      budget: 0,
+      email: this.newClientForm.value.mail,
+      pass: this.newClientForm.value.password,
+      role: "CLIENT"
+    }
+    this.clientService.createClient(client).subscribe(
+      ()=>{
+        console.log("success");
+      }
+    )
+  }
 }

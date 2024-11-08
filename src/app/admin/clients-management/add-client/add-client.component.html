@@ -1,9 +1,9 @@
 <div class="card">
 <h1>Client Adding</h1>
-  <form [formGroup]="newClientForm">
+  <form [formGroup]="newClientForm" (ngSubmit)="addClient()">
     <div class="form-group row">
       <label for="name">Name of the client:</label>
-      <input id="name" class="form-control" name="name" formControlName="name" />
+      <input id="name" type="text" class="form-control" name="name" formControlName="name" />
       <div *ngIf="newClientForm.get('name')?.invalid && newClientForm.get('name')?.touched">
         <small *ngIf="name?.errors?.['required']">Name is required</small>
         <small *ngIf="name?.errors?.['minLength']">Name should have more than 3 characters</small>
@@ -13,7 +13,7 @@
 
     <div class="form-group row">
       <label for="cin">CIN:</label>
-      <input id="cin" class="form-control" formControlName="cin" name="cin" />
+      <input id="cin" type="text" class="form-control" formControlName="cin" name="cin" />
       <div *ngIf="newClientForm.get('cin')?.invalid && newClientForm.get('cin')?.touched">
         <small *ngIf="cin?.errors?.['required']">CIN is required</small>
         <small *ngIf="cin?.errors?.['pattern']">CIN should be 8 numbers</small>
@@ -22,7 +22,7 @@
 
     <div class="form-group row">
       <label for="mail">Email:</label>
-      <input id="mail" class="form-control" formControlName="mail" name="mail" />
+      <input id="mail" type="text" class="form-control" formControlName="mail" name="mail" />
       <div *ngIf="newClientForm.get('mail')?.invalid && newClientForm.get('mail')?.touched">
         <small *ngIf="mail?.errors?.['required']">Email is required</small>
         <small *ngIf="mail?.errors?.['email']">This should be an email</small>
@@ -31,13 +31,13 @@
 
     <div class="form-group row">
       <label for="password">Password:</label>
-      <input id="password" class="form-control" formControlName="password" name="password" />
+      <input id="password" type="text" class="form-control" formControlName="password" name="password" />
       <div *ngIf="newClientForm.get('password')?.invalid && newClientForm.get('password')?.touched">
         <small *ngIf="password?.errors?.['required']">Name is required</small>
         <small *ngIf="password?.errors?.['minLength']">Name should have more than 6 characters</small>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Create client</button>
-    <button type="submit" class="btn btn-primary" id="cancel-button">Cancel</button>
+    <button type="submit" class="btn btn-primary" >Create client</button>
+    <button type="submit" class="btn btn-primary" id="cancel-button" routerLink="/admin/clients">Cancel</button>
   </form>
 </div>

@@ -1,5 +1,5 @@
 export interface Client{
-id:number,
+id?:number,
   nameClient:String,
   cin:String,
   budget:number,
