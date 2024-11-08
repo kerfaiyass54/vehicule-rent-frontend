@@ -47,7 +47,7 @@ export class AddClientComponent {
 
 
   addClient() {
-    let client : Client = {
+    let client : any = {
       nameClient: this.newClientForm.value.name,
       cin: this.newClientForm.value.cin,
       budget: 0,

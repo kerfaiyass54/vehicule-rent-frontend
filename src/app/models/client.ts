@@ -1,9 +1,9 @@
 export interface Client{
-  id?: any,
+  idClient?: any,
   nameClient:String,
   cin:String,
   budget:number,
-  email:String,
+  email:any,
   pass:String,
   role:String,
   locationName?:String

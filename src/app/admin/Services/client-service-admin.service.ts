@@ -14,7 +14,7 @@ export class ClientServiceAdminService {
   }
 
   getAllClients(){
-      return this.http.get<any>(this.baseUrl + "admin/clients");
+      return this.http.get<any[]>(this.baseUrl + "admin/clients");
   }
 
   deleteClient(id: any){

@@ -20,7 +20,7 @@ import {HttpClientModule} from "@angular/common/http";
 })
 export class ClientsManagementComponent implements  OnInit{
 
-  listClients: Client[] = [];
+  listClients: any[] = [];
   constructor(private router:Router,private clientService:ClientServiceAdminService) {
 
   }
