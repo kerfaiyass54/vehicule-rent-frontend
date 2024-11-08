@@ -9,8 +9,8 @@ export class ClientServiceAdminService {
   baseUrl ="http://localhost:8080/";
     constructor(private http:HttpClient) {}
 
-  createClient(client: Client, ){
-    return  this.http.post<any>(this.baseUrl + "client/adding",client);
+  createClient(client: Client, location:String){
+    return  this.http.post<any>(this.baseUrl + "client/adding?locationName=" + location,client);
   }
 
   getAllClients(){
