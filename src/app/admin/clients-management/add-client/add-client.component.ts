@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../../Services/client-service-admin.service";
@@ -22,10 +22,10 @@ export class AddClientComponent {
 
   constructor(private fb: FormBuilder, private clientService:ClientServiceAdminService ) {
     this.newClientForm = this.fb.group({
-      name: ['', Validators.required, Validators.minLength(3), Validators.pattern('^[A-Za-z ]+$')],
-      cin:['',Validators.required,Validators.pattern('^[0-9]{8}$')],
-      mail: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      name: new FormControl(""),
+      cin:new FormControl(""),
+      mail: new FormControl(""),
+      password: new FormControl("")
     });
   }
 
@@ -53,12 +53,14 @@ export class AddClientComponent {
       budget: 0,
       email: this.newClientForm.value.mail,
       pass: this.newClientForm.value.password,
-      role: "CLIENT"
+      role: "CLIENT",
     }
-    this.clientService.createClient(client).subscribe(
+
+    this.clientService.createClient(client,"Bizerte").subscribe(
       ()=>{
-        console.log("success");
+        console.log("success")
       }
     )
+
   }
 }

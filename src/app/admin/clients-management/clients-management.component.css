@@ -5,7 +5,6 @@ table{
   border-color: #243642;
   border-radius: 350px;
   width: 1500px;
-  height: auto;
   position: relative;
   align-items: center;
   text-align: center;
@@ -51,12 +50,12 @@ div{
   animation: slide-in 0.5s forwards;
   border-radius: 30px;
   margin: 25px;
-  display: block;
+
 }
 
 td button{
-  width: 70px;
-  margin: 5px;
+  width: 110px;
+  margin: 2px;
   color: #eddcc7;
   background-color: #243642;
   transition: background-color 0.6s ease, transform 0.6s ease;

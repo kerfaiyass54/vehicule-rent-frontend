@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavBarAdminComponent} from "../nav-bar-admin/nav-bar-admin.component";
 import {Router, RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../Services/client-service-admin.service";
@@ -18,11 +18,17 @@ import {HttpClientModule} from "@angular/common/http";
   templateUrl: './clients-management.component.html',
   styleUrl: './clients-management.component.css'
 })
-export class ClientsManagementComponent {
+export class ClientsManagementComponent implements  OnInit{
 
   listClients: Client[] = [];
   constructor(private router:Router,private clientService:ClientServiceAdminService) {
 
+  }
+
+  ngOnInit() {
+    this.clientService.getAllClients().subscribe((res)=>{
+      this.listClients = res;
+    })
   }
 
   goToAddClient(){
