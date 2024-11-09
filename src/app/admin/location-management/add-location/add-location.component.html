@@ -1,1 +1,27 @@
-<p>add-location works!</p>
+<div class="card">
+  <h1>Client Adding</h1>
+  <form [formGroup]="newLocationForm">
+    <div class="form-group row">
+      <label for="name">Name of the client:</label>
+      <input id="name" type="text" class="form-control" name="name" formControlName="name" />
+      <div *ngIf="newLocationForm.get('name')?.touched && newLocationForm.get('name')?.invalid">
+        <small *ngIf="name?.errors?.['required']">Name is required</small>
+        <small *ngIf="name?.errors?.['minLength']">Name should have more than 3 characters</small>
+        <small *ngIf="name?.errors?.['pattern']">Name should be alphabetic with spaces</small>
+      </div>
+    </div>
+
+
+
+    <div class="form-group row">
+      <label for="country">Country:</label>
+      <input id="country" type="text" class="form-control" formControlName="country" name="country" />
+      <div *ngIf="newLocationForm.get('country')?.touched && newLocationForm.get('country')?.invalid">
+        <small *ngIf="country?.errors?.['required']">Country is required</small>
+        <small *ngIf="country?.errors?.['minLength']">Country should have more than 6 characters</small>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary"  (click)="addLocation()">Create client</button>
+    <button type="button" class="btn btn-primary" id="cancel-button" routerLink="/admin/location">Cancel</button>
+  </form>
+</div>
