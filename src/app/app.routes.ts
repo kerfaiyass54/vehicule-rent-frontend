@@ -144,7 +144,7 @@ export const routes: Routes = [
         path: 'add-location',component:AddLocationComponent
       },
       {
-        path: 'details-loc/:id', component:LocationDetailsComponent
+        path: 'location/details-loc/:id', component:LocationDetailsComponent
       },
       {
         path:'location', component:LocationManagementComponent
