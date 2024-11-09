@@ -11,23 +11,23 @@ export class RepairServiceAdminService {
   }
 
   addRepair(repair: Repair,location: String){
-    return this.http.post(this.baseUrl + "add?location=" + location, repair);
+    return this.http.post<any>(this.baseUrl + "add?location=" + location, repair);
   }
 
   deleteRepair(repair: Repair){
-    return this.http.get(this.baseUrl + "delete");
+    return this.http.get<any>(this.baseUrl + "delete");
   }
 
   updateRepair(repair: Repair){
-    return this.http.post(this.baseUrl + "update",repair);
+    return this.http.post<any>(this.baseUrl + "update",repair);
   }
 
   getRepair(name:String){
-    return this.http.get(this.baseUrl + name + "/get");
+    return this.http.get<any>(this.baseUrl + name + "/get");
   }
 
   getLocation(name: String){
-    return this.http.get(this.baseUrl + "location/" + name);
+    return this.http.get<any>(this.baseUrl + "location/" + name);
   }
 
 

@@ -9,15 +9,15 @@ export class LocationServiceAdminService {
   constructor(private http: HttpClient) {}
 
   getRepairs(name: String){
-    return this.http.get(this.baseUrl + "location/repairs");
+    return this.http.get<any[]>(this.baseUrl + "location/repairs");
   }
 
   getSuppliers(name: String){
-    return this.http.get(this.baseUrl + "location/suppliers");
+    return this.http.get<any[]>(this.baseUrl + "location/suppliers");
   }
 
   getClients(name: String){
-    return this.http.get(this.baseUrl + "location/clients");
+    return this.http.get<any[]>(this.baseUrl + "location/clients");
   }
 
   addLocation(location: Location){
