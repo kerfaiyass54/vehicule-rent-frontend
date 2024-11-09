@@ -62,5 +62,12 @@ export class AddClientComponent {
       }
     )
 
+    // add toastr
+    // check existence of some attributes (email and cin)
+
+
+
+
+
   }
 }

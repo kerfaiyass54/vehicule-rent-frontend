@@ -131,11 +131,12 @@ export const routes: Routes = [
       },
       {
         path:'clients', component:ClientsManagementComponent
-      },{
+      },
+      {
         path: 'add-client',component:AddClientComponent
       },
       {
-        path: 'details-client/:id', component:ClientDetailsComponent
+        path: 'clients/details-client/:id', component:ClientDetailsComponent
       },
       {
         path: 'update/:id', component:UpdateClientComponent
