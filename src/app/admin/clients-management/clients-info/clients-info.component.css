@@ -1,0 +1,52 @@
+div{
+  background-color: #387478;
+  border-radius: 30px;
+  margin: 25px;
+  transform: translateX(-100%);
+  animation: slide-in 0.5s forwards;
+}
+
+@keyframes slide-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.card{
+  margin-top: 75px;
+  background-color: #387478;
+  color: #E2F1E7;
+  height: fit-content;
+  border-style: dot-dash;
+}
+
+li{
+  transition: background-color 0.5s ease, transform 0.55s ease;
+
+}
+
+p{
+  text-align: right;
+  color: #387478;
+}
+
+li:hover{
+  background-color: #E2F1E7;
+  transform: scale(1.01);
+  color:#243642;
+}
+
+button{
+  display: inline;
+}
+
+.btn-primary, .btn-danger{
+  margin-left: 220px;
+  width: 1500px;
+}
+
+#cancel-button{
+  background-color: #E2F1E7;
+  color: #243642;
+}

@@ -62,6 +62,7 @@ import {AddVehiculeComponent} from "./supplier/vehicules-management/add-vehicule
 import {
   ConsultCategoriesComponent
 } from "./supplier/vehicules-management/consult-categories/consult-categories.component";
+import {ClientsInfoComponent} from "./admin/clients-management/clients-info/clients-info.component";
 
 export const routes: Routes = [
   {
@@ -136,7 +137,7 @@ export const routes: Routes = [
         path: 'add-client',component:AddClientComponent
       },
       {
-        path: 'clients/details-client/:id', component:ClientDetailsComponent
+        path: 'clients/details-client/:id', component:ClientsInfoComponent
       },
       {
         path: 'update/:id', component:UpdateClientComponent
