@@ -30,5 +30,9 @@ export class RepairServiceAdminService {
     return this.http.get<any>(this.baseUrl + "location/" + name);
   }
 
+  getAllRepairs(){
+    return this.http.get<any[]>("http://localhost:8080/admin/repairs")
+  }
+
 
 }

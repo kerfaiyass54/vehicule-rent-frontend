@@ -1,1 +1,31 @@
 
+
+<button type="button" id="adding-button" (click)="goToAddRepair()" class="btn btn-primary btn-lg">Add Repair</button>
+<div class="card">
+
+  <table class="table">
+    <thead>
+
+
+    <th scope="col">Id</th>
+    <th scope="col">Name</th>
+    <th scope="col">Email</th>
+
+
+
+
+    </thead>
+    <tbody *ngFor="let repair of listRepairs">
+    <tr>
+      <td>{{repair.idRepair}}</td>
+      <td>{{repair.nameRepair}}</td>
+      <td>{{repair.email}}</td>
+
+      <td><button type="button" class="btn btn-info" >Update</button></td>
+      <td><button type="button" class="btn btn-info" >Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
