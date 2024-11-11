@@ -1,5 +1,5 @@
 div{
-  background-color: #387478;
+  background-color: #8B5DFF;
   border-radius: 30px;
   margin: 25px;
   transform: translateX(-100%);
@@ -15,8 +15,8 @@ div{
 
 .card{
   margin-top: 75px;
-  background-color: #387478;
-  color: #E2F1E7;
+  background-color: #8B5DFF;
+  color: #FFF7D1;
   height: fit-content;
   border-style: dot-dash;
 }
@@ -28,13 +28,13 @@ li{
 
 p{
   text-align: right;
-  color: #387478;
+  color: #8B5DFF;
 }
 
 li:hover{
-  background-color: #E2F1E7;
+  background-color: #563A9C;
   transform: scale(1.01);
-  color:#243642;
+  color:#FFF7D1;
 }
 
 button{
@@ -47,6 +47,6 @@ button{
 }
 
 #cancel-button{
-  background-color: #E2F1E7;
-  color: #243642;
+  background-color: #563A9C;
+  color: #FFF7D1;
 }

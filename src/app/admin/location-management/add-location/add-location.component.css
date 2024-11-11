@@ -1,13 +1,13 @@
 .card{
   margin-top: 155px;
-  background-color: #387478;
-  color: #E2F1E7;
+  background-color: #8B5DFF;
+  color: #563A9C;
   height: fit-content;
 }
 
 h1{
   text-align: center;
-  color: #E2F1E7;
+  color: #563A9C;
 }
 
 .row{
@@ -17,9 +17,9 @@ h1{
 }
 
 .row:hover{
-  background-color: #E2F1E7;
+  background-color: #563A9C;
   transform: scale(1.01);
-  color:#243642;
+  color:#FFF7D1;
 }
 .btn-primary{
   margin-left: 220px;
@@ -27,8 +27,8 @@ h1{
 }
 
 #cancel-button{
-  background-color: #E2F1E7;
-  color: #243642;
+  background-color: #563A9C;
+  color: #FFF7D1;
 }
 
 button{
