@@ -6,21 +6,21 @@
     <p class="card-text">Check this client's information here</p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Name <p>Yassine</p></li>
-    <li class="list-group-item">CIN <p>15018536</p></li>
-    <li class="list-group-item">Budget <p>3000 dt</p></li>
-    <li class="list-group-item">Email <p>kerfaicom</p></li>
+    <li class="list-group-item">Name <p>{{ client.nameClient }}</p></li>
+    <li class="list-group-item">CIN <p>{{ client.cin }}</p></li>
+    <li class="list-group-item">Budget <p>{{ client.budget }}</p></li>
+    <li class="list-group-item">Email <p>{{ client.email }}</p></li>
   </ul>
   <div class="card-body">
     <h4 class="card-title">Location</h4>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Name <p></p></li>
-    <li class="list-group-item">Country <p></p></li>
+    <li class="list-group-item">Name <p>{{location.name}}</p></li>
+    <li class="list-group-item">Country <p>{{location.country}}</p></li>
   </ul>
   <div class="card-body">
-    <button type="submit" class="btn btn-primary">Update client</button>
-    <button type="submit" class="btn btn-danger">Delete client</button>
+    <button type="submit" class="btn btn-primary" (click)="goToUpdate()">Update client</button>
+    <button type="submit" class="btn btn-danger" >Delete client</button>
     <button type="button" class="btn btn-primary" id="cancel-button" routerLink="/admin/clients">Return</button>
   </div>
 </div>

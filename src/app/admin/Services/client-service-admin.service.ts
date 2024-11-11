@@ -18,26 +18,26 @@ export class ClientServiceAdminService {
   }
 
   deleteClient(id: any){
-      return this.http.delete(this.baseUrl + "client/" + id);
+      return this.http.delete<any>(this.baseUrl + "client/" + id);
   }
 
   getClient(name: any){
-      return this.http.get(this.baseUrl + "client/" + name);
+      return this.http.get<any>(this.baseUrl + "client/details/" + name);
   }
 
   updateClient(client: Client){
-      return this.http.put(this.baseUrl + "client/update", client);
+      return this.http.put<any>(this.baseUrl + "client/update", client);
   }
 
   isClientExist(name: String){
-      return this.http.get(this.baseUrl + "client/exist/" + name );
+      return this.http.get<any>(this.baseUrl + "client/exist/" + name );
   }
 
   changeLocation(client: String, location: String){
-    return this.http.get(this.baseUrl + "client/location/" + client + "?newLocation=" + location );
+    return this.http.get<any>(this.baseUrl + "client/location/" + client + "?newLocation=" + location );
   }
 
   isCinExists(cin: any){
-    return this.http.get(this.baseUrl + "client/cin/exist/" + cin);
+    return this.http.get<any>(this.baseUrl + "client/cin/exist/" + cin);
   }
 }
