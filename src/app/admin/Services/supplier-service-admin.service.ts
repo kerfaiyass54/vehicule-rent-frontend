@@ -26,4 +26,8 @@ export class SupplierServiceAdminService {
     return this.http.get<any>("supplier/" + name);
   }
 
+  getAllSupp(){
+    return this.http.get<any[]>("http://localhost:8080/admin/suppliers");
+  }
+
 }
