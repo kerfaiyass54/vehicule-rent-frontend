@@ -1,8 +1,8 @@
 <div class="card">
-  <h1>Client Adding</h1>
+  <h1>Location Adding</h1>
   <form [formGroup]="newLocationForm">
     <div class="form-group row">
-      <label for="name">Name of the client:</label>
+      <label for="name">Name of the location:</label>
       <input id="name" type="text" class="form-control" name="name" formControlName="name" />
       <div *ngIf="newLocationForm.get('name')?.touched && newLocationForm.get('name')?.invalid">
         <small *ngIf="name?.errors?.['required']">Name is required</small>
