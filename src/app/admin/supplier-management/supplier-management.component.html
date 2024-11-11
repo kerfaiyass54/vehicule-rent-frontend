@@ -13,8 +13,10 @@
     </thead>
     <tbody *ngFor="let supp of listSuppliers">
     <tr>
-      <td></td>
-      <td><button type="button" class="btn btn-info" (click)="goToInfos()" >Check</button></td>
+      <td>{{supp.idSupp}}</td>
+      <td>{{supp.suppName}}</td>
+      <td>{{supp.nationality}}</td>
+      <td><button type="button" class="btn btn-info" (click)="goToInfos(supp.suppName)" >Check</button></td>
     </tr>
     </tbody>
   </table>

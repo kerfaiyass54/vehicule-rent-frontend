@@ -17,18 +17,23 @@ import {Router} from "@angular/router";
 export class SupplierManagementComponent implements OnInit{
   listSuppliers: any[] = [];
 
-  constructor(private supplierservice: SupplierServiceAdminService, private router: Router) {
+  constructor(private supplierService: SupplierServiceAdminService, private router: Router) {
   }
 
   ngOnInit() {
+    this.supplierService.getAllSupp().subscribe(
+      (data)=>{
+        this.listSuppliers = data;
+      }
+    )
   }
 
 
   goToAddSupplier() {
-
+    this.router.navigate(['admin/add-supplier']);
   }
 
-  goToInfos() {
+  goToInfos(supp:any) {
 
   }
 }

@@ -63,6 +63,7 @@ import {
   ConsultCategoriesComponent
 } from "./supplier/vehicules-management/consult-categories/consult-categories.component";
 import {ClientsInfoComponent} from "./admin/clients-management/clients-info/clients-info.component";
+import {ErrorPageComponent} from "./error-page/error-page.component";
 
 export const routes: Routes = [
   {
@@ -256,5 +257,10 @@ export const routes: Routes = [
 
 
     ]
+  },
+  {
+    path:'**',
+    component: ErrorPageComponent,
+    title:"Error page"
   }
 ];
