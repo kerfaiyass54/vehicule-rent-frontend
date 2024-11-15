@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
 import {Router, RouterLink} from "@angular/router";
 
@@ -18,8 +18,8 @@ export class AddLocationComponent {
 
   constructor(private locationService:LocationServiceAdminService, private router: Router, private fb: FormBuilder) {
     this.newLocationForm = this.fb.group({
-      name: new FormControl(""),
-      country:new FormControl("")
+      name: new FormControl("",[Validators.required,Validators.minLength(6),Validators.pattern("[a-zA-Z ]")]),
+      country:new FormControl("",[Validators.required,Validators.minLength(6)])
     });
   }
 
