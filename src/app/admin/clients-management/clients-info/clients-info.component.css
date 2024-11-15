@@ -1,4 +1,4 @@
-div{
+#client-info{
   background: linear-gradient(#2fbdff, #0f2f40);
   border-radius: 30px;
   margin: 25px;
@@ -26,6 +26,8 @@ li{
 
 }
 
+
+
 p{
   text-align: right;
   color: #8B5DFF;
@@ -42,6 +44,8 @@ li:hover{
   transform: scale(1.01);
   color:#FFF7D1;
 }
+
+
 
 
 
