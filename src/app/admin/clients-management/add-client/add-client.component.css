@@ -1,19 +1,19 @@
 .card{
   margin-top: 155px;
-  background-color: #8B5DFF;
-  color: #563A9C;
+  background: linear-gradient(#1FA0FF,#12DAFB,#A7FDCC);
+  color: #D3F5CF;
   height: fit-content;
 }
 
 h1{
   text-align: center;
-  color: #FFF7D1;
+  color: #D3F5CF;
 }
 
 .row{
   margin: 25px;
   transition: background-color 0.55s ease, transform 0.55s ease;
-  color:#FFF7D1;
+  color:#D3F5CF;
 }
 
 .row:hover{
