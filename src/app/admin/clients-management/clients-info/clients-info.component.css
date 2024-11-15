@@ -1,5 +1,5 @@
 div{
-  background-color: #8B5DFF;
+  background: linear-gradient(#2fbdff, #0f2f40);
   border-radius: 30px;
   margin: 25px;
   transform: translateX(-100%);
@@ -31,11 +31,19 @@ p{
   color: #8B5DFF;
 }
 
-li:hover{
-  background-color: #563A9C;
+p:hover{
+  background: linear-gradient(#ff1722,#fd2da2);
   transform: scale(1.01);
   color:#FFF7D1;
 }
+
+li:hover{
+  background: linear-gradient(#ff1722,#fd2da2);
+  transform: scale(1.01);
+  color:#FFF7D1;
+}
+
+
 
 button{
   display: inline;
