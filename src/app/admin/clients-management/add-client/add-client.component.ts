@@ -22,7 +22,7 @@ export class AddClientComponent {
 
   constructor(private fb: FormBuilder, private clientService:ClientServiceAdminService ) {
     this.newClientForm = this.fb.group({
-      name: new FormControl("",[Validators.required,Validators.pattern("[a-zA-Z ]")]),
+      name: new FormControl("",[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
       cin:new FormControl("",[Validators.required,Validators.pattern("[0-9 ]"),Validators.minLength(8),Validators.maxLength(8)]),
       mail: new FormControl("",[Validators.required,Validators.email]),
       password: new FormControl("",[Validators.required,Validators.minLength(6)])
