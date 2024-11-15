@@ -6,7 +6,6 @@
       <input id="name" type="text" class="form-control" name="name" formControlName="name" />
       <div *ngIf="newClientForm.get('name')?.touched && newClientForm.get('name')?.invalid">
         <small *ngIf="name?.errors?.['required']">Name is required</small>
-        <small *ngIf="name?.errors?.['minLength']">Name should have more than 3 characters</small>
         <small *ngIf="name?.errors?.['pattern']">Name should be alphabetic with spaces</small>
       </div>
     </div>
