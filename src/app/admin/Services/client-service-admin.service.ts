@@ -18,7 +18,7 @@ export class ClientServiceAdminService {
   }
 
   deleteClient(id: any){
-      return this.http.delete<any>(this.baseUrl + "client/" + id);
+      return this.http.delete<any>(this.baseUrl + "client/delete" + id);
   }
 
   getClient(name: any){
