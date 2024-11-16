@@ -35,4 +35,15 @@ export class RepairManagementComponent implements OnInit{
   }
 
 
+  goToUpdate(idRepair: any) {
+
+  }
+
+  deleteRepair(idRepair: any){
+    this.repairService.deleteRepair(idRepair).subscribe(
+      ()=>{
+        console.log("success")
+      }
+    )
+  }
 }

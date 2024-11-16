@@ -22,8 +22,8 @@
       <td>{{repair.nameRepair}}</td>
       <td>{{repair.email}}</td>
 
-      <td><button type="button" class="btn btn-info" >Update</button></td>
-      <td><button type="button" class="btn btn-info" >Delete</button></td>
+      <td><button type="button" class="btn btn-info" (click)="goToUpdate(repair.idRepair)">Update</button></td>
+      <td><button type="button" class="btn btn-info" (click)="deleteRepair(repair.idRepair)">Delete</button></td>
     </tr>
     </tbody>
   </table>

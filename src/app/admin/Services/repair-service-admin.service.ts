@@ -14,8 +14,8 @@ export class RepairServiceAdminService {
     return this.http.post<any>(this.baseUrl + "add?location=" + location, repair);
   }
 
-  deleteRepair(repair: Repair){
-    return this.http.get<any>(this.baseUrl + "delete");
+  deleteRepair(id: any){
+    return this.http.get<any>(this.baseUrl + "delete/"+id);
   }
 
   updateRepair(repair: Repair){
