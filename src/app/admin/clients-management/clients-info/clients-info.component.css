@@ -31,16 +31,17 @@ li{
 p{
   text-align: right;
   color: #8B5DFF;
+  transition: background-color 0.5s ease, transform 0.55s ease;
 }
 
 p:hover{
-  background: linear-gradient(#ff1722,#fd2da2);
+  background: linear-gradient(#8B5DFF,#2fbdff);
   transform: scale(1.01);
   color:#FFF7D1;
 }
 
 li:hover{
-  background: linear-gradient(#ff1722,#fd2da2);
+  background: linear-gradient(#8B5DFF,#2fbdff);
   transform: scale(1.01);
   color:#FFF7D1;
 }
