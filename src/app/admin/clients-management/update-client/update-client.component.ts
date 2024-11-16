@@ -94,5 +94,9 @@ export class UpdateClientComponent implements OnInit{
     );
   }
 
+  return(){
+    this.router.navigate(['admin/clients/details-client',this.id]);
+  }
+
 
 }
