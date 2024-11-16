@@ -36,7 +36,7 @@ export class RepairManagementComponent implements OnInit{
 
 
   goToUpdate(idRepair: any) {
-
+    this.router.navigate(['']);
   }
 
   deleteRepair(idRepair: any){

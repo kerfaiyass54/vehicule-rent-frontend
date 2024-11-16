@@ -154,7 +154,7 @@ export const routes: Routes = [
         path: 'add-repair',component:AddRepairComponent
       },
       {
-        path: 'update/:id', component:UpdateRepairComponent
+        path: 'update/repair/:id', component:UpdateRepairComponent
       },
       {
         path:'repair', component:RepairManagementComponent
@@ -162,7 +162,7 @@ export const routes: Routes = [
         path: 'add-supplier',component:AddSupplierComponent
       },
       {
-        path: 'update/:id', component:UpdateSupplierComponent
+        path: 'update/supplier/:id', component:UpdateSupplierComponent
       },
       {
         path:'supplier', component:SupplierManagementComponent
