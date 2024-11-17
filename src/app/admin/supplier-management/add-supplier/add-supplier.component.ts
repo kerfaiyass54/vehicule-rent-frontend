@@ -65,7 +65,7 @@ export class AddSupplierComponent implements OnInit{
 
     this.supplierService.addSupplier(supplier).subscribe(
       ()=>{
-        console.log("success");
+
       }
     )
   }
