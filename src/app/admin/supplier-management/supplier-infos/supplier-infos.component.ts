@@ -36,7 +36,8 @@ export class SupplierInfosComponent implements OnInit{
   confirmDelete() {
     this.supplierService.deleteSupplier(this.supplier.suppName).subscribe(
       ()=>{
-        console.log("done")
+        console.log("done");
+        this.router.navigate(['admin/supplier']);
       }
     )
   }
