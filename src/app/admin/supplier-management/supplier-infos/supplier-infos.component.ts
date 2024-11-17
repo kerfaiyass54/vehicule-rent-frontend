@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {NgForOf} from "@angular/common";
 
@@ -12,7 +12,15 @@ import {NgForOf} from "@angular/common";
   templateUrl: './supplier-infos.component.html',
   styleUrl: './supplier-infos.component.css'
 })
-export class SupplierInfosComponent {
+export class SupplierInfosComponent implements OnInit{
+  supplier:any;
+  adresses: any[]=[]
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
+
 
   confirmDelete() {
 
