@@ -34,6 +34,6 @@ export class SupplierManagementComponent implements OnInit{
   }
 
   goToInfos(supp:any) {
-
+    this.router.navigate(['admin/infos/supplier',supp]);
   }
 }
