@@ -1,1 +1,40 @@
-<p>add-repair works!</p>
+<div class="card">
+  <h1>Repair Adding</h1>
+  <form [formGroup]="newRepairForm">
+    <div class="form-group row">
+      <label for="name">Name:</label>
+      <input id="name" type="text" class="form-control" name="name" formControlName="name" />
+      <div *ngIf="newRepairForm.get('name')?.touched && newRepairForm.get('name')?.invalid">
+        <small *ngIf="name?.errors?.['required']">Name is required</small>
+        <small *ngIf="name?.errors?.['pattern']">Name should be alphabetic with spaces</small>
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label for="mail">Email:</label>
+      <input id="mail" type="text" class="form-control" formControlName="mail" name="mail" />
+      <div *ngIf="newRepairForm.get('mail')?.touched && newRepairForm.get('mail')?.invalid">
+        <small *ngIf="mail?.errors?.['required']">Email is required</small>
+        <small *ngIf="mail?.errors?.['email']">This should be an email</small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="password">Password:</label>
+      <input id="password" type="text" class="form-control" formControlName="password" name="password" />
+      <div *ngIf="newRepairForm.get('password')?.touched && newRepairForm.get('password')?.invalid">
+        <small *ngIf="password?.errors?.['required']">Password is required</small>
+        <small *ngIf="password?.errors?.['minLength']">Password should have more than 6 characters</small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="options">Location:</label>
+      <select id="options" class="form-control" formControlName="loc" name="loc">
+        <option *ngFor="let option of locations" [value]="option.name">{{ option.name }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary"  (click)="addRepair()">Create repair</button>
+    <button type="button" class="btn btn-primary" id="cancel-button" routerLink="/admin/repair">Cancel</button>
+  </form>
+</div>

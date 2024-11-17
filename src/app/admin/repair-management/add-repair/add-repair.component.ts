@@ -1,12 +1,69 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {NgForOf, NgIf} from "@angular/common";
+import {RouterLink} from "@angular/router";
+import {ClientServiceAdminService} from "../../Services/client-service-admin.service";
+import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
+import {RepairServiceAdminService} from "../../Services/repair-service-admin.service";
 
 @Component({
   selector: 'app-add-repair',
   standalone: true,
-  imports: [],
+    imports: [
+        FormsModule,
+        NgForOf,
+        NgIf,
+        ReactiveFormsModule,
+        RouterLink
+    ],
   templateUrl: './add-repair.component.html',
   styleUrl: './add-repair.component.css'
 })
-export class AddRepairComponent {
+export class AddRepairComponent implements OnInit{
+  newRepairForm: FormGroup;
+  locations: any[] = [];
 
+
+  constructor(private fb: FormBuilder, private repairService:RepairServiceAdminService, private locationService: LocationServiceAdminService ) {
+
+
+    this.newRepairForm = this.fb.group({
+      name: new FormControl("",[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
+      mail: new FormControl("",[Validators.required,Validators.email]),
+      password: new FormControl("",[Validators.required,Validators.minLength(6)]),
+      loc: new FormControl("")
+    });
+
+
+  }
+
+  ngOnInit() {
+
+    this.locationService.getAllLocations().subscribe(
+      (res)=>{
+        this.locations = res;
+        console.log(this.locations);
+      }
+    )
+  }
+
+  get name(){
+    return this.newRepairForm.get('name');
+  }
+
+  get mail(){
+    return this.newRepairForm.get('mail');
+  }
+
+  get password(){
+    return this.newRepairForm.get('password');
+  }
+
+  get loc(){
+    return this.newRepairForm.get('loc');
+  }
+
+  addRepair() {
+
+  }
 }
