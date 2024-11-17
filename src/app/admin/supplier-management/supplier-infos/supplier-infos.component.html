@@ -10,13 +10,17 @@
     <li class="list-group-item">Nationality <p>{{ supplier.nationality }}</p></li>
     <li class="list-group-item">Email <p>{{ supplier.email }}</p></li>
   </ul>
-  <div class="card-body">
+  <div class="card-body" *ngIf="isThereAdress">
     <h4 class="card-title">Adresses</h4>
-  </div>
-  <ul class="list-group list-group-flush" *ngFor="let adress of adresses">
-    <li class="list-group-item">{{ adress.road }} , {{adress.number}}</li>
+    <ul class="list-group list-group-flush"  *ngFor="let adress of adresses">
+      <li class="list-group-item">{{ adress.road }} , {{adress.number}}</li>
 
-  </ul>
+    </ul>
+  </div>
+  <div class="card-body" *ngIf="!isThereAdress">
+    There are no adresses yet.
+  </div>
+
   <div class="card-body">
     <button type="submit" class="btn btn-primary" (click)="goToUpdate()">Update supplier</button>
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete supplier</button>

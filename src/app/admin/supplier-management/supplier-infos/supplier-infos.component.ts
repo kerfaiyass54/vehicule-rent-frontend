@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {SupplierServiceAdminService} from "../../Services/supplier-service-admin.service";
 
 @Component({
@@ -8,7 +8,8 @@ import {SupplierServiceAdminService} from "../../Services/supplier-service-admin
   standalone: true,
   imports: [
     RouterLink,
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   templateUrl: './supplier-infos.component.html',
   styleUrl: './supplier-infos.component.css'
@@ -17,7 +18,7 @@ export class SupplierInfosComponent implements OnInit{
   supplier:any;
   adresses: any[]=[];
   id:any;
-
+  isThereAdress = false;
   constructor(private supplierService:SupplierServiceAdminService, private router:Router, private route:ActivatedRoute ) {
 
   }
