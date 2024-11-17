@@ -41,6 +41,6 @@ export class SupplierInfosComponent implements OnInit{
   }
 
   goToUpdate() {
-
+    this.router.navigate(['admin/update/supplier',this.id]);
   }
 }
