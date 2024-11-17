@@ -48,6 +48,10 @@ export class LocationDetailsComponent implements OnInit{
 
 
   confirmDelete() {
-
+    this.locationService.deleteLocation(this.name).subscribe(
+      ()=>{
+        this.router.navigate(['admin/location'])
+      }
+    )
   }
 }
