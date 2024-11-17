@@ -18,8 +18,8 @@ export class SupplierServiceAdminService {
     return this.http.put<any>("update",supplier);
   }
 
-  deleteSupplier(supplier: Supplier){
-    return this.http.post<any>("delete",supplier);
+  deleteSupplier(supplier: String){
+    return this.http.get<any>("delete/"+ supplier);
   }
 
   getSupplier(name: String){
