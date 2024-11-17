@@ -64,6 +64,7 @@ import {
 } from "./supplier/vehicules-management/consult-categories/consult-categories.component";
 import {ClientsInfoComponent} from "./admin/clients-management/clients-info/clients-info.component";
 import {ErrorPageComponent} from "./error-page/error-page.component";
+import {SupplierInfosComponent} from "./admin/supplier-management/supplier-infos/supplier-infos.component";
 
 export const routes: Routes = [
   {
@@ -163,6 +164,8 @@ export const routes: Routes = [
       },
       {
         path: 'update/supplier/:id', component:UpdateSupplierComponent
+      },{
+        path: 'infos/supplier/:id', component:SupplierInfosComponent
       },
       {
         path:'supplier', component:SupplierManagementComponent
