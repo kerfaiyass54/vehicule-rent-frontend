@@ -64,6 +64,17 @@ export class AddRepairComponent implements OnInit{
   }
 
   addRepair() {
+    let repair:any ={
+      nameRepair: this.newRepairForm.value.name,
+      email: this.newRepairForm.value.mail,
+      pass: this.newRepairForm.value.password,
+      role: "REPAIR",
+    }
 
+    this.repairService.addRepair(repair, this.newRepairForm.value.password.loc).subscribe(
+      ()=>{
+        console.log("done");
+      }
+    )
   }
 }
