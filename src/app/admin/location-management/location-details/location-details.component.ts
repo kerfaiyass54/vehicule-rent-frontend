@@ -21,8 +21,20 @@ export class LocationDetailsComponent implements OnInit{
   location:any;
   clientsNum: any;
   repairsNum:any;
+  name:any;
 
   ngOnInit() {
+    this.name = this.route.snapshot.paramMap.get('id');
+    this.locationService.getLocation(this.name).subscribe(
+      (loc)=>{
+        this.location = loc;
+      }
+    )
+    this.locationService.getClients(this.name).subscribe(
+      (clients)=>{
+        this.clientsNum = clients.length;
+      }
+    )
   }
 
 

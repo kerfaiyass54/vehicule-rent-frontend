@@ -12,7 +12,7 @@
     </thead>
     <tbody *ngFor="let location of listLocations">
     <tr><td>{{location.idLoc}}</td><td>{{location.name}}</td><td>{{location.country}}</td>
-      <td><button type="button" class="btn btn-info" [routerLink]="['details-loc',location.idLoc]" >Check</button></td>
+      <td><button type="button" class="btn btn-info" [routerLink]="['details-loc',location.name]" >Check</button></td>
     </tr>
     </tbody>
   </table>
