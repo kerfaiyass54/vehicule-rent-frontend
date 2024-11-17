@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {RouterLink} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {NgForOf} from "@angular/common";
+import {SupplierServiceAdminService} from "../../Services/supplier-service-admin.service";
 
 @Component({
   selector: 'app-supplier-infos',
@@ -14,11 +15,20 @@ import {NgForOf} from "@angular/common";
 })
 export class SupplierInfosComponent implements OnInit{
   supplier:any;
-  adresses: any[]=[]
-  constructor() {
+  adresses: any[]=[];
+  id:any;
+
+  constructor(private supplierService:SupplierServiceAdminService, private router:Router, private route:ActivatedRoute ) {
+
   }
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.supplierService.getSupplier(this.id).subscribe(
+      (res)=>{
+        this.supplier = res;
+      }
+    )
   }
 
 
