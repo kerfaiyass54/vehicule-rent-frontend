@@ -11,19 +11,19 @@ export class SupplierServiceAdminService {
   constructor(private http: HttpClient) {}
 
   addSupplier(supplier: Supplier){
-    return this.http.post<any>("add",supplier);
+    return this.http.post<any>(this.baseUrl + "add",supplier);
   }
 
   updateSupplier(supplier: Supplier){
-    return this.http.put<any>("update",supplier);
+    return this.http.put<any>(this.baseUrl + "update",supplier);
   }
 
   deleteSupplier(supplier: String){
-    return this.http.get<any>("delete/"+ supplier);
+    return this.http.get<any>(this.baseUrl + "delete/"+ supplier);
   }
 
   getSupplier(name: String){
-    return this.http.get<any>("supplier/" + name);
+    return this.http.get<any>(this.baseUrl + "supplier/" + name);
   }
 
   getAllSupp(){
