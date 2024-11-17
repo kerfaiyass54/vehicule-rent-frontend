@@ -12,7 +12,7 @@
     <li class="list-group-item">Number of repairs <p>{{ repairsNum }}</p></li>
   </ul>
   <div class="card-body">
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete location</button>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" [disabled]="!canDelete1 && !canDelete2">Delete location</button>
     <button type="button" class="btn btn-primary" id="cancel-button" routerLink="/admin/location">Return</button>
   </div>
 </div>

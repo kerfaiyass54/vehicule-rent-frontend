@@ -22,6 +22,8 @@ export class LocationDetailsComponent implements OnInit{
   clientsNum: any;
   repairsNum:any;
   name:any;
+  canDelete1:boolean = false;
+  canDelete2: boolean = false;
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get('id');
@@ -33,6 +35,13 @@ export class LocationDetailsComponent implements OnInit{
     this.locationService.getClients(this.name).subscribe(
       (clients)=>{
         this.clientsNum = clients.length;
+        this.canDelete1 = this.clientsNum == 0;
+      }
+    )
+    this.locationService.getRepairs(this.name).subscribe(
+      (rep)=>{
+        this.repairsNum = rep.length;
+        this.canDelete1 = this.clientsNum == 0;
       }
     )
   }
