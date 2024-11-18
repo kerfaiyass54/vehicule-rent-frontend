@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} fr
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
 import {Router, RouterLink} from "@angular/router";
 import {NgIf} from "@angular/common";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-add-location',
@@ -18,7 +19,7 @@ import {NgIf} from "@angular/common";
 export class AddLocationComponent {
   newLocationForm: FormGroup;
 
-  constructor(private locationService:LocationServiceAdminService, private router: Router, private fb: FormBuilder) {
+  constructor(private locationService:LocationServiceAdminService, private router: Router, private fb: FormBuilder,private toastrService:ToastrService) {
     this.newLocationForm = this.fb.group({
       name: new FormControl("",[Validators.required,Validators.minLength(6),Validators.pattern("[a-zA-Z ]*")]),
       country:new FormControl("",[Validators.required,Validators.minLength(6)])
@@ -40,6 +41,7 @@ export class AddLocationComponent {
     }
     this.locationService.addLocation(location).subscribe(
       ()=>{
+        this.toastrService.success("Location added","SUCCESS");
         this.router.navigate(['admin/location']);
       }
     )
