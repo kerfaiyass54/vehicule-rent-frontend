@@ -4,6 +4,7 @@ import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} fr
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../../Services/client-service-admin.service";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-update-client',
@@ -23,7 +24,7 @@ export class UpdateClientComponent implements OnInit{
   id:any;
   client: any;
 
-  constructor(private fb: FormBuilder,private clientService:ClientServiceAdminService,private locationService:LocationServiceAdminService,private router:Router,private route:ActivatedRoute) {
+  constructor( private toastService:ToastrService, private fb: FormBuilder,private clientService:ClientServiceAdminService,private locationService:LocationServiceAdminService,private router:Router,private route:ActivatedRoute) {
     this.updateClientForm = this.fb.group({
       name: new FormControl("",[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
       cin:new FormControl("",[Validators.required,Validators.pattern("[0-9 ]*"),Validators.minLength(8),Validators.maxLength(8)]),
@@ -84,14 +85,15 @@ export class UpdateClientComponent implements OnInit{
     }
     this.clientService.updateClient(client).subscribe(
       ()=>{
-
+        this.toastService.success("Client updated","CLIENT");
       }
     )
     this.clientService.changeLocation(this.id,this.updateClientForm.value.loc).subscribe(
       ()=>{
-
+        this.toastService.success("Location updated","LOCATION");
       }
     );
+    this.router.navigate(['admin/clients/details-client',this.updateClientForm.value.name]);
   }
 
   return(){

@@ -89,8 +89,6 @@ export class AddClientComponent implements OnInit{
       }
     )
 
-    // add toastr
-    // check existence of some attributes (email and cin)
 
 
 
