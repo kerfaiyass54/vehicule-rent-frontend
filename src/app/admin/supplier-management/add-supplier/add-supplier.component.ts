@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgForOf, NgIf} from "@angular/common";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../../Services/client-service-admin.service";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
 import {SupplierServiceAdminService} from "../../Services/supplier-service-admin.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-add-supplier',
@@ -22,7 +23,7 @@ import {SupplierServiceAdminService} from "../../Services/supplier-service-admin
 export class AddSupplierComponent implements OnInit{
   newSupplierForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private supplierService:SupplierServiceAdminService ) {
+  constructor(private fb: FormBuilder, private supplierService:SupplierServiceAdminService, private router: Router,private toastrService:ToastrService ) {
 
     this.newSupplierForm = this.fb.group({
       name: new FormControl("",[Validators.required,Validators.pattern("[a-zA-Z ]*")]),
@@ -65,7 +66,8 @@ export class AddSupplierComponent implements OnInit{
 
     this.supplierService.addSupplier(supplier).subscribe(
       ()=>{
-
+        this.toastrService.success("Supplier added","SUCCESS");
+        this.router.navigate(['admin/supplier']);
       }
     )
   }
