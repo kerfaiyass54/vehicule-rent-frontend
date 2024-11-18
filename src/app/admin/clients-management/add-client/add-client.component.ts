@@ -6,6 +6,7 @@ import {ClientServiceAdminService} from "../../Services/client-service-admin.ser
 import {Client} from "../../../models/client";
 import {HttpClientModule} from "@angular/common/http";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-add-client',
@@ -22,7 +23,7 @@ export class AddClientComponent implements OnInit{
   locations: any[] = [];
 
 
-  constructor(private fb: FormBuilder, private clientService:ClientServiceAdminService, private locationService: LocationServiceAdminService ) {
+  constructor(private fb: FormBuilder, private clientService:ClientServiceAdminService, private locationService: LocationServiceAdminService, private toastService:ToastrService ) {
 
 
     this.newClientForm = this.fb.group({
@@ -82,6 +83,8 @@ export class AddClientComponent implements OnInit{
     this.clientService.createClient(client,location).subscribe(
       ()=>{
         console.log("success")
+        this.toastService.success("Added new client","SUCCESS");
+
       }
     )
 
