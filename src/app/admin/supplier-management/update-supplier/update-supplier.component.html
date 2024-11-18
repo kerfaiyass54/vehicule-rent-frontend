@@ -22,7 +22,7 @@
     <div class="form-group row">
       <label for="mail">Email:</label>
       <input id="mail" type="text" class="form-control" formControlName="mail" name="mail" />
-      <div *ngIf="newSupplierForm.get('mail')?.touched && newSupplierForm.get('mail')?.invalid">
+      <div *ngIf=" newSupplierForm.get('mail')?.invalid">
         <small *ngIf="mail?.errors?.['required']">Email is required</small>
         <small *ngIf="mail?.errors?.['email']">This should be an email</small>
       </div>
@@ -31,7 +31,7 @@
     <div class="form-group row">
       <label for="password">Password:</label>
       <input id="password" type="text" class="form-control" formControlName="password" name="password" />
-      <div *ngIf="newSupplierForm.get('password')?.touched && newSupplierForm.get('password')?.invalid">
+      <div *ngIf=" newSupplierForm.get('password')?.invalid">
         <small *ngIf="password?.errors?.['required']">Password is required</small>
         <small *ngIf="password?.errors?.['minLength']">Password should have more than 6 characters</small>
       </div>
