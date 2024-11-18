@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgForOf, NgIf} from "@angular/common";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../../Services/client-service-admin.service";
 import {Client} from "../../../models/client";
 import {HttpClientModule} from "@angular/common/http";
@@ -23,7 +23,7 @@ export class AddClientComponent implements OnInit{
   locations: any[] = [];
 
 
-  constructor(private fb: FormBuilder, private clientService:ClientServiceAdminService, private locationService: LocationServiceAdminService, private toastService:ToastrService ) {
+  constructor(private fb: FormBuilder, private clientService:ClientServiceAdminService, private locationService: LocationServiceAdminService, private toastService:ToastrService,private route: Router ) {
 
 
     this.newClientForm = this.fb.group({
@@ -84,6 +84,7 @@ export class AddClientComponent implements OnInit{
       ()=>{
         console.log("success")
         this.toastService.success("Added new client","SUCCESS");
+        this.route.navigate(['admin/clients']);
 
       }
     )
