@@ -72,7 +72,7 @@ export class AddRepairComponent implements OnInit{
       role: "REPAIR",
     }
 
-    this.repairService.addRepair(repair, this.newRepairForm.value.password.loc).subscribe(
+    this.repairService.addRepair(repair, this.newRepairForm.value.loc).subscribe(
       ()=>{
         this.toastrService.success("Repair added","SUCCESS");
         this.router.navigate(['admin/repair']);
