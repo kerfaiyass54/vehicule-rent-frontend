@@ -31,8 +31,13 @@ export class RepairServiceAdminService {
   }
 
   getAllRepairs(){
-    return this.http.get<any[]>("http://localhost:8080/admin/repairs")
+    return this.http.get<any[]>("http://localhost:8080/admin/repairs");
   }
+
+  updateLocation(repair: String, location:String){
+    return this.http.get<any[]>(this.baseUrl + "changeloc/" + repair + "?locationName=" + location);
+  }
+
 
 
 }
