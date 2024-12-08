@@ -23,6 +23,8 @@ export class UpdateClientComponent implements OnInit{
   locations:any[]=[];
   id:any;
   client: any;
+  names: any[]=[];
+
 
   constructor( private toastService:ToastrService, private fb: FormBuilder,private clientService:ClientServiceAdminService,private locationService:LocationServiceAdminService,private router:Router,private route:ActivatedRoute) {
     this.updateClientForm = this.fb.group({
@@ -50,6 +52,10 @@ export class UpdateClientComponent implements OnInit{
         });
       }
     );
+
+    this.clientService.getNames().subscribe((names)=>{
+      this.names = names;
+    });
 
   }
 
@@ -83,17 +89,31 @@ export class UpdateClientComponent implements OnInit{
       pass: this.updateClientForm.value.password,
       role: "CLIENT",
     }
-    this.clientService.updateClient(client).subscribe(
-      ()=>{
-        this.toastService.success("Client updated","CLIENT");
-      }
-    )
-    this.clientService.changeLocation(this.id,this.updateClientForm.value.loc).subscribe(
-      ()=>{
-        this.toastService.success("Location updated","LOCATION");
+
+    this.clientService.isCinExists(this.updateClientForm.value.cin).subscribe(
+      (res)=>{
+        if(res == false && !this.names.includes(client.nameClient)){
+          this.clientService.updateClient(client).subscribe(
+            ()=>{
+              this.toastService.success("Client updated","CLIENT");
+            }
+          )
+          this.clientService.changeLocation(this.id,this.updateClientForm.value.loc).subscribe(
+            ()=>{
+              this.toastService.success("Location updated","LOCATION");
+            }
+          );
+          this.router.navigate(['admin/clients/details-client'
+            ,this.updateClientForm.value.name]);
+        }
+        else{
+          this.toastService.info("Cin or name is already existed"
+            ,"WARNING");
+        }
       }
     );
-    this.router.navigate(['admin/clients/details-client',this.updateClientForm.value.name]);
+
+
   }
 
   return(){

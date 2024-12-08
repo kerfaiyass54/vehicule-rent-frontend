@@ -22,7 +22,7 @@ export class AddClientComponent implements OnInit{
   newClientForm: FormGroup;
   locations: any[] = [];
   names: any[]=[];
-  cins:any[]=[];
+
 
 
   constructor(private fb: FormBuilder, private clientService:ClientServiceAdminService, private locationService: LocationServiceAdminService, private toastService:ToastrService,private route: Router ) {
