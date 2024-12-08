@@ -21,6 +21,8 @@ import {ToastrService} from "ngx-toastr";
 export class AddClientComponent implements OnInit{
   newClientForm: FormGroup;
   locations: any[] = [];
+  names: any[]=[];
+  cins:any[]=[];
 
 
   constructor(private fb: FormBuilder, private clientService:ClientServiceAdminService, private locationService: LocationServiceAdminService, private toastService:ToastrService,private route: Router ) {
@@ -44,6 +46,10 @@ export class AddClientComponent implements OnInit{
         console.log(this.locations);
       }
     )
+
+    this.clientService.getNames().subscribe((names)=>{
+      this.names = names;
+    });
   }
 
 
@@ -76,20 +82,26 @@ export class AddClientComponent implements OnInit{
       email: this.newClientForm.value.mail,
       pass: this.newClientForm.value.password,
       role: "CLIENT",
-
     }
-
-
-
     let location = this.newClientForm.value.loc;
-    this.clientService.createClient(client,location).subscribe(
-      ()=>{
-        console.log("success")
-        this.toastService.success("Added new client","SUCCESS");
-        this.route.navigate(['admin/clients']);
 
+    this.clientService.isCinExists(this.newClientForm.value.cin).subscribe(
+      (res)=>{
+        if(res == false && !this.names.includes(client.nameClient)){
+          this.clientService.createClient(client,location).subscribe(
+            ()=>{
+              this.toastService.success("Added new client","SUCCESS");
+              this.route.navigate(['admin/clients']);
+            }
+          )
+        }
+        else{
+          this.toastService.info("Cin or name is already existed","WARNING");
+        }
       }
     )
+
+
 
 
 
