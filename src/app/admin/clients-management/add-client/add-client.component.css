@@ -10,6 +10,10 @@ h1{
   color: #D3F5CF;
 }
 
+.modal-title{
+  color: #1FA0FF;
+}
+
 .row{
   margin: 25px;
   transition: background-color 0.55s ease, transform 0.55s ease;
