@@ -79,6 +79,8 @@ export class AddClientComponent implements OnInit{
 
     }
 
+
+
     let location = this.newClientForm.value.loc;
     this.clientService.createClient(client,location).subscribe(
       ()=>{

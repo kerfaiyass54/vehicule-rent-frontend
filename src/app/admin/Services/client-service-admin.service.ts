@@ -29,10 +29,6 @@ export class ClientServiceAdminService {
       return this.http.put<any>(this.baseUrl + "client/update", client);
   }
 
-  isClientExist(name: String){
-      return this.http.get<any>(this.baseUrl + "client/exist/" + name );
-  }
-
   changeLocation(client: String, location: String){
     return this.http.get<any>(this.baseUrl + "client/location/" + client + "?newLocation=" + location );
   }
@@ -40,4 +36,10 @@ export class ClientServiceAdminService {
   isCinExists(cin: any){
     return this.http.get<any>(this.baseUrl + "client/cin/exist/" + cin);
   }
+
+  getNames(){
+    return this.http.get<any>(this.baseUrl + "admin/names");
+  }
+
+
 }
