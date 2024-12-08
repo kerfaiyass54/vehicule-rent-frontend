@@ -4,6 +4,7 @@ import {Client} from "../../../models/client";
 import {ClientServiceAdminService} from "../../Services/client-service-admin.service";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
 import {NgIf} from "@angular/common";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-clients-info',
@@ -20,7 +21,7 @@ export class ClientsInfoComponent implements  OnInit{
   name :any | null;
   location: Location | any;
   isModalOpen: boolean = false;
-  constructor(private router: Router, private clientService:ClientServiceAdminService, private route: ActivatedRoute, private locationService: LocationServiceAdminService  ) {}
+  constructor(private router: Router, private clientService:ClientServiceAdminService, private route: ActivatedRoute, private locationService: LocationServiceAdminService, private toastr: ToastrService  ) {}
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get('id');
@@ -44,9 +45,11 @@ export class ClientsInfoComponent implements  OnInit{
     this.router.navigate(['admin/update',this.name]);
   }
 
+
   confirmDelete() {
     this.clientService.deleteClient(this.client.idClient).subscribe(
       ()=>{
+        this.toastr.success("Client deleted", "SUCCESS");
         this.router.navigate(['admin/clients']);
       }
     )
