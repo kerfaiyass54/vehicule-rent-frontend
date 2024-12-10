@@ -42,8 +42,25 @@
         <option *ngFor="let option of locations" [value]="option.name">{{ option.name }}</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-primary"  (click)="updateClient()">Update client</button>
+    <button type="submit" class="btn btn-primary" [disabled]="updateClientForm.invalid" data-bs-toggle="modal" data-bs-target="#updateModal">Update client</button>
     <button type="button" class="btn btn-primary" id="cancel-button" (click)="return()">Return</button>
   </form>
 </div>
 
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Adding</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you confirm to update the details of this client?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"   (click)="updateClient()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

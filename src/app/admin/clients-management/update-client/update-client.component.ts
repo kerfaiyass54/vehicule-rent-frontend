@@ -104,7 +104,7 @@ export class UpdateClientComponent implements OnInit{
             }
           );
           this.router.navigate(['admin/clients/details-client'
-            ,this.updateClientForm.value.name]);
+            ,client.nameClient]);
         }
         else{
           this.toastService.info("Cin or name is already existed"
