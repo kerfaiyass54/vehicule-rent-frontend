@@ -9,7 +9,7 @@
 
     <th scope="col">Id</th>
     <th scope="col">Name</th>
-    <th scope="col">Location</th>
+    <th scope="col">See Details</th>
     <th scope="col">Update buttons</th>
     <th scope="col">Delete buttons</th>
 
@@ -20,8 +20,7 @@
     <tr>
       <td>{{repair.idRepair}}</td>
       <td>{{repair.nameRepair}}</td>
-      <td>{{repair.locationRepair}}</td>
-
+      <td><button type="button" class="btn btn-info">Details</button></td>
       <td><button type="button" class="btn btn-info" (click)="goToUpdate(repair.nameRepair)">Update</button></td>
       <td><button type="button" class="btn btn-info" (click)="deleteRepair(repair.idRepair)">Delete</button></td>
     </tr>
