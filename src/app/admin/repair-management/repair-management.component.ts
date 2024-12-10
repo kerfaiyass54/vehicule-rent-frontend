@@ -16,11 +16,9 @@ import {RepairServiceAdminService} from "../Services/repair-service-admin.servic
   styleUrl: './repair-management.component.css'
 })
 export class RepairManagementComponent implements OnInit{
-  listRepairs: any = []
+  listRepairs: any[] = []
 
-  constructor(private repairService:RepairServiceAdminService,private router: Router) {
-
-  }
+  constructor(private repairService:RepairServiceAdminService,private router: Router) {}
 
   ngOnInit() {
     this.repairService.getAllRepairs().subscribe(
