@@ -22,12 +22,11 @@ h1{
 
 .row:hover{
   background-color: #563A9C;
-  transform: scale(1.01);
+  transform: scale(1.00);
   color:#FFF7D1;
 }
 .btn-primary{
-  margin-left: 220px;
-  width: 1500px;
+  width: 100%;
   transition: background-color 0.55s ease, transform 0.55s ease;
 }
 
