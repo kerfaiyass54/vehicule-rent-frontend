@@ -1,10 +1,10 @@
 
 table{
-  margin: 200px;
+  margin-top: 200px;
   border-style: groove;
   border-color: #FFF7D1;
   border-radius: 350px;
-  width: 1500px;
+  width: 100%;
   position: relative;
   align-items: center;
   text-align: center;
@@ -29,7 +29,7 @@ tr{
 
 tr:hover{
   background-color: #4e4ea6;
-  transform: scale(1.1);
+  transform: scale(1.0);
   color: #eddcc7;
   border-radius: 45px;
 
@@ -39,15 +39,15 @@ td{
 }
 td:hover{
   background-color: #6663df;
-  transform: scale(1.1);
+  transform: scale(1.0);
   color: #FFF7D1;
   border-radius: 8px;
 }
 
 
 th:hover{
-  background: linear-gradient(#9f025e, #f9c929);
-  transform: scale(1.01);
+  background: linear-gradient(#6663df, #2fbdff);
+  transform: scale(1.00);
   color:#FFF7D1;
   border-radius: 8px;
 }
@@ -83,9 +83,7 @@ td button:hover{
 
 button{
   margin-top: 30px;
-  margin-bottom: 10px;
-  margin-left: 400px;
-  width: 1125px;
+  width: 100%;
   color:#563A9C;
   background-color: #eddcc7;
   transition: background-color 0.6s ease, transform 0.6s ease;
