@@ -12,17 +12,20 @@ a{
   border: none;
   border-radius: 8px;
   color: #6A42C2;
+  transition: all 0.6s ease;
+  font-weight: bold;
+
 
 }
 
 a:hover{
   background-color: #5caeed;
   transform: scale(1.05);
+  color: white;
 }
 
 a:active{
   transform: scale(0.95);
-
 }
 
 .navbar-brand{
@@ -32,4 +35,12 @@ a:active{
 
 .navbar-brand:hover{
   background-color: #FFF7D1;
+}
+
+.active{
+  transition: all 0.6s ease;
+}
+
+.active:hover{
+  color: white;
 }
