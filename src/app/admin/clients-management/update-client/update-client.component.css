@@ -11,19 +11,17 @@ h1{
 }
 
 .row{
-  margin: 25px;
   transition: background-color 0.55s ease, transform 0.55s ease;
   color:#D3F5CF;
 }
 
 .row:hover{
   background-color: #563A9C;
-  transform: scale(1.01);
+  transform: scale(1.00);
   color:#FFF7D1;
 }
 .btn-primary{
-  margin-left: 220px;
-  width: 1500px;
+  width: 100%;
   transition: background-color 0.55s ease, transform 0.55s ease;
 }
 
@@ -39,7 +37,7 @@ button{
 }
 
 .btn-primary:hover{
-  transform: scale(1.01);
+  transform: scale(1.0);
   background-color: #5ad20b;
   color: #FFF7D1;
 }
