@@ -3,8 +3,11 @@
 <button type="button" id="adding-button" (click)="goToAddClient()" class="btn btn-primary btn-lg">Add client</button>
 <div class="card">
 
-  <table class="table">
-    <thead>
+
+  <div class="card-body">
+    <h2 class="text-center">Clients list</h2>
+    <table class="table">
+      <thead>
 
 
       <th scope="col">Id</th>
@@ -15,16 +18,18 @@
 
 
 
-    </thead>
-    <tbody *ngFor="let client of listClients">
-    <tr>
-      <td>{{client.idClient}}</td>
-      <td>{{client.nameClient}}</td>
-      <td>{{client.cin}}</td>
-      <td>{{client.budget}}</td>
-      <td><button type="button" class="btn btn-info" [routerLink]="['details-client',client.nameClient]" >Check</button></td>
-    </tr>
-    </tbody>
-  </table>
+      </thead>
+      <tbody *ngFor="let client of listClients">
+      <tr scope="row">
+        <td>{{client.idClient}}</td>
+        <td>{{client.nameClient}}</td>
+        <td>{{client.cin}}</td>
+        <td>{{client.budget}}</td>
+        <td><button type="button" class="btn btn-info" [routerLink]="['details-client',client.nameClient]" >Check</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
 

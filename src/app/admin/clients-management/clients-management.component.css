@@ -1,6 +1,6 @@
 
 table{
-  margin-top: 200px;
+  margin-top: 5%;
   border-style: groove;
   border-color: #FFF7D1;
   border-radius: 350px;
@@ -12,18 +12,22 @@ table{
 
 }
 
+thead{
+  border-radius: 10px;
+}
+
 th{
   color: #563A9C;
   background-color: #eddcc7;
   transition: background-color 0.6s ease, transform 0.6s ease;
-
+  border-radius: 10px;
 }
 
 tr{
   background-color: #5da195;
   color: #eddcc7;
   transition: background-color 0.6s ease, transform 0.6s ease;
-  border-radius: 25px;
+  border-radius: 10px;
   border-style: inset;
 }
 
@@ -31,17 +35,18 @@ tr:hover{
   background-color: #4e4ea6;
   transform: scale(1.0);
   color: #eddcc7;
-  border-radius: 45px;
+  border-radius: 4px;
 
 }
 td{
   transition: background-color 0.6s ease, transform 0.6s ease;
+
 }
 td:hover{
   background-color: #6663df;
   transform: scale(1.0);
   color: #FFF7D1;
-  border-radius: 8px;
+
 }
 
 
@@ -49,7 +54,7 @@ th:hover{
   background: linear-gradient(#6663df, #2fbdff);
   transform: scale(1.00);
   color:#FFF7D1;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 div{
@@ -97,4 +102,11 @@ button{
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+
+h2{
+  background-color: white;
+  color: #563A9C;
+  border-radius: 12px;
 }
