@@ -21,31 +21,16 @@
   border-style: dot-dash;
 }
 
-li{
-  transition: background-color 0.5s ease, transform 0.55s ease;
 
-}
 
 
 
 p{
   text-align: right;
   color: #8B5DFF;
-  transition: background-color 0.5s ease, transform 0.55s ease;
+  padding: 1%;
+  border-radius: 7px;
 }
-
-p:hover{
-  background: linear-gradient(#8B5DFF,#2fbdff);
-  transform: scale(1.0);
-  color:#FFF7D1;
-}
-
-li:hover{
-  background: linear-gradient(#8B5DFF,#2fbdff);
-  transform: scale(1.0);
-  color:#FFF7D1;
-}
-
 
 
 
@@ -54,7 +39,7 @@ button{
   display: inline;
 }
 
-.btn-primary, .btn-danger{
+.btn-primary, .btn-danger, .btn-secondary{
   width: 100%;
 }
 
