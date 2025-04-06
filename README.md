@@ -28,14 +28,18 @@ Make sure that you have those technologies in your pc.
 
 ## How to Upload and Run It
 
-1. **Install dependencies**:
+1. **Clone this repository**:
+   ```bash
+   git clone https://github.com/kerfaiyass54/vehicule-rent-frontend.git
+
+2. **Install dependencies**:
    ```bash
    npm install
 
-2. **Run the application**:
+3. **Run the application**:
    ```bash
    ng serve
 
-3. **Access the application**:
+4. **Access the application**:
    ```bash
    localhost:4200
