@@ -15,6 +15,16 @@ This is the frontend application for **Vehicule rent**, developed using **Angula
   - `services`: Contains service files for API communication.
   - `assets`: Stores static files like images and configurations.
   - `environments`: Contains environment-specific configuration files.
+ 
+## Technologies
+- NodeJS: v18.16.0
+- Angular: v17.2.2
+- Bootstrap: v5.3
+- HTML/CSS/Typescript
+Make sure that you have those technologies in your pc.
+
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white). ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white). ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white) ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
 ## How to Upload and Run It
 
