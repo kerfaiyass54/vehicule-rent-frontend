@@ -5,6 +5,8 @@ nav{
   border-color: #FFF7D1;
   background-color: #8B5DFF;
   margin: 15px 15px;
+  display: flex;
+
 }
 
 a{

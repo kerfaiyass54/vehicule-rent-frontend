@@ -53,13 +53,11 @@ th:hover{
 }
 
 div{
-  background: linear-gradient(#2fbdff, #0f2f40);
   opacity: 0;
   transform: translateX(-100%);
   animation: slide-in 0.5s forwards;
   border-radius: 30px;
   margin: 25px;
-
 }
 
 td button{

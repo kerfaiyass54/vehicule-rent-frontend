@@ -32,6 +32,8 @@ tr:hover{
   color: #eddcc7;
 
 }
+
+
 td{
   transition: background-color 0.6s ease, transform 0.6s ease;
 
@@ -52,7 +54,7 @@ th:hover{
 }
 
 div{
-  background: linear-gradient(#2fbdff, #0f2f40);
+
   opacity: 0;
   transform: translateX(-100%);
   animation: slide-in 0.5s forwards;
