@@ -66,10 +66,13 @@ import {ClientsInfoComponent} from "./admin/clients-management/clients-info/clie
 import {ErrorPageComponent} from "./error-page/error-page.component";
 import {SupplierInfosComponent} from "./admin/supplier-management/supplier-infos/supplier-infos.component";
 import {adminGuard, clientGuard, repairGuard, supplierGuard} from "./shared/auth.guard";
+import {NotAuthorizedComponent} from "./not-authorized/not-authorized.component";
+import {LoadingPageComponent} from "./loading-page/loading-page.component";
 
 
 
 export const routes: Routes = [
+  {path:'load', component:LoadingPageComponent},
   {
     path:'client',
     component:ClientComponent,
@@ -267,6 +270,11 @@ export const routes: Routes = [
 
 
     ]
+  },
+  {
+    path:'not-authorized',
+    component: NotAuthorizedComponent,
+    title:"Access required"
   },
   {
     path:'**',

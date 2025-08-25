@@ -28,7 +28,7 @@ export class KeycloakService {
   getRoles(){
     const tokenParsed = this.keycloak.tokenParsed as any;
     this.roles = tokenParsed?.realm_access?.roles || [];
-    console.log('Roles from token:', this.roles);
+    return this.roles;
   }
 
   getToken(): string { return this.keycloak.tokenParsed as any; }

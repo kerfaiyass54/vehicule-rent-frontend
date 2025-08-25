@@ -6,24 +6,26 @@ import {inject} from "@angular/core";
 export const adminGuard: CanActivateFn = () => {
   const keycloak = inject(KeycloakService);
   const router = inject(Router);
+  const roles = keycloak.getRoles();
 
-  if (keycloak.hasRole('admin')){
+  if (roles.includes('admin')){
 
-
+router.navigate(['/load']);
 return true;
   }
-  return router.parseUrl('/**');
+  return router.parseUrl('/not-authorized');
 };
 
 
 export const supplierGuard: CanActivateFn = () => {
   const keycloak = inject(KeycloakService);
   const router = inject(Router);
-  if (keycloak.hasRole('supplier')){
-
+  const roles = keycloak.getRoles();
+  if (roles.includes('supplier')){
+    router.navigate(['/load']);
 return true;
   }
-  return router.parseUrl('/**');
+  return router.parseUrl('/not-authorized');
 };
 
 
@@ -32,25 +34,26 @@ return true;
 export const repairGuard: CanActivateFn = () => {
   const keycloak = inject(KeycloakService);
   const router = inject(Router);
+  const roles = keycloak.getRoles();
+  if (roles.includes('repair')) {
 
-  if (keycloak.hasRole('repair')) {
-
-
+    router.navigate(['/load']);
 return true;
   }
-  return router.parseUrl('/**');
+  return router.parseUrl('/not-authorized');
 };
 
 export const clientGuard: CanActivateFn = () => {
   const keycloak = inject(KeycloakService);
   const router = inject(Router);
+  const roles = keycloak.getRoles();
+  if (roles.includes('client')) {
 
-  if (keycloak.hasRole('client')) {
-
+    router.navigate(['/load']);
 
 return true;
   }
-  return router.parseUrl('/**');
+  return router.parseUrl('/not-authorized');
 };
 
 
