@@ -22,15 +22,15 @@ import {KeycloakService} from "../../shared/keycloak.service";
 export class ClientsManagementComponent implements  OnInit{
 
   listClients: any[] = [];
-  constructor(private router:Router, private keycloak: KeycloakService) {
+  constructor(private router:Router, private keycloak: KeycloakService, private clientService: ClientServiceAdminService) {
 
   }
 
   ngOnInit() {
     this.keycloak.getRoles();
-    // this.clientService.getAllClients().subscribe((res)=>{
-    //   this.listClients = res;
-    // })
+    this.clientService.getAllClients().subscribe((res)=>{
+      this.listClients = res;
+    })
 
     this.keycloak.getRoles();
   }
