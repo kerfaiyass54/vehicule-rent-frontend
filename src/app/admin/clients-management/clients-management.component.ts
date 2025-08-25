@@ -5,6 +5,7 @@ import {ClientServiceAdminService} from "../Services/client-service-admin.servic
 import {Client} from "../../models/client";
 import {NgForOf} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
+import {KeycloakService} from "../../shared/keycloak.service";
 
 @Component({
   selector: 'app-clients-management',
@@ -21,14 +22,17 @@ import {HttpClientModule} from "@angular/common/http";
 export class ClientsManagementComponent implements  OnInit{
 
   listClients: any[] = [];
-  constructor(private router:Router,private clientService:ClientServiceAdminService) {
+  constructor(private router:Router, private keycloak: KeycloakService) {
 
   }
 
   ngOnInit() {
-    this.clientService.getAllClients().subscribe((res)=>{
-      this.listClients = res;
-    })
+    this.keycloak.getRoles();
+    // this.clientService.getAllClients().subscribe((res)=>{
+    //   this.listClients = res;
+    // })
+
+    this.keycloak.getRoles();
   }
 
   goToAddClient(){

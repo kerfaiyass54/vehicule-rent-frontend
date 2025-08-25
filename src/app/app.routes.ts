@@ -65,12 +65,16 @@ import {
 import {ClientsInfoComponent} from "./admin/clients-management/clients-info/clients-info.component";
 import {ErrorPageComponent} from "./error-page/error-page.component";
 import {SupplierInfosComponent} from "./admin/supplier-management/supplier-infos/supplier-infos.component";
+import {adminGuard, clientGuard, repairGuard, supplierGuard} from "./shared/auth.guard";
+
+
 
 export const routes: Routes = [
   {
     path:'client',
     component:ClientComponent,
     title:"Client Dashboard",
+    canActivate: [clientGuard],
     children:[
       {
         path: 'update-budget/:id',component:UpdateBudgetComponent
@@ -118,6 +122,7 @@ export const routes: Routes = [
     path:'admin',
     component:AdminComponent,
     title:'Vehicule App',
+    canActivate: [adminGuard],
     children:[{
       path:'',
       component:AdminHomeComponent
@@ -175,6 +180,7 @@ export const routes: Routes = [
     path:'supplier',
     component:SupplierComponent,
     title:'Supplier Dashboard',
+    canActivate: [supplierGuard],
     children:[
       {
         path: 'update-adress/:id',component:UpdateAdressComponent
@@ -226,6 +232,7 @@ export const routes: Routes = [
     path:'repair',
     component:RepairComponent,
     title:'Repair Dashboard',
+    canActivate: [repairGuard],
     children:[
       {
         path: 'update/:id',component:UpdateDemandComponent

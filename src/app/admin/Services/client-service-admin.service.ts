@@ -6,7 +6,7 @@ import {Client} from "../../models/client";
   providedIn: 'root'
 })
 export class ClientServiceAdminService {
-  baseUrl ="http://localhost:8080/";
+  baseUrl ="http://localhost:8100/";
     constructor(private http:HttpClient) {}
 
   createClient(client: Client, location:String){
