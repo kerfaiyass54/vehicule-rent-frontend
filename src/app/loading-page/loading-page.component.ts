@@ -20,26 +20,26 @@ export class LoadingPageComponent  implements OnInit{
     this.roles = this.keyloak.getRoles();
     console.log(this.roles);}
 
- access(){
+  access(){
 
-   if(this.roles.includes('admin')){
-     console.log(this.roles.includes('admin'))
-     this.router.navigate(['/admin']);
-   }
-   else if(this.roles.includes('supplier')){
-     this.router.navigate(['/supplier']);
-   }
+    if(this.roles.includes('admin')){
+      console.log(this.roles.includes('admin'))
+      this.router.navigate(['/admin']);
+    }
+    else if(this.roles.includes('supplier')){
+      this.router.navigate(['/supplier']);
+    }
 
-   else if(this.roles.includes('client')){
-     this.router.navigate(['/client']);
-   }
+    else if(this.roles.includes('client')){
+      this.router.navigate(['/client']);
+    }
 
-   else if(this.roles.includes('repair')){
-     this.router.navigate(['/repair']);
-   }
-   else{
-     this.router.navigate(['/**']);
-   }
+    else if(this.roles.includes('repair')){
+      this.router.navigate(['/repair']);
+    }
+    else{
+      this.router.navigate(['/**']);
+    }
   }
 
 

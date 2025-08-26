@@ -65,19 +65,26 @@ import {
 import {ClientsInfoComponent} from "./admin/clients-management/clients-info/clients-info.component";
 import {ErrorPageComponent} from "./error-page/error-page.component";
 import {SupplierInfosComponent} from "./admin/supplier-management/supplier-infos/supplier-infos.component";
-import {adminGuard, clientGuard, repairGuard, supplierGuard} from "./shared/auth.guard";
 import {NotAuthorizedComponent} from "./not-authorized/not-authorized.component";
+
+import {roleGuard} from "./shared/auth.guard";
 import {LoadingPageComponent} from "./loading-page/loading-page.component";
 
 
 
+
+
+
+
 export const routes: Routes = [
-  {path:'load', component:LoadingPageComponent},
+  {
+    path: '', component: LoadingPageComponent
+  },
   {
     path:'client',
     component:ClientComponent,
     title:"Client Dashboard",
-    canActivate: [clientGuard],
+    canActivate: [roleGuard], data: { roles: ['client'] },
     children:[
       {
         path: 'update-budget/:id',component:UpdateBudgetComponent
@@ -125,7 +132,7 @@ export const routes: Routes = [
     path:'admin',
     component:AdminComponent,
     title:'Vehicule App',
-    canActivate: [adminGuard],
+    canActivate: [roleGuard], data: { roles: ['admin'] },
     children:[{
       path:'',
       component:AdminHomeComponent
@@ -182,8 +189,8 @@ export const routes: Routes = [
   },{
     path:'supplier',
     component:SupplierComponent,
+    canActivate: [roleGuard], data: { roles: ['supplier'] },
     title:'Supplier Dashboard',
-    canActivate: [supplierGuard],
     children:[
       {
         path: 'update-adress/:id',component:UpdateAdressComponent
@@ -234,8 +241,8 @@ export const routes: Routes = [
   },{
     path:'repair',
     component:RepairComponent,
+    canActivate: [roleGuard], data: { roles: ['repair'] },
     title:'Repair Dashboard',
-    canActivate: [repairGuard],
     children:[
       {
         path: 'update/:id',component:UpdateDemandComponent

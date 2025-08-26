@@ -1,61 +1,27 @@
-
+import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { KeycloakService } from './keycloak.service';
-import {inject} from "@angular/core";
 
-export const adminGuard: CanActivateFn = () => {
+export const roleGuard: CanActivateFn = async (route, state) => {
   const keycloak = inject(KeycloakService);
   const router = inject(Router);
-  const roles = keycloak.getRoles();
 
-  if (roles.includes('admin')){
-
-router.navigate(['/load']);
-return true;
+  // Check login
+  const loggedIn = await keycloak.isLoggedIn();
+  if (!loggedIn) {
+    await keycloak.login();
+    return false;
   }
-  return router.parseUrl('/not-authorized');
-};
 
+  // Check roles
+  const requiredRoles = route.data['roles'] as string[];
+  if (!requiredRoles || requiredRoles.length === 0) return true;
 
-export const supplierGuard: CanActivateFn = () => {
-  const keycloak = inject(KeycloakService);
-  const router = inject(Router);
-  const roles = keycloak.getRoles();
-  if (roles.includes('supplier')){
-    router.navigate(['/load']);
-return true;
+  const hasAccess = requiredRoles.some(r => keycloak.hasRole(r));
+  if (!hasAccess) {
+    router.navigate(['/not-authorized']);
+    return false;
   }
-  return router.parseUrl('/not-authorized');
+
+  return true;
 };
-
-
-
-
-export const repairGuard: CanActivateFn = () => {
-  const keycloak = inject(KeycloakService);
-  const router = inject(Router);
-  const roles = keycloak.getRoles();
-  if (roles.includes('repair')) {
-
-    router.navigate(['/load']);
-return true;
-  }
-  return router.parseUrl('/not-authorized');
-};
-
-export const clientGuard: CanActivateFn = () => {
-  const keycloak = inject(KeycloakService);
-  const router = inject(Router);
-  const roles = keycloak.getRoles();
-  if (roles.includes('client')) {
-
-    router.navigate(['/load']);
-
-return true;
-  }
-  return router.parseUrl('/not-authorized');
-};
-
-
-
-

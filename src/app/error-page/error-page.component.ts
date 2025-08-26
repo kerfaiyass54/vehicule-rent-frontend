@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import { Location } from '@angular/common';
+import {KeycloakService} from "../shared/keycloak.service";
 
 
 @Component({
@@ -13,10 +14,27 @@ import { Location } from '@angular/common';
   styleUrl: './error-page.component.css'
 })
 export class ErrorPageComponent {
-  constructor(private location: Location) {}
+
+  roles: string[] = []
+
+  constructor(private keycloak: KeycloakService,
+              private router: Router) {}
 
   goBack() {
-    this.location.back();
+
+    this.roles = this.keycloak.getRoles();
+
+    if(this.roles.includes('admin')){
+      this.router.navigate(['/admin']);
+    } else if(this.roles.includes('supplier')){
+      this.router.navigate(['/supplier']);
+    } else if(this.roles.includes('client')){
+      this.router.navigate(['/client']);
+    } else if(this.roles.includes('repair')){
+      this.router.navigate(['/repair']);
+    } else{
+      this.router.navigate(['/**']);
+    }
   }
 
 }
