@@ -7,6 +7,7 @@ import {provideHttpClient} from "@angular/common/http";
 import {provideAnimations} from "@angular/platform-browser/animations";
 import {provideToastr} from "ngx-toastr";
 import {NbThemeModule} from "@nebular/theme";
+import {importProvidersFrom} from "@angular/core";
 
 const keycloakService = new KeycloakService();
 
@@ -16,7 +17,9 @@ keycloakService.init().then(() => {
   bootstrapApplication(AppComponent, {
     providers: [
       provideRouter(routes),provideHttpClient(),provideAnimations(),
-      provideToastr(),
+      provideToastr(),importProvidersFrom(
+        NbThemeModule.forRoot({ name: 'default' }) // or 'dark'
+      ),
       { provide: KeycloakService, useValue: keycloakService }
     ]
   }).catch(err => console.error(err));
