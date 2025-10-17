@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {RouterOutlet} from "@angular/router";
+import {RouterLink, RouterOutlet} from "@angular/router";
 import {NbCardModule, NbTabsetModule} from "@nebular/theme";
 import {NgOptimizedImage} from "@angular/common";
 
@@ -11,7 +11,9 @@ import {NgOptimizedImage} from "@angular/common";
   imports: [
     NbCardModule,
     NbTabsetModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    RouterOutlet,
+    RouterLink
 
 
   ],
