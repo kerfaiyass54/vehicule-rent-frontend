@@ -1,7 +1,8 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RouterLink, RouterOutlet} from "@angular/router";
 import {NbCardModule, NbTabsetModule} from "@nebular/theme";
-import {NgOptimizedImage} from "@angular/common";
+import {KeycloakService} from "../shared/keycloak.service";
+
 
 
 @Component({
@@ -11,7 +12,6 @@ import {NgOptimizedImage} from "@angular/common";
   imports: [
     NbCardModule,
     NbTabsetModule,
-    NgOptimizedImage,
     RouterOutlet,
     RouterLink
 
@@ -21,6 +21,18 @@ import {NgOptimizedImage} from "@angular/common";
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
+
+
+  logout() {
+      this.keycloak.logout();
+  }
+
+  constructor(private keycloak:KeycloakService) {
+
+  }
+
+
+
 
 
 

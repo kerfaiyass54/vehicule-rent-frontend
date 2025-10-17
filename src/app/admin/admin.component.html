@@ -63,7 +63,7 @@
                 >User details</a>
               </li>
               <li>
-                <a class="btn primary-btn" href="javascript:void(0)"
+                <a class="btn primary-btn" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logOut"
                 >Log out</a
                 >
               </li>
@@ -88,3 +88,20 @@
 <router-outlet></router-outlet>
 
 
+<div class="modal fade" id="logOut" tabindex="-1" aria-labelledby="logOutLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logOutLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure to log out?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" (click)="logout()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
