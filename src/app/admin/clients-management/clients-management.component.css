@@ -1,8 +1,22 @@
-.fade-in {
+.fade-in, #adding-button, h1, .table-responsive {
   animation: fadeIn 0.5s ease-in-out;
 }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+
+#adding-button{
+  width: 100%;
+}
+
+.full-width-table {
+  width: 100%;
+}
+
+.mat-elevation-z8 {
+  margin: 16px;
+  border-radius: 8px;
 }

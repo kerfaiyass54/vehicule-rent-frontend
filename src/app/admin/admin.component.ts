@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RouterLink, RouterOutlet} from "@angular/router";
-import {NbCardModule, NbTabsetModule} from "@nebular/theme";
 import {KeycloakService} from "../shared/keycloak.service";
 
 
@@ -10,8 +9,7 @@ import {KeycloakService} from "../shared/keycloak.service";
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    NbCardModule,
-    NbTabsetModule,
+
     RouterOutlet,
     RouterLink
 

@@ -6,6 +6,9 @@ import {provideHttpClient} from "@angular/common/http";
 import {provideToastr} from "ngx-toastr";
 import {provideAnimations} from "@angular/platform-browser/animations";
 import {icons, LucideAngularModule} from "lucide-angular";
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 
 export const appConfig: ApplicationConfig = {
