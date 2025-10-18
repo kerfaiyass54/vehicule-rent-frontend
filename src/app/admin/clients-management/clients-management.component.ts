@@ -6,6 +6,7 @@ import {Client} from "../../models/client";
 import {NgForOf} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import {KeycloakService} from "../../shared/keycloak.service";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-clients-management',
@@ -14,7 +15,8 @@ import {KeycloakService} from "../../shared/keycloak.service";
     NavBarAdminComponent,
     NgForOf,
     RouterLink,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   templateUrl: './clients-management.component.html',
   styleUrl: './clients-management.component.css'
@@ -22,6 +24,10 @@ import {KeycloakService} from "../../shared/keycloak.service";
 export class ClientsManagementComponent implements  OnInit{
 
   listClients: any[] = [];
+  currentPage = 0;
+  totalPages = 0;
+  rowsPerPage = 5;
+  searchTerm = '';
   constructor(private router:Router, private keycloak: KeycloakService, private clientService: ClientServiceAdminService) {
 
   }
@@ -33,9 +39,25 @@ export class ClientsManagementComponent implements  OnInit{
     })
 
     this.keycloak.getRoles();
+    this.loadUsers();
   }
 
   goToAddClient(){
     this.router.navigate(['admin/add-client']);
+  }
+
+  loadUsers(page: number = 0) {
+    this.clientService.getClients(page, this.rowsPerPage, this.searchTerm)
+      .subscribe(res => {
+        this.listClients = res.content;
+        this.currentPage = res.number;
+        this.totalPages = res.totalPages;
+      });
+  }
+
+  changePage(page: number) {
+    if (page >= 0 && page < this.totalPages) {
+      this.loadUsers(page);
+    }
   }
 }

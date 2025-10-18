@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Client, PaginatedResponse} from "../../models/client";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {Client} from "../../models/client";
+import {PaginatedResponse} from "../../models/paginatedResponse";
 
 
 @Injectable({
@@ -35,7 +36,7 @@ export class ClientServiceAdminService {
     return this.http.get<any>(this.baseUrlClient + "location/" + client + "?newLocation=" + location );
   }
 
-  getClients(page: number = 0, size: number = 5, search?: string): Observable<PaginatedResponse<Client>>{
+  getClients(page: number = 0, size: number = 5, search?: string){
     let params = new HttpParams()
       .set('page', page)
       .set('size', size);
