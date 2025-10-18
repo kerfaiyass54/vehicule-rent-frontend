@@ -16,7 +16,7 @@ export class ClientServiceAdminService {
     return  this.http.post<any>(this.baseUrlClient + "new?locationName=" + location,client);
   }
 
-  getAllClients(id){
+  getAllClients(id: any){
       return this.http.get<any[]>(this.baseUrlAdmin + "clients/" + id);
   }
 

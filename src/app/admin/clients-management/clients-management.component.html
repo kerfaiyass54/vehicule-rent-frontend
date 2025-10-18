@@ -38,13 +38,13 @@
     <nav aria-label="Page navigation" class="mt-3">
       <ul class="pagination justify-content-center">
         <li class="page-item" [class.disabled]="currentPage === 0">
-          <a class="page-link" href="#" (click)="changePage(currentPage - 1)">Previous</a>
+          <a class="page-link" (click)="changePage(currentPage - 1)">Previous</a>
         </li>
         <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index" [class.active]="currentPage === i">
-          <a class="page-link" href="#" (click)="changePage(i)">{{ i + 1 }}</a>
+          <a class="page-link" (click)="changePage(i)">{{ i + 1 }}</a>
         </li>
         <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
-          <a class="page-link" href="#" (click)="changePage(currentPage + 1)">Next</a>
+          <a class="page-link" (click)="changePage(currentPage + 1)">Next</a>
         </li>
       </ul>
     </nav>

@@ -26,7 +26,7 @@ export class ClientsManagementComponent implements  OnInit{
   listClients: any[] = [];
   currentPage = 0;
   totalPages = 0;
-  rowsPerPage = 5;
+  rowsPerPage = 2;
   searchTerm = '';
   constructor(private router:Router, private keycloak: KeycloakService, private clientService: ClientServiceAdminService) {
 
@@ -35,7 +35,13 @@ export class ClientsManagementComponent implements  OnInit{
   ngOnInit() {
 
     this.keycloak.getRoles();
-    this.loadUsers();
+    this.clientService.getClients(this.currentPage, this.rowsPerPage, this.searchTerm)
+      .subscribe(res => {
+        this.listClients = res.content;
+        console.log(this.listClients);
+        this.currentPage = res.number;
+        this.totalPages = res.totalPages;
+      });
   }
 
   goToAddClient(){
