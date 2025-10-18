@@ -106,27 +106,7 @@ export class UpdateClientComponent implements OnInit{
         ,client.nameClient]);
     }
     else{
-      this.clientService.isCinExists(this.updateClientForm.value.cin).subscribe(
-        (res)=>{
-          if(res == false && !this.names.includes(client.nameClient)){
-            this.clientService.updateClient(client).subscribe(
-              ()=>{
-                this.toastService.success("Client updated","CLIENT");
-              }
-            )
-            this.clientService.changeLocation(this.id,this.updateClientForm.value.loc).subscribe(
-              ()=>{
-                this.toastService.success("Location updated","LOCATION");
-              }
-            );
-            this.router.navigate(['admin/clients/details-client'
-              ,client.nameClient]);
-          }
-          else{
-            this.toastService.info("Cin or name is already existed","WARNING");
-          }
-        }
-      );
+
     }
 
 

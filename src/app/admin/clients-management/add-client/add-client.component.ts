@@ -85,21 +85,7 @@ export class AddClientComponent implements OnInit{
     }
     let location = this.newClientForm.value.loc;
 
-    this.clientService.isCinExists(this.newClientForm.value.cin).subscribe(
-      (res)=>{
-        if(res == false && !this.names.includes(client.nameClient)){
-          this.clientService.createClient(client,location).subscribe(
-            ()=>{
-              this.toastService.success("Added new client","SUCCESS");
-              this.route.navigate(['admin/clients']);
-            }
-          )
-        }
-        else{
-          this.toastService.info("Cin or name is already existed","WARNING");
-        }
-      }
-    )
+
 
 
 
