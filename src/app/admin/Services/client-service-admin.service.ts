@@ -16,8 +16,8 @@ export class ClientServiceAdminService {
     return  this.http.post<any>(this.baseUrlClient + "new?locationName=" + location,client);
   }
 
-  getAllClients(){
-      return this.http.get<any[]>(this.baseUrlAdmin + "clients");
+  getAllClients(id){
+      return this.http.get<any[]>(this.baseUrlAdmin + "clients/" + id);
   }
 
   deleteClient(id: any){
@@ -41,7 +41,7 @@ export class ClientServiceAdminService {
       .set('page', page)
       .set('size', size);
     if (search) params = params.set('search', search);
-    return this.http.get<PaginatedResponse<Client>>(this.baseUrlClient + "/list/clients", { params });
+    return this.http.get<PaginatedResponse<Client>>(this.baseUrlClient + "list/clients", { params });
   }
 
   getNames(){

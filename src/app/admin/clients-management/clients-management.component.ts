@@ -33,10 +33,6 @@ export class ClientsManagementComponent implements  OnInit{
   }
 
   ngOnInit() {
-    this.keycloak.getRoles();
-    this.clientService.getAllClients().subscribe((res)=>{
-      this.listClients = res;
-    })
 
     this.keycloak.getRoles();
     this.loadUsers();
