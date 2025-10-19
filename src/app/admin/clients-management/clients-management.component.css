@@ -16,7 +16,11 @@
   width: 100%;
 }
 
-.mat-elevation-z8 {
+.mat-elevation-z8, .full-width-table {
   margin: 16px;
   border-radius: 8px;
+  animation: fadeIn 0.5s ease-in-out;
+
 }
+
+
