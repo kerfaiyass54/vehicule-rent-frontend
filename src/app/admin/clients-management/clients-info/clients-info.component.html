@@ -1,44 +1,37 @@
-
-
-<div id="client-info" class="card">
-  <div class="card-body">
-    <h2 class="card-title">Client's card</h2>
-
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Name <p>{{ client.nameClient }}</p></li>
-    <li class="list-group-item">CIN <p>{{ client.cin }}</p></li>
-    <li class="list-group-item">Budget <p>{{ client.budget }}</p></li>
-    <li class="list-group-item">Email <p>{{ client.email }}</p></li>
-  </ul>
-  <div class="card-body">
-    <h4 class="card-title">Location</h4>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Name <p>{{location.name}}</p></li>
-    <li class="list-group-item">Country <p>{{location.country}}</p></li>
-  </ul>
-  <div class="card-body">
-    <button type="submit" class="btn btn-primary" (click)="goToUpdate()">Update client</button>
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete client</button>
-    <button type="button" class="btn btn-primary" id="cancel-button" routerLink="/admin/clients">Return</button>
-  </div>
+<div class="example-action-buttons">
+  <button matButton (click)="accordion().openAll()" class="btn primary-btn">Expand All</button>
+  <button matButton (click)="accordion().closeAll()" class="btn primary-btn">Collapse All</button>
 </div>
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Personal data </mat-panel-title>
+      <mat-panel-description>
+        Click to see personal data
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm deletion</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure to delete this client?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="confirmDelete()">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Location </mat-panel-title>
+      <mat-panel-description>
+        Click to see the information about the location
+        <mat-icon>map</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Actions </mat-panel-title>
+
+    </mat-expansion-panel-header>
+
+
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-expansion-panel>
+</mat-accordion>

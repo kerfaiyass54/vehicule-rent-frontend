@@ -1,26 +1,37 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router, RouterLink} from "@angular/router";
+import {ChangeDetectionStrategy,Component, OnInit, viewChild} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {Client} from "../../../models/client";
 import {ClientServiceAdminService} from "../../Services/client-service-admin.service";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
-import {NgIf} from "@angular/common";
 import {ToastrService} from "ngx-toastr";
+import {MatButtonModule} from '@angular/material/button';
+import {provideNativeDateAdapter} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatAccordion, MatExpansionModule} from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-clients-info',
   standalone: true,
   imports: [
-    RouterLink,
-    NgIf
+    MatButtonModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
   ],
   templateUrl: './clients-info.component.html',
-  styleUrl: './clients-info.component.css'
+  styleUrl: './clients-info.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [provideNativeDateAdapter()],
 })
 export class ClientsInfoComponent implements  OnInit{
   client: Client | any | undefined;
   name :any | null;
   location: Location | any;
-  isModalOpen: boolean = false;
   constructor(private router: Router, private clientService:ClientServiceAdminService, private route: ActivatedRoute, private locationService: LocationServiceAdminService, private toastr: ToastrService  ) {}
 
   ngOnInit() {
@@ -36,6 +47,9 @@ export class ClientsInfoComponent implements  OnInit{
       }
     );
   }
+
+
+  accordion = viewChild.required(MatAccordion);
 
 
 

@@ -1,49 +1,25 @@
-#client-info{
-  background: linear-gradient(#2fbdff, #0f2f40);
-  border-radius: 30px;
-  margin: 25px;
-  transform: translateX(-100%);
-  animation: slide-in 0.5s forwards;
+.example-action-buttons {
+  padding: 2%;
+  display: flex;
+  justify-content: center;
 }
 
-@keyframes slide-in {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
 }
 
-.card{
-  margin-top: 75px;
-  background-color: #8B5DFF;
-  color: #FFF7D1;
-  height: fit-content;
-  border-style: dot-dash;
+.example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
 }
 
-
-
-
-
-p{
-  text-align: right;
-  color: #8B5DFF;
-  padding: 1%;
-  border-radius: 7px;
+.primary-btn{
+  transition: all 0.6s ease;
+  border-radius: 14%;
+  margin: 1.2%;
 }
 
-
-
-
-button{
-  display: inline;
-}
-
-.btn-primary, .btn-danger, .btn-secondary{
-  width: 100%;
-}
-
-#cancel-button{
-  background-color: #563A9C;
-  color: #FFF7D1;
+.primary-btn:hover{
+  background-color: #0f2f40;
+  color: white;
 }
