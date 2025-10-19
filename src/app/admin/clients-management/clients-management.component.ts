@@ -15,6 +15,7 @@ import {
   MatTableDataSource
 } from "@angular/material/table";
 import {Client} from "../../models/client";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-clients-management',
@@ -52,7 +53,7 @@ export class ClientsManagementComponent implements OnInit{
   pageIndex = 0;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private router:Router, private keycloak: KeycloakService, private clientService: ClientServiceAdminService) {
+  constructor(private router:Router, private keycloak: KeycloakService, private clientService: ClientServiceAdminService, private toastrService: ToastrService) {
 
   }
   ngOnInit(): void {
@@ -65,8 +66,9 @@ export class ClientsManagementComponent implements OnInit{
         next: (data) => {
           this.dataSource.data = data.content;
           this.totalElements = data.totalElements;
+          this.toastrService.success("Clients displayed","SUCCESS");
         },
-        error: (err) => console.error('Error loading clients:', err)
+        error: (err) => this.toastrService.error("There is an expected error! Try again later","ERROR")
       });
   }
 
