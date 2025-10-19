@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../Services/client-service-admin.service";
 import {HttpClientModule} from "@angular/common/http";
 import {KeycloakService} from "../../shared/keycloak.service";
@@ -33,7 +33,8 @@ import {ToastrService} from "ngx-toastr";
     MatHeaderCellDef,
     MatCellDef,
     MatHeaderRowDef,
-    MatRowDef
+    MatRowDef,
+    RouterLink
   ],
   templateUrl: './clients-management.component.html',
   styleUrl: './clients-management.component.css'

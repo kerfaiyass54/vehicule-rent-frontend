@@ -10,7 +10,7 @@
 
     <div class="card">
       <div class="card-body">
-        <button type="button" id="adding-button" class="btn btn-primary btn-lg">Add client</button>
+        <button type="button" id="adding-button" class="btn btn-primary btn-lg" routerLink="/admin/add-client">Add client</button>
       </div>
     </div>
 
@@ -20,7 +20,7 @@
         <!-- ID -->
         <ng-container matColumnDef="idClient">
           <th mat-header-cell *matHeaderCellDef> ID </th>
-          <td mat-cell *matCellDef="let client"> {{client.idClient}} </td>
+          <td mat-cell *matCellDef="let client" routerLink="/admin/clients/details-client/{{client.idClient}}"> {{client.idClient}} </td>
         </ng-container>
 
         <!-- Name -->
