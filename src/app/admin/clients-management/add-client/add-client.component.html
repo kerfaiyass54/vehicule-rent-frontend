@@ -1,67 +1,59 @@
-<div class="card">
-<h1>Client Adding</h1>
-  <form [formGroup]="newClientForm">
-    <div class="form-group row">
-      <label for="name">Name of the client:</label>
-      <input id="name" type="text" class="form-control" name="name" formControlName="name" />
-      <div *ngIf="newClientForm.get('name')?.touched && newClientForm.get('name')?.invalid">
-        <small *ngIf="name?.errors?.['required']">Name is required</small>
-        <small *ngIf="name?.errors?.['pattern']">Name should be alphabetic with spaces</small>
+<div class="tailwind-scope">
+  <div class="w-full max-w-4xl mx-auto px-4 py-8">
+    <div class="relative flex items-center justify-between">
+      <!-- Progress Line -->
+      <div class="absolute top-1/2 left-0 w-full h-1 bg-gray-200 -translate-y-1/2 z-0">
+        <div
+          class="h-full bg-blue-600 transition-all duration-500 ease-in-out"
+          [style.width]="getProgressWidth()"
+        ></div>
       </div>
+
+      <!-- Steps -->
+      <ng-container *ngFor="let step of [].constructor(steps); let i = index">
+        <div class="relative z-10 flex flex-col items-center">
+          <button
+            (click)="handleStepClick(i + 1)"
+            class="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer"
+            [ngClass]="{
+            'bg-blue-600 text-white': isCompleted(i + 1) || isCurrent(i + 1),
+            'ring-4 ring-blue-200': isCurrent(i + 1),
+            'bg-white text-gray-400 border-2 border-gray-300': !isCompleted(i + 1) && !isCurrent(i + 1)
+          }"
+          >
+          <span *ngIf="isCompleted(i + 1); else stepNumber">
+            <!-- ✅ Completed -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                    d="M5 13l4 4L19 7" />
+            </svg>
+          </span>
+            <ng-template #stepNumber>{{ i + 1 }}</ng-template>
+          </button>
+
+          <!-- Step Label -->
+          <span
+            class="mt-2 text-sm transition-colors duration-300"
+            [ngClass]="isCurrent(i + 1) ? 'text-blue-600' : 'text-gray-500'"
+          >
+          Step {{ i + 1 }}
+        </span>
+        </div>
+      </ng-container>
     </div>
 
-    <div class="form-group row">
-      <label for="cin">CIN:</label>
-      <input id="cin" type="text" class="form-control" formControlName="cin" name="cin" />
-      <div *ngIf="newClientForm.get('cin')?.touched && newClientForm.get('cin')?.invalid">
-        <small *ngIf="cin?.errors?.['required']">CIN is required</small>
-        <small *ngIf="cin?.errors?.['pattern']">CIN should be 8 numbers</small>
-      </div>
-    </div>
 
-    <div class="form-group row">
-      <label for="mail">Email:</label>
-      <input id="mail" type="text" class="form-control" formControlName="mail" name="mail" />
-      <div *ngIf="newClientForm.get('mail')?.touched && newClientForm.get('mail')?.invalid">
-        <small *ngIf="mail?.errors?.['required']">Email is required</small>
-        <small *ngIf="mail?.errors?.['email']">This should be an email</small>
-      </div>
-    </div>
+    <div
+      [@fadeSlide]
+      class="mt-12 p-8 bg-white rounded-lg shadow-md"
 
-    <div class="form-group row">
-      <label for="password">Password:</label>
-      <input id="password" type="text" class="form-control" formControlName="password" name="password" />
-      <div *ngIf="newClientForm.get('password')?.touched && newClientForm.get('password')?.invalid">
-        <small *ngIf="password?.errors?.['required']">Password is required</small>
-        <small *ngIf="password?.errors?.['minLength']">Password should have more than 6 characters</small>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="options">Location:</label>
-      <select id="options" class="form-control" formControlName="loc" name="loc">
-        <option *ngFor="let option of locations" [value]="option.name">{{ option.name }}</option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#addModal" [disabled]="newClientForm.invalid">Create client</button>
-    <button type="button" class="btn btn-primary" id="cancel-button" routerLink="/admin/clients">Cancel</button>
-  </form>
-</div>
-
-
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Adding</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Do you confirm to add this client?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="addClient()">Yes</button>
-      </div>
+    >
+      <h2 class="text-gray-800 mb-4">Step {{ currentStep }} Content</h2>
+      <p class="text-gray-600">
+        This is the content for step {{ currentStep }}. Click on any step number above to navigate between steps.
+      </p>
     </div>
   </div>
 </div>
+
