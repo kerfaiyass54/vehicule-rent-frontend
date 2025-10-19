@@ -52,8 +52,21 @@
       <h2 class="text-gray-800 mb-4">Step {{ currentStep }} Content</h2>
       <p class="text-gray-600">
         This is the content for step {{ currentStep }}. Click on any step number above to navigate between steps.
+
+
       </p>
+      <div *ngIf="currentStep == 1">
+
+      </div>
+      <div *ngIf="currentStep == 2">
+
+      </div>
+      <div *ngIf="currentStep == 3">
+
+      </div>
     </div>
+
+
   </div>
 </div>
 
