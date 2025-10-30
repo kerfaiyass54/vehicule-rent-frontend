@@ -8,7 +8,7 @@ export class KeycloakService {
 
   constructor() {
     this.keycloak = new Keycloak({
-      url: 'http://localhost:8080',
+      url: 'http://localhost:8080', //http://host.docker.internal:8080(using dockerfile)
       realm: 'vehicule-app',
       clientId: 'vehicule-rent'
     });
