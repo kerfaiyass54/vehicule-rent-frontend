@@ -3,8 +3,10 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 80px;
+  padding-top: 90px;
   background: linear-gradient(135deg, #f9fafb, #ffffff);
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
 }
 
 .custom-tab-group {
@@ -16,6 +18,8 @@
 
 ::ng-deep .mat-mdc-tab-labels {
   justify-content: center !important;
+  animation-name: fadeIn;
+  animation-duration: 0.9s;
 }
 
 ::ng-deep .mat-mdc-tab-label {
@@ -35,10 +39,17 @@
   padding: 40px;
   font-size: 1.1rem;
   color: #444;
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
 }
 
-.tab-content h2 {
-  font-size: 1.8rem;
-  color: rgba(0, 128, 255, 0.85);
-  margin-bottom: 10px;
+
+@keyframes fadeIn {
+  from { opacity: 0;
+    transform: translateY(10px); }
+  to { opacity: 1;
+    transform: translateY(0); }
 }
+
+
+
