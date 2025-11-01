@@ -76,7 +76,7 @@ export class KeycloakService {
   }
 
 
-  async isLoggedIn(): Promise<boolean> {
-    return await this.keycloak.authenticated ?? false;
+  isLoggedIn(): boolean {
+    return !!this.keycloak.authenticated;
   }
 }

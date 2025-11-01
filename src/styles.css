@@ -1,9 +1,4 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
-.tailwind-scope {
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-}
 
 
 
