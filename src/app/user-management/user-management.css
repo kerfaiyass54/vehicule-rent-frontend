@@ -1,0 +1,44 @@
+.main-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+  background: linear-gradient(135deg, #f9fafb, #ffffff);
+}
+
+.custom-tab-group {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .mat-mdc-tab-labels {
+  justify-content: center !important;
+}
+
+::ng-deep .mat-mdc-tab-label {
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+::ng-deep .mat-mdc-tab-label.mat-mdc-tab-label-active {
+  color: #00796b !important;
+  font-size: 1.3rem !important;
+}
+
+.tab-content {
+  padding: 40px;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.tab-content h2 {
+  font-size: 1.8rem;
+  color: rgba(0, 128, 255, 0.85);
+  margin-bottom: 10px;
+}

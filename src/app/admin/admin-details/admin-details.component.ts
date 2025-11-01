@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {NavBarAdminComponent} from "../nav-bar-admin/nav-bar-admin.component";
 import {KeycloakService} from "../../shared/keycloak.service";
-import {MatTab, MatTabGroup} from "@angular/material/tabs";
+import {UserManagement} from "../../user-management/user-management";
+
 
 
 
@@ -9,16 +9,13 @@ import {MatTab, MatTabGroup} from "@angular/material/tabs";
   selector: 'app-admin-details',
   standalone: true,
   imports: [
-    NavBarAdminComponent,
-    MatTabGroup,
-    MatTab
+    UserManagement
   ],
   templateUrl: './admin-details.component.html',
   styleUrl: './admin-details.component.css'
 })
 export class AdminDetailsComponent implements OnInit{
   isLoggedIn = false;
-  username?: string;
   userInfo?: any;
   roles: string[] = [];
 
