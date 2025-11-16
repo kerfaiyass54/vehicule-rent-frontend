@@ -1,0 +1,21 @@
+h1{
+  margin-bottom: 2%;
+}
+
+.info{
+  transition: all 0.6s ease;
+  border-radius: 15px;
+}
+
+
+.info:hover{
+  background-color: #0f2f40;
+  color: white;
+}
+
+.role{
+  color: #0f2f40;
+}
+
+
+

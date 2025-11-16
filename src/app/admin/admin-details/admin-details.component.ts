@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {KeycloakService} from "../../shared/keycloak.service";
+import {Component} from '@angular/core';
 import {UserManagement} from "../../user-management/user-management";
 
 
@@ -14,25 +13,7 @@ import {UserManagement} from "../../user-management/user-management";
   templateUrl: './admin-details.component.html',
   styleUrl: './admin-details.component.css'
 })
-export class AdminDetailsComponent implements OnInit{
-  isLoggedIn = false;
-  userInfo?: any;
-  roles: string[] = [];
-
-  constructor(private keycloakService: KeycloakService) {
-  }
-
-  async ngOnInit() {
-    await this.keycloakService.init();
-    this.isLoggedIn = this.keycloakService.isLoggedIn();
-
-    if (this.isLoggedIn) {
-      this.userInfo = await this.keycloakService.loadUserProfile();
-      console.log(this.userInfo);
-      this.roles = this.keycloakService.getRoles();
-    }
-
-  }
+export class AdminDetailsComponent {
 
 
 

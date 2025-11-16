@@ -1,5 +1,5 @@
 .main-container {
-  height: 100vh;
+  height: 400vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -10,7 +10,7 @@
 }
 
 .custom-tab-group {
-  width: 100%;
+  width: 70%;
   background: #ffffff;
   border-radius: 50px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
