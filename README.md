@@ -6,13 +6,14 @@ This is the frontend application for **Vehicule rent**, developed using **Angula
 ## Actors
 - **Admin**: Manages system users and existed locations.
 - **Repairer**: Views and updates repair tasks.
-- **Supplier**: Manages inventory details.
+- **Supplier**: Manages inventory, adresses and subscriptions details.
 - **Client**: Books and tracks car rentals.
 
 ## File Descriptions
 - `src/app`: Contains the main Angular components, services, and modules.
   - `components`: Holds all UI components for various views.
   - `services`: Contains service files for API communication.
+  - `shared`: Contains Keycloak settings and roles guard.
   - `assets`: Stores static files like images and configurations.
   - `environments`: Contains environment-specific configuration files.
  
