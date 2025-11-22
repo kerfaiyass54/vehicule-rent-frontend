@@ -69,6 +69,10 @@ import {NotAuthorizedComponent} from "./not-authorized/not-authorized.component"
 
 import {roleGuard} from "./shared/auth.guard";
 import {LoadingPageComponent} from "./loading-page/loading-page.component";
+import {LoginHistory} from "./user-management/login-history/login-history";
+import {PasswordEval} from "./user-management/password-eval/password-eval";
+import {UpdateUser} from "./user-management/update-user/update-user";
+import {UpdatePassword} from "./user-management/update-password/update-password";
 
 
 
@@ -274,9 +278,26 @@ export const routes: Routes = [
       },{
         path: 'launch/:id',component:LaunchRepairComponent
       }
-
-
     ]
+  },{
+    path:'login-history/:name',
+    component: LoginHistory,
+    title:"Login history"
+  },
+  {
+    path:'pass-eval/:name',
+    component: PasswordEval,
+    title:"Password evaluation"
+  },
+  {
+    path:'update-user/:name',
+    component: UpdateUser,
+    title:"Update user"
+  },
+  {
+    path:'update-pass/:name',
+    component: UpdatePassword,
+    title:"Update password"
   },
   {
     path:'not-authorized',
