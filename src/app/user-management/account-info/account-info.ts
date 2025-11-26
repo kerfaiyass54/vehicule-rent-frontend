@@ -7,6 +7,7 @@ import {FormsModule} from "@angular/forms";
 import {MatIcon} from "@angular/material/icon";
 import {MatInput} from "@angular/material/input";
 import {MatFabButton, MatIconButton} from "@angular/material/button";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-account-info',
@@ -20,7 +21,8 @@ import {MatFabButton, MatIconButton} from "@angular/material/button";
     MatIcon,
     MatInput,
     MatIconButton,
-    MatFabButton
+    MatFabButton,
+    RouterLink
   ],
   standalone: true,
   templateUrl: './account-info.html',

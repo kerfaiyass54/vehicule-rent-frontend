@@ -279,25 +279,6 @@ export const routes: Routes = [
         path: 'launch/:id',component:LaunchRepairComponent
       }
     ]
-  },{
-    path:'login-history/:name',
-    component: LoginHistory,
-    title:"Login history"
-  },
-  {
-    path:'pass-eval/:name',
-    component: PasswordEval,
-    title:"Password evaluation"
-  },
-  {
-    path:'update-user/:name',
-    component: UpdateUser,
-    title:"Update user"
-  },
-  {
-    path:'update-pass/:name',
-    component: UpdatePassword,
-    title:"Update password"
   },
   {
     path:'not-authorized',
