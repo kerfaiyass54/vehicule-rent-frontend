@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatList, MatListItem} from "@angular/material/list";
 import {MatDivider} from "@angular/material/divider";
 import {KeycloakService} from "../../shared/keycloak.service";
@@ -8,6 +8,8 @@ import {MatIcon} from "@angular/material/icon";
 import {MatInput} from "@angular/material/input";
 import {MatFabButton, MatIconButton} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
+import {UpdateUser} from "../update-user/update-user";
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-account-info',
@@ -22,7 +24,8 @@ import {RouterLink} from "@angular/router";
     MatInput,
     MatIconButton,
     MatFabButton,
-    RouterLink
+    RouterLink,
+    MatDialogModule
   ],
   standalone: true,
   templateUrl: './account-info.html',
@@ -35,7 +38,7 @@ export class AccountInfo implements OnInit{
   password: string = '';
   role = '';
 
-  constructor(private keycloakService: KeycloakService) {
+  constructor(private keycloakService: KeycloakService,private dialog: MatDialog) {
   }
 
   async ngOnInit() {
@@ -52,6 +55,15 @@ export class AccountInfo implements OnInit{
       if (this.roles.includes('repairer')) this.role='You are a repairer';
     }
 
+  }
+
+
+  openUpdateUser() {
+    this.dialog.open(UpdateUser, {
+      width: '700px',
+      maxWidth: '95vw',
+      disableClose: true
+    });
   }
 
 }

@@ -1,0 +1,21 @@
+.update-container {
+  width: 650px;
+  max-width: 95vw;
+  padding: 10px;
+}
+
+.form-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .form-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
