@@ -12,27 +12,27 @@ export class UserManage {
 
 
   createUser(user: any){
-    return this.http.post(this.baseUrlKeycloak, user);
+    return this.http.post<any>(this.baseUrlKeycloak, user);
   }
 
   getUsers(){
-    return this.http.get(this.baseUrlKeycloak + "users");
+    return this.http.get<any[]>(this.baseUrlKeycloak + "users");
   }
 
   deleteUser(id: any){
-    return this.http.delete(this.baseUrlKeycloak + "user/" + id)
+    return this.http.delete<any>(this.baseUrlKeycloak + "user/" + id)
   }
 
   updatePassword(id: any, password: any){
-    return this.http.put(this.baseUrlKeycloak + "user/" + id + "/password", password);
+    return this.http.put<any>(this.baseUrlKeycloak + "user/" + id + "/password", password);
   }
 
   getRoles(){
-    return this.http.get(this.baseUrlKeycloak + "roles");
+    return this.http.get<any[]>(this.baseUrlKeycloak + "roles");
   }
 
   updateUser(userId: any, updateUser: any){
-    return this.http.put(this.baseUrlKeycloak + "user/" + userId + "/update", updateUser);
+    return this.http.put<any>(this.baseUrlKeycloak + "user/" + userId + "/update", updateUser);
   }
 
 
