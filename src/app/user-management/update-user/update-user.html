@@ -3,25 +3,28 @@
 
   <div mat-dialog-content>
     <div class="form-wrapper">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="outline">
         <mat-label>First name</mat-label>
-        <input matInput>
+        <input matInput type="text" formControlName="firstName">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Last name</mat-label>
-        <input matInput>
+        <input matInput type="text" formControlName="lastName">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
-        <input matInput>
+        <input matInput type="text" formControlName="email">
       </mat-form-field>
+      </form>
     </div>
   </div>
 
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-raised-button color="primary">Save</button>
+    <button mat-raised-button color="primary" type="submit"
+            [disabled]="userForm.invalid">Save</button>
   </mat-dialog-actions>
 </div>

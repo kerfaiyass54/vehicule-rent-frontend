@@ -19,3 +19,7 @@ mat-form-field {
     grid-template-columns: 1fr;
   }
 }
+
+input{
+  width: 100%;
+}

@@ -1,16 +1,15 @@
 .main-container {
-  height: 400vh;
+  height: 700vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 90px;
   background: linear-gradient(135deg, #f9fafb, #ffffff);
   animation-name: fadeIn;
   animation-duration: 0.5s;
 }
 
 .custom-tab-group {
-  width: 70%;
+  width: 100%;
   background: #ffffff;
   border-radius: 50px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -36,7 +35,7 @@
 }
 
 .tab-content {
-  padding: 40px;
+  padding: 70px;
   font-size: 1.1rem;
   color: #444;
   animation-name: fadeIn;
