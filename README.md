@@ -1,46 +1,76 @@
-# Vehicule rent - Frontend
+# Vehicule rental frontend
 
-## Introduction
-This is the frontend application for **Vehicule rent**, developed using **Angular**. It provides a user-friendly interface for managing and accessing the functionalities of the vehicule rental system.
+## 🚀 Overview
+This is a comprehensive Angular application designed to manage and access the functionalities of the vehicule rental system. This project provides a user-friendly interface for various actors such as Admin, Repairer, Supplier, and Client. The frontend is built using TypeScript, Angular, and other modern web technologies to ensure a seamless and efficient user experience.
 
-## Actors
-- **Admin**: Manages system users and existed locations.
-- **Repairer**: Views and updates repair tasks.
-- **Supplier**: Manages inventory, adresses and subscriptions details.
-- **Client**: Books and tracks car rentals.
+## ✨ Features
+- **Admin Management**: Manage system users and existing locations.
+- **Repairer Tasks**: View and update repair tasks.
+- **Supplier Management**: Manage inventory, addresses, and subscription details.
+- **Client Bookings**: Book and track car rentals.
+- **Responsive Design**: Ensures compatibility across different devices and screen sizes.
+- **Keycloak Integration**: Secure authentication and authorization.
+- **Material Design**: Modern and intuitive UI components.
 
-## File Descriptions
-- `src/app`: Contains the main Angular components, services, and modules.
-  - `components`: Holds all UI components for various views.
-  - `services`: Contains service files for API communication.
-  - `shared`: Contains Keycloak settings and roles guard.
-  - `assets`: Stores static files like images and configurations.
-  - `environments`: Contains environment-specific configuration files.
- 
-## Technologies
-- NodeJS: v18.16.0
-- Angular: v17.2.2
-- Bootstrap: v5.3
-- HTML/CSS/Typescript
-Make sure that you have those technologies in your pc.
+## 🛠️ Tech Stack
+- **Programming Language**: TypeScript
+- **Frameworks**: Angular
+- **Libraries**: Bootstrap, Eva Icons, Lucide, Ngx-Toastr
+- **Tools**: Docker, Karma, Jasmine
+- **System Requirements**: Node.js v18.16.0, Angular v17.2.2
+
+## 📦 Installation
+
+### Prerequisites
+- Node.js v18.16.0
+- Angular CLI v20.2.0
+
+### Quick Start
+```bash
+# Clone the repository
+git clone https://github.com/kerfaiyass54/vehicule-rent-frontend.git
+
+# Navigate to the project directory
+cd vehicule-rent-frontend
+
+# Install dependencies
+npm install
+
+# Run the application
+ng serve
+```
+
+### Alternative Installation Methods
+- **Docker**: Use the provided Dockerfile to containerize the application.
+  ```bash
+  docker build -t vehicule-rent-frontend .
+  docker run -p 4200:4200 vehicule-rent-frontend
+  ```
 
 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white). ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white). ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white) ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+## 🔧 Configuration
+- **Environment Variables**: Configure environment-specific settings in `src/environments/`.
+- **Configuration Files**: Use `angular.json` for build configurations.
 
-## How to Upload and Run It
+## 🤝 Contributing
+- **How to Contribute**: Fork the repository and submit pull requests.
+- **Development Setup**: Clone the repository and install dependencies.
+  ```bash
+  git clone https://github.com/kerfaiyass54/vehicule-rent-frontend.git
+  cd vehicule-rent-frontend
+  npm install
+  ```
+- **Code Style Guidelines**: Follow the TypeScript and Angular coding standards.
+- **Pull Request Process**: Ensure your code is well-tested and documented before submitting a pull request.
 
-1. **Clone this repository**:
-   ```bash
-   git clone https://github.com/kerfaiyass54/vehicule-rent-frontend.git
 
-2. **Install dependencies**:
-   ```bash
-   npm install
 
-3. **Run the application**:
-   ```bash
-   ng serve
+## 🗺️ Roadmap
+- **Planned Features**: Add more detailed user management features.
+- **Known Issues**: Address any reported bugs or issues.
+- **Future Improvements**: Enhance performance and add new features based on user feedback.
 
-4. **Access the application**:
-   ```bash
-   localhost:4200
+
+- Include relevant badges (build status, version, license, etc.)
+- Make installation instructions copy-pasteable
+- Focus on clarity and developer experience
