@@ -8,6 +8,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import {KeycloakService} from "../../shared/keycloak.service";
 import {UserManage} from "../services/user-manage";
 import {getKeycloak} from "../../shared/keycloak-init";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-update-user',
@@ -30,7 +31,7 @@ export class UpdateUser implements OnInit{
 
   userForm: FormGroup;
   userInfo?: any;
-  emails:any = [];
+  emails:any[] = [];
   users:any[] = [];
   isLoggedIn = false;
   role = '';
@@ -40,7 +41,7 @@ export class UpdateUser implements OnInit{
 
 
   constructor(private dialogRef: MatDialogRef<UpdateUser>,private fb: FormBuilder,
-              private keycloakService: KeycloakService, private userManager: UserManage) {
+              private keycloakService: KeycloakService, private userManager: UserManage, private toastr:ToastrService) {
 
     this.userForm = this.fb.group({
       firstName: new FormControl('', [Validators.required]),
@@ -75,6 +76,8 @@ export class UpdateUser implements OnInit{
           (users) =>{
             this.users = users;
             this.emails = this.users.map(user => user.email);
+            this.emails.splice(this.emails.indexOf(this.userInfo.email),1);
+            console.log(this.emails);
           }
         );
 
@@ -99,7 +102,7 @@ export class UpdateUser implements OnInit{
 
 
   update(){
-    if(!(this.userForm.value.email != this.emailUser && this.emails.include(this.userForm.value.email))){
+    if(!this.emails.includes(this.userForm.value.email)){
       let user = {
         firstName: this.userForm.value.firstName,
         lastName: this.userForm.value.lastName,
@@ -109,12 +112,15 @@ export class UpdateUser implements OnInit{
       }
       this.userManager.updateUser(this.id,user).subscribe(
         ()=>{
-          console.log("saha")
+          this.toastr.success("SUCCESS","User updated!");
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
         }
       );
     }
     else{
-
+      this.toastr.error("ERROR","The email already exist!");
     }
 
 
