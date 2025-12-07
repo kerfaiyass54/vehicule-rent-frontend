@@ -10,6 +10,7 @@ import {RouterLink} from "@angular/router";
 import {UpdateUser} from "../update-user/update-user";
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {KeycloakService} from "../../shared/keycloak.service";
+import {UpdatePassword} from "../update-password/update-password";
 
 @Component({
   selector: 'app-account-info',
@@ -59,6 +60,14 @@ export class AccountInfo implements OnInit{
 
   openUpdateUser() {
     this.dialog.open(UpdateUser, {
+      width: '700px',
+      maxWidth: '95vw',
+      disableClose: true
+    });
+  }
+
+  openChangePassword(){
+    this.dialog.open(UpdatePassword, {
       width: '700px',
       maxWidth: '95vw',
       disableClose: true

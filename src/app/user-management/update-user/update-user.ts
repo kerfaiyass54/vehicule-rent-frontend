@@ -129,8 +129,6 @@ export class UpdateUser implements OnInit{
 
   }
 
-  //add confirm box
-  //add notification
 
 
 }
