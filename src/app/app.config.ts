@@ -1,17 +1,23 @@
-import {ApplicationConfig, importProvidersFrom} from '@angular/core';
+import {APP_INITIALIZER, ApplicationConfig, importProvidersFrom} from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import {provideHttpClient} from "@angular/common/http";
+import {provideHttpClient, withInterceptors} from "@angular/common/http";
 import {provideToastr} from "ngx-toastr";
 import {provideAnimations} from "@angular/platform-browser/animations";
 import {icons, LucideAngularModule} from "lucide-angular";
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
+
+import {initializeKeycloak} from "./shared/keycloak-init";
+import {authInterceptor} from "./shared/auth.interceptor";
 
 
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),provideHttpClient(),provideAnimations(),
+  providers: [provideRouter(routes),provideHttpClient(withInterceptors([authInterceptor])),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true
+    },provideHttpClient(),provideAnimations(),
     provideToastr(), importProvidersFrom(LucideAngularModule.pick(icons))]
 };

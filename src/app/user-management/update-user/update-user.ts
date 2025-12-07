@@ -35,6 +35,7 @@ export class UpdateUser implements OnInit{
   role = '';
   roles:any[] = [];
   emailUser:any;
+  id: any;
 
 
   constructor(private dialogRef: MatDialogRef<UpdateUser>,private fb: FormBuilder,
@@ -49,14 +50,14 @@ export class UpdateUser implements OnInit{
 
   }
 
-  async ngOnInit() {
-    await this.
-    keycloakService.init();
+  ngOnInit() {
+
     this.isLoggedIn = this.keycloakService.isLoggedIn();
     if (this.isLoggedIn) {
-      this.userInfo = await this.keycloakService.loadUserProfile();
+      this.userInfo = this.keycloakService.loadUserProfile();
       this.emailUser = this.userInfo.email;
       console.log(this.userInfo);
+      this.id = this.userInfo.id;
       this.roles = this.keycloakService.getRoles();
       this.userForm = this.fb.group({
         firstName: new FormControl(this.userInfo.firstName, [Validators.required]),
@@ -105,6 +106,12 @@ export class UpdateUser implements OnInit{
         newEmail: this.userForm.value.email,
         role: this.role
       }
+
+      this.userManager.updateUser(this.id,user).subscribe(
+        ()=>{
+          console.log("saha")
+        }
+      )
 
 
 

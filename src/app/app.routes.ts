@@ -67,12 +67,12 @@ import {ErrorPageComponent} from "./error-page/error-page.component";
 import {SupplierInfosComponent} from "./admin/supplier-management/supplier-infos/supplier-infos.component";
 import {NotAuthorizedComponent} from "./not-authorized/not-authorized.component";
 
-import {roleGuard} from "./shared/auth.guard";
+
 import {LoadingPageComponent} from "./loading-page/loading-page.component";
-import {LoginHistory} from "./user-management/login-history/login-history";
-import {PasswordEval} from "./user-management/password-eval/password-eval";
-import {UpdateUser} from "./user-management/update-user/update-user";
-import {UpdatePassword} from "./user-management/update-password/update-password";
+import {roleGuard} from "./shared/role.guard";
+import {authGuard} from "./shared/auth.guard";
+import {roleRedirectGuard} from "./shared/role-redirect.guard";
+
 
 
 
@@ -82,13 +82,14 @@ import {UpdatePassword} from "./user-management/update-password/update-password"
 
 export const routes: Routes = [
   {
-    path: '', component: LoadingPageComponent
+    path: '', component: LoadingPageComponent,
+    canActivate: [roleRedirectGuard,authGuard]
   },
   {
     path:'client',
     component:ClientComponent,
     title:"Client Dashboard",
-    canActivate: [roleGuard], data: { roles: ['client'] },
+    canActivate: [roleGuard,authGuard], data: { roles: ['client'] },
     children:[
       {
         path: 'update-budget/:id',component:UpdateBudgetComponent
@@ -136,7 +137,7 @@ export const routes: Routes = [
     path:'admin',
     component:AdminComponent,
     title:'Vehicule App',
-    canActivate: [roleGuard], data: { roles: ['admin'] },
+    canActivate: [roleGuard,authGuard], data: { roles: ['admin'] },
     children:[{
       path:'',
       component:AdminHomeComponent
@@ -193,7 +194,7 @@ export const routes: Routes = [
   },{
     path:'supplier',
     component:SupplierComponent,
-    canActivate: [roleGuard], data: { roles: ['supplier'] },
+    canActivate: [roleGuard,authGuard], data: { roles: ['supplier'] },
     title:'Supplier Dashboard',
     children:[
       {
@@ -245,7 +246,7 @@ export const routes: Routes = [
   },{
     path:'repair',
     component:RepairComponent,
-    canActivate: [roleGuard], data: { roles: ['repair'] },
+    canActivate: [roleGuard,authGuard], data: { roles: ['repair'] },
     title:'Repair Dashboard',
     children:[
       {

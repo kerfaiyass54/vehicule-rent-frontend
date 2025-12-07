@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatList, MatListItem} from "@angular/material/list";
 import {MatDivider} from "@angular/material/divider";
-import {KeycloakService} from "../../shared/keycloak.service";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {MatIcon} from "@angular/material/icon";
@@ -10,6 +9,7 @@ import {MatFabButton, MatIconButton} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
 import {UpdateUser} from "../update-user/update-user";
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {KeycloakService} from "../../shared/keycloak.service";
 
 @Component({
   selector: 'app-account-info',
@@ -42,7 +42,6 @@ export class AccountInfo implements OnInit{
   }
 
   async ngOnInit() {
-    await this.keycloakService.init();
     this.isLoggedIn = this.keycloakService.isLoggedIn();
 
     if (this.isLoggedIn) {
