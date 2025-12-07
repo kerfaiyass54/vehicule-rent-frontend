@@ -10,16 +10,24 @@ export function initializeKeycloak() {
         realm: 'vehicule-app',
         clientId: 'vehicule-rent'
       });
+
       keycloak
         .init({
-          onLoad: 'check-sso',
+          onLoad: 'login-required', // force login before app loads
           pkceMethod: 'S256',
           checkLoginIframe: false
         })
-        .then(() => resolve())
+        .then(authenticated => {
+          if (!authenticated) {
+            keycloak.login();
+          } else {
+            resolve();
+          }
+        })
         .catch(err => reject(err));
     });
 }
+
 
 export function getKeycloak() {
   return keycloak;
