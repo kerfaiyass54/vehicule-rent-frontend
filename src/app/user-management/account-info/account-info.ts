@@ -5,13 +5,14 @@ import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {MatIcon} from "@angular/material/icon";
 import {MatInput} from "@angular/material/input";
-import {MatFabButton, MatIconButton} from "@angular/material/button";
+import {MatButton, MatFabButton, MatIconButton} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
 import {UpdateUser} from "../update-user/update-user";
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {KeycloakService} from "../../shared/keycloak.service";
 import {UpdatePassword} from "../update-password/update-password";
-import {UserManage} from "../services/user-manage";
+import {DeleteAccountDialog} from "../delete-account-dialog/delete-account-dialog";
+
 
 @Component({
   selector: 'app-account-info',
@@ -27,7 +28,8 @@ import {UserManage} from "../services/user-manage";
     MatIconButton,
     MatFabButton,
     RouterLink,
-    MatDialogModule
+    MatDialogModule,
+    MatButton
   ],
   standalone: true,
   templateUrl: './account-info.html',
@@ -41,7 +43,7 @@ export class AccountInfo implements OnInit{
   role = '';
   id: any;
 
-  constructor(private keycloakService: KeycloakService,private dialog: MatDialog,private userManage: UserManage) {
+  constructor(private keycloakService: KeycloakService,private dialog: MatDialog) {
   }
 
   async ngOnInit() {
@@ -77,12 +79,11 @@ export class AccountInfo implements OnInit{
     });
   }
 
+  openDeleteDialog() {
+  this.dialog.open(DeleteAccountDialog, {
+    width: '350px',
+    panelClass: 'delete-dialog'
+  });}
 
-  delete(){
-    this.userManage.deleteUser(this.id).subscribe(
-      ()=>{
-        this.keycloakService.logout();
-      }
-    )
-  }
+
 }
