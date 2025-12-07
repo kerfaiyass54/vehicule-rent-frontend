@@ -7,6 +7,7 @@ import {ReactiveFormsModule, FormGroup, FormControl, Validators, FormBuilder} fr
 import { MatDialogRef } from '@angular/material/dialog';
 import {KeycloakService} from "../../shared/keycloak.service";
 import {UserManage} from "../services/user-manage";
+import {getKeycloak} from "../../shared/keycloak-init";
 
 @Component({
   selector: 'app-update-user',
@@ -50,11 +51,11 @@ export class UpdateUser implements OnInit{
 
   }
 
-  ngOnInit() {
+  async ngOnInit() {
 
     this.isLoggedIn = this.keycloakService.isLoggedIn();
     if (this.isLoggedIn) {
-      this.userInfo = this.keycloakService.loadUserProfile();
+      this.userInfo = await this.keycloakService.loadUserProfile();
       this.emailUser = this.userInfo.email;
       console.log(this.userInfo);
       this.id = this.userInfo.id;
@@ -69,7 +70,7 @@ export class UpdateUser implements OnInit{
       if (this.roles.includes('supplier')) this.role='supplier';
       if (this.roles.includes('repairer')) this.role='repairer';
     }
-
+    console.log(getKeycloak().tokenParsed);
         this.userManager.getUsers().subscribe(
           (users) =>{
             this.users = users;
@@ -106,15 +107,11 @@ export class UpdateUser implements OnInit{
         newEmail: this.userForm.value.email,
         role: this.role
       }
-
       this.userManager.updateUser(this.id,user).subscribe(
         ()=>{
           console.log("saha")
         }
-      )
-
-
-
+      );
     }
     else{
 
