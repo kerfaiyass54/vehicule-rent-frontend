@@ -1,82 +1,51 @@
 import { Injectable } from '@angular/core';
-import Keycloak, { KeycloakInstance } from 'keycloak-js';
 
-@Injectable({ providedIn: 'root' })
+import { KeycloakProfile } from 'keycloak-js';
+import {getKeycloak} from "./keycloak-init";
+
+@Injectable({
+  providedIn: 'root'
+})
 export class KeycloakService {
-  private keycloak: KeycloakInstance;
-  roles: string[] = [];
 
-  constructor() {
-    this.keycloak = new Keycloak({
-      url: 'http://localhost:8080', //http://host.docker.internal:8080(using dockerfile)
-      realm: 'vehicule-app',
-      clientId: 'vehicule-rent'
-    });
-  }
 
-  async init(): Promise<void> {
-    try {
-      await this.keycloak.init({
-        onLoad: 'login-required',
-        checkLoginIframe: false
-      });
-
-      this.getRoles();
-    } catch (err) {
-      console.error('Keycloak init failed', err);
-    }
+  isLoggedIn(): boolean {
+    return !!getKeycloak().authenticated;
   }
 
 
-  hasRole(role: string): boolean {
-    return this.roles.includes(role);
+  login(): void {
+    getKeycloak().login();
   }
 
+  logout(): void {
+    getKeycloak().logout();
+  }
+
+  async loadUserProfile(): Promise<KeycloakProfile> {
+    return await getKeycloak().loadUserProfile();
+  }
 
   getRoles(): string[] {
-    const tokenParsed: any = this.keycloak.tokenParsed;
-    this.roles = tokenParsed?.realm_access?.roles || [];
-    return this.roles;
+    const kc = getKeycloak();
+
+    const realmRoles =
+      kc.realmAccess?.roles ? kc.realmAccess.roles : [];
+
+    // Client-level roles (if any)
+    const client = kc.clientId || 'angular-frontend';
+    const clientRoles =
+      kc.resourceAccess?.[client]?.roles
+        ? kc.resourceAccess[client].roles
+        : [];
+
+    return [...realmRoles, ...clientRoles];
   }
 
 
   getToken(): string | undefined {
-    return this.keycloak.token;
+    return getKeycloak().token;
   }
 
 
-  async updateToken(minValidity: number = 60): Promise<string> {
-    try {
-      await this.keycloak.updateToken(minValidity);
-      return this.keycloak.token as string;
-    } catch (err) {
-      console.error('Failed to refresh token', err);
-      await this.login();
-      return this.keycloak.token as string;
-    }
-  }
-
-
-  async login(): Promise<void> {
-    await this.keycloak.login();
-  }
-
-
-  async logout(): Promise<void> {
-    await this.keycloak.logout({ redirectUri: window.location.origin });
-  }
-
-  async loadUserProfile(): Promise<any> {
-    try {
-      return await this.keycloak.loadUserProfile();
-    } catch (err) {
-      console.error('Failed to load user profile', err);
-      return null;
-    }
-  }
-
-
-  isLoggedIn(): boolean {
-    return !!this.keycloak.authenticated;
-  }
 }
