@@ -7,7 +7,6 @@ import {ReactiveFormsModule, FormGroup, FormControl, Validators, FormBuilder} fr
 import { MatDialogRef } from '@angular/material/dialog';
 import {KeycloakService} from "../../shared/keycloak.service";
 import {UserManage} from "../services/user-manage";
-import {UserUpdate} from "../../models/UserUpdate";
 
 @Component({
   selector: 'app-update-user',
@@ -108,6 +107,7 @@ export class UpdateUser implements OnInit{
       }
 
 
+
     }
     else{
 
@@ -119,9 +119,7 @@ export class UpdateUser implements OnInit{
 
   }
 
-  //create a model
   //add confirm box
-  //check if the email exist already
   //add notification
 
 
