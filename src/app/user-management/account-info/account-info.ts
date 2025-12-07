@@ -11,6 +11,7 @@ import {UpdateUser} from "../update-user/update-user";
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {KeycloakService} from "../../shared/keycloak.service";
 import {UpdatePassword} from "../update-password/update-password";
+import {UserManage} from "../services/user-manage";
 
 @Component({
   selector: 'app-account-info',
@@ -38,8 +39,9 @@ export class AccountInfo implements OnInit{
   roles: string[] = [];
   password: string = '';
   role = '';
+  id: any;
 
-  constructor(private keycloakService: KeycloakService,private dialog: MatDialog) {
+  constructor(private keycloakService: KeycloakService,private dialog: MatDialog,private userManage: UserManage) {
   }
 
   async ngOnInit() {
@@ -47,6 +49,7 @@ export class AccountInfo implements OnInit{
 
     if (this.isLoggedIn) {
       this.userInfo = await this.keycloakService.loadUserProfile();
+      this.id = this.userInfo.id;
       console.log(this.userInfo);
       this.roles = this.keycloakService.getRoles();
       if (this.roles.includes('admin')) this.role='You are an administrator';
@@ -74,4 +77,12 @@ export class AccountInfo implements OnInit{
     });
   }
 
+
+  delete(){
+    this.userManage.deleteUser(this.id).subscribe(
+      ()=>{
+        this.keycloakService.logout();
+      }
+    )
+  }
 }
