@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 
 import { KeycloakProfile } from 'keycloak-js';
 import {getKeycloak} from "./keycloak-init";
+import {SessionService} from "./session-service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class KeycloakService {
+
+  constructor(private sessionService: SessionService) {}
 
 
   isLoggedIn(): boolean {
@@ -23,7 +26,9 @@ export class KeycloakService {
   }
 
   async loadUserProfile(): Promise<KeycloakProfile> {
-    return await getKeycloak().loadUserProfile();
+    const profile = await getKeycloak().loadUserProfile();
+    this.sessionService.saveSession(profile.username!, profile.email!);
+    return profile;
   }
 
   getRoles(): string[] {
@@ -31,8 +36,6 @@ export class KeycloakService {
 
     const realmRoles =
       kc.realmAccess?.roles ? kc.realmAccess.roles : [];
-
-    // Client-level roles (if any)
     const client = kc.clientId || 'angular-frontend';
     const clientRoles =
       kc.resourceAccess?.[client]?.roles
