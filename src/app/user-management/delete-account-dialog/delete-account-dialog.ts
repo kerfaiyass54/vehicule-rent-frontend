@@ -22,6 +22,9 @@ export class DeleteAccountDialog implements OnInit{
 
   id: any;
   isLoggedIn = false;
+  role: any;
+  email: any;
+  roles: any[] = [];
 
   constructor(private dialogRef: MatDialogRef<DeleteAccountDialog>, private userManage: UserManage, private keycloakService: KeycloakService) {}
 
@@ -29,11 +32,18 @@ export class DeleteAccountDialog implements OnInit{
     this.isLoggedIn = this.keycloakService.isLoggedIn();
     if(this.isLoggedIn){
       this.id = (await this.keycloakService.loadUserProfile()).id;
+      this.roles = this.keycloakService.getRoles();
+      if (this.roles.includes('admin')) this.role='You are an administrator';
+      if (this.roles.includes('client')) this.role='You are a client';
+      if (this.roles.includes('supplier')) this.role='You are a supplier';
+      if (this.roles.includes('repairer')) this.role='You are a repairer';
+      this.email = (await this.keycloakService.loadUserProfile()).email;
+
     }
   }
 
   confirmDelete() {
-    this.userManage.deleteUser(this.id).subscribe(
+    this.userManage.deleteUser(this.id,this.role,this.email).subscribe(
       ()=>{
         this.keycloakService.logout();
       }

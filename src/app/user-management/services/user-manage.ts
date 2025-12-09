@@ -19,8 +19,8 @@ export class UserManage {
     return this.http.get<any[]>(this.baseUrlKeycloak + "users");
   }
 
-  deleteUser(id: any){
-    return this.http.delete<any>(this.baseUrlKeycloak + "user/" + id)
+  deleteUser(id: any, role: any, email:any){
+    return this.http.delete<any>(this.baseUrlKeycloak + "user/" + id + "/" + role + "/" + email);
   }
 
   updatePassword(id: any, password: any){
