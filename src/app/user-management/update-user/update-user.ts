@@ -53,8 +53,7 @@ export class UpdateUser implements OnInit{
   }
 
   async ngOnInit() {
-
-    this.isLoggedIn = this.keycloakService.isLoggedIn();
+    this.isLoggedIn = await this.keycloakService.isLoggedIn();
     if (this.isLoggedIn) {
       this.userInfo = await this.keycloakService.loadUserProfile();
       this.emailUser = this.userInfo.email;

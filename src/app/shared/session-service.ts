@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class SessionService {
 
-  private api = "http://localhost:8080/sessions/";
+  private api = "http://localhost:8100/sessions/";
 
   constructor(private http: HttpClient) {}
 

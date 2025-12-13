@@ -1,10 +1,13 @@
-import { CanActivateFn, Router } from '@angular/router';
-import {getKeycloak} from "./keycloak-init";
+import {CanActivateFn, Router} from '@angular/router';
+import { getKeycloak } from './keycloak-init';
+import {SessionService} from "./session-service";
+import {inject} from "@angular/core";
 
 
 export const roleRedirectGuard: CanActivateFn = (route, state) => {
   const kc = getKeycloak();
-  const router = new Router();
+  const router = inject(Router);
+  const sessionService = inject(SessionService);
 
   if (!kc.authenticated) {
     kc.login();
@@ -15,6 +18,12 @@ export const roleRedirectGuard: CanActivateFn = (route, state) => {
     ...kc.realmAccess?.roles || [],
     ...Object.values(kc.resourceAccess?.[kc.clientId || 'angular-frontend']?.roles || [])
   ];
+
+  const username = kc.profile?.username;
+  const email = kc.profile?.email;
+  if (username && email) {
+    sessionService.saveSession(username, email);
+  }
 
   if (roles.includes('admin')) {
     router.navigate(['/admin']);

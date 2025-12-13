@@ -20,14 +20,16 @@ import {KeycloakService} from "../shared/keycloak.service";
 })
 export class AdminComponent {
 
+  constructor(private keycloak:KeycloakService) {
+
+  }
+
 
   logout() {
       this.keycloak.logout();
   }
 
-  constructor(private keycloak:KeycloakService) {
 
-  }
 
 
 

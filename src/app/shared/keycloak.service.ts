@@ -12,7 +12,7 @@ export class KeycloakService {
   constructor(private sessionService: SessionService) {}
 
 
-  isLoggedIn(): boolean {
+  async isLoggedIn(): Promise<boolean> {
     return !!getKeycloak().authenticated;
   }
 
@@ -22,13 +22,12 @@ export class KeycloakService {
   }
 
   logout(): void {
+
     getKeycloak().logout();
   }
 
   async loadUserProfile(): Promise<KeycloakProfile> {
-    const profile = await getKeycloak().loadUserProfile();
-    this.sessionService.saveSession(profile.username!, profile.email!);
-    return profile;
+    return  await getKeycloak().loadUserProfile();
   }
 
   getRoles(): string[] {

@@ -29,7 +29,7 @@ export class DeleteAccountDialog implements OnInit{
   constructor(private dialogRef: MatDialogRef<DeleteAccountDialog>, private userManage: UserManage, private keycloakService: KeycloakService) {}
 
   async ngOnInit() {
-    this.isLoggedIn = this.keycloakService.isLoggedIn();
+    this.isLoggedIn = await this.keycloakService.isLoggedIn();
     if(this.isLoggedIn){
       this.id = (await this.keycloakService.loadUserProfile()).id;
       this.roles = this.keycloakService.getRoles();

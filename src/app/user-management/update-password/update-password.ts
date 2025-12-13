@@ -50,7 +50,7 @@ export class UpdatePassword implements OnInit{
   }
 
   async ngOnInit() {
-    this.isLoggedIn = this.keycloakService.isLoggedIn();
+    this.isLoggedIn = await this.keycloakService.isLoggedIn();
     this.email = (await this.keycloakService.loadUserProfile()).email;
     this.id = (await this.keycloakService.loadUserProfile()).id;
     this.roles = this.keycloakService.getRoles();
