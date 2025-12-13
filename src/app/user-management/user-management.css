@@ -5,6 +5,7 @@
   background: linear-gradient(135deg, #f9fafb, #ffffff);
   animation-name: fadeIn;
   animation-duration: 0.5s;
+
 }
 
 .custom-tab-group {
@@ -12,6 +13,7 @@
   background: #ffffff;
   border-radius: 50px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  height: 800px;
 }
 
 ::ng-deep .mat-mdc-tab-labels {
