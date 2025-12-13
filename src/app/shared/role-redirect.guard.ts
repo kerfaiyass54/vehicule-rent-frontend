@@ -21,9 +21,9 @@ export const roleRedirectGuard: CanActivateFn = (route, state) => {
 
   const username = kc.profile?.username;
   const email = kc.profile?.email;
-  if (username && email) {
-    sessionService.saveSession(username, email);
-  }
+
+
+
 
   if (roles.includes('admin')) {
     router.navigate(['/admin']);

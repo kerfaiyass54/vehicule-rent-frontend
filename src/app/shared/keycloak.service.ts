@@ -22,7 +22,7 @@ export class KeycloakService {
   }
 
   logout(): void {
-
+    this.sessionService.saveSession(getKeycloak().profile?.username, getKeycloak().profile?.email);
     getKeycloak().logout();
   }
 
