@@ -10,8 +10,8 @@ export class SessionService {
 
   constructor(private http: HttpClient) {}
 
-  saveSession(username: any, email: any) {
-    return this.http.post(`${this.api}save`, { username, email }).subscribe();
+  saveSession() {
+    return this.http.post(`${this.api}save`, {}).subscribe();
   }
 
   getSessions() {

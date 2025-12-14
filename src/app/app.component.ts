@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {SessionService} from "./shared/session-service";
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,16 @@ import { HttpClientModule} from "@angular/common/http";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   title = 'vehicule-rent-front';
 
+  constructor(private http: HttpClient, private sessionService:SessionService) {
+  }
 
+  ngOnInit() {
+    this.sessionService.saveSession();
+  }
 
 
 }
