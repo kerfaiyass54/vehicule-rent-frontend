@@ -10,8 +10,3 @@ table {
 th.mat-sort-header-sorted {
   color: black;
 }
-
-.example-container {
-  height: 400px;
-  overflow: auto;
-}

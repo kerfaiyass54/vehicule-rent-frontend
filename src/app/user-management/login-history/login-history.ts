@@ -76,7 +76,7 @@ export class LoginHistory implements OnInit, AfterViewInit{
     this.email = (await this.keycloakService.loadUserProfile()).email;
     this.sessionService.getSessionsByEmail(this.email).subscribe(
       (data)=>{
-        this.sessions = data;
+        this.dataSource.data = data;
         console.log(data);
       }
     )
