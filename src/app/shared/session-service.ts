@@ -15,15 +15,15 @@ export class SessionService {
   }
 
   getSessions() {
-    return this.http.get(`${this.api}`);
+    return this.http.get<any[]>(`${this.api}`);
   }
 
   getSessionsByDate(date: any) {
-    return this.http.get(`${this.api}`+ date);
+    return this.http.get<any[]>(`${this.api}`+ date);
   }
 
   getSessionsByEmail(email: any) {
-    return this.http.get(`${this.api}` + email);
+    return this.http.get<any[]>(`${this.api}` + email);
   }
 
 

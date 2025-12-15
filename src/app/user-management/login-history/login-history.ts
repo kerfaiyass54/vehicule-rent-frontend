@@ -14,6 +14,8 @@ import {MatPaginator} from "@angular/material/paginator";
 import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray} from "@angular/cdk/drag-drop";
 import {MatSort, MatSortHeader, Sort} from "@angular/material/sort";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
+import {SessionService} from "../../shared/session-service";
+import {KeycloakService} from "../../shared/keycloak.service";
 
 @Component({
   selector: 'app-login-history',
@@ -44,12 +46,13 @@ import {LiveAnnouncer} from "@angular/cdk/a11y";
 })
 export class LoginHistory implements OnInit, AfterViewInit{
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['id', 'name', 'time'];
   sessions: any[] = [];
   dataSource = new MatTableDataSource(this.sessions);
   private _liveAnnouncer = inject(LiveAnnouncer);
   @ViewChild(MatSort)
   sort: MatSort = new MatSort;
+  email: any;
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
@@ -64,11 +67,19 @@ export class LoginHistory implements OnInit, AfterViewInit{
     }
   }
 
-  constructor() {
+  constructor(private sessionService: SessionService,private keycloakService: KeycloakService) {
+
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.dataSource.sort = this.sort;
+    this.email = (await this.keycloakService.loadUserProfile()).email;
+    this.sessionService.getSessionsByEmail(this.email).subscribe(
+      (data)=>{
+        this.sessions = data;
+        console.log(data);
+      }
+    )
   }
 
   applyFilter(event: Event) {
