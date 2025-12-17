@@ -72,6 +72,9 @@ import {LoadingPageComponent} from "./loading-page/loading-page.component";
 import {roleGuard} from "./shared/role.guard";
 import {authGuard} from "./shared/auth.guard";
 import {roleRedirectGuard} from "./shared/role-redirect.guard";
+import {RepairHome} from "./repair/repair-home/repair-home";
+import {SupplierHome} from "./supplier/supplier-home/supplier-home";
+import {ClientHome} from "./client/client-home/client-home";
 
 
 
@@ -91,6 +94,12 @@ export const routes: Routes = [
     title:"Client Dashboard",
     canActivate: [roleGuard,authGuard], data: { roles: ['client'] },
     children:[
+      {
+        path: '',component: ClientHome
+      },
+      {
+        path: 'home',component: ClientHome
+      },
       {
         path: 'update-budget/:id',component:UpdateBudgetComponent
       },
@@ -198,6 +207,11 @@ export const routes: Routes = [
     title:'Supplier Dashboard',
     children:[
       {
+        path: '', component: SupplierHome
+      },{
+        path: 'home', component: SupplierHome
+      },
+      {
         path: 'update-adress/:id',component:UpdateAdressComponent
       },
       {
@@ -250,6 +264,11 @@ export const routes: Routes = [
     title:'Repair Dashboard',
     children:[
       {
+        path: '', component: RepairHome
+      },{
+      path: 'homr', component: RepairHome
+      },
+      {
         path: 'update/:id',component:UpdateDemandComponent
       },
       {
@@ -278,6 +297,9 @@ export const routes: Routes = [
         path: 'consult/:id', component:ConsultRepairComponent
       },{
         path: 'launch/:id',component:LaunchRepairComponent
+      },
+      {
+        path: '', component: RepairHome
       }
     ]
   },
