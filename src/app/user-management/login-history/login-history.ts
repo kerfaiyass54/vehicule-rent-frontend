@@ -16,6 +16,7 @@ import {MatSort, MatSortHeader, Sort} from "@angular/material/sort";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {SessionService} from "../../shared/session-service";
 import {KeycloakService} from "../../shared/keycloak.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-login-history',
@@ -47,16 +48,18 @@ import {KeycloakService} from "../../shared/keycloak.service";
 export class LoginHistory implements OnInit, AfterViewInit{
 
   displayedColumns: string[] = ['id', 'name', 'time'];
-  sessions: any[] = [];
-  dataSource = new MatTableDataSource(this.sessions);
+  dataSource = new MatTableDataSource<any>([]);
   private _liveAnnouncer = inject(LiveAnnouncer);
-  @ViewChild(MatSort)
-  sort: MatSort = new MatSort;
+  totalElements = 0;
+  pageSize = 5;
+  pageIndex = 0;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   email: any;
 
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-  }
+    this.dataSource.sort = this.sort;}
 
   /** Announce the change in sort state for assistive technology. */
   announceSortChange(sortState: Sort) {
@@ -67,19 +70,21 @@ export class LoginHistory implements OnInit, AfterViewInit{
     }
   }
 
-  constructor(private sessionService: SessionService,private keycloakService: KeycloakService) {
+  constructor(private toastrService: ToastrService,private sessionService: SessionService,private keycloakService: KeycloakService) {
 
   }
 
   async ngOnInit() {
     this.dataSource.sort = this.sort;
     this.email = (await this.keycloakService.loadUserProfile()).email;
-    this.sessionService.getSessionsByEmail(this.email).subscribe(
-      (data)=>{
-        this.dataSource.data = data;
-        console.log(data);
-      }
-    )
+    this.sessionService.getLoginSessions(0,this.pageSize,this.email).subscribe({
+      next: (data)=>{
+        this.dataSource.data = data.content;this.totalElements = data.totalElements;
+        console.log(this.dataSource.data);
+      },
+      error: (err) => this.toastrService.error("There is an expected error! Try again later","ERROR")
+    });
+
   }
 
   applyFilter(event: Event) {
@@ -89,6 +94,21 @@ export class LoginHistory implements OnInit, AfterViewInit{
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.displayedColumns, event.previousIndex, event.currentIndex);
+  }
+
+  loadSessions(page: number = 0, size: number = this.pageSize){
+    this.sessionService.getLoginSessions(page,size,this.email).subscribe({
+      next: (data)=>{
+        this.dataSource.data = data.content;this.totalElements = data.totalElements;
+    },
+      error: (err) => this.toastrService.error("There is an expected error! Try again later","ERROR")
+  });
+  }
+
+  onPageChange(event: any): void {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+   this.loadSessions(this.pageIndex, this.pageSize);
   }
 
 
