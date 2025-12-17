@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+import {NavBar} from "../UIs/nav-bar/nav-bar";
+import {RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-repair',
   standalone: true,
-  imports: [],
+  imports: [
+    NavBar,
+    RouterOutlet
+  ],
   templateUrl: './repair.component.html',
   styleUrl: './repair.component.css'
 })
