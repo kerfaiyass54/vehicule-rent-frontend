@@ -10,12 +10,9 @@ import {NavBar} from "../UIs/nav-bar/nav-bar";
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-
     RouterOutlet,
     RouterLink,
     NavBar
-
-
   ],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
