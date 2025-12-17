@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MatList, MatListItem} from "@angular/material/list";
 import {MatDivider} from "@angular/material/divider";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
@@ -12,6 +12,22 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {KeycloakService} from "../../shared/keycloak.service";
 import {UpdatePassword} from "../update-password/update-password";
 import {DeleteAccountDialog} from "../delete-account-dialog/delete-account-dialog";
+import {
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexXAxis,
+  ApexStroke,
+  ApexTitleSubtitle,
+  NgApexchartsModule
+} from 'ng-apexcharts';
+
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  stroke: ApexStroke;
+  title: ApexTitleSubtitle;
+};
 
 
 @Component({
@@ -29,7 +45,8 @@ import {DeleteAccountDialog} from "../delete-account-dialog/delete-account-dialo
     MatFabButton,
     RouterLink,
     MatDialogModule,
-    MatButton
+    MatButton,
+    NgApexchartsModule
   ],
   standalone: true,
   templateUrl: './account-info.html',
@@ -42,6 +59,35 @@ export class AccountInfo implements OnInit{
   password: string = '';
   role = '';
   id: any;
+  @Input() sessionsTotal = 0;
+  @Input() days: any[] = [];
+  @Input() count:any[] = [];
+  chartOptions: ChartOptions = {
+    series: [
+      {
+        name: 'Connections',
+        data: []
+      }
+    ],
+    chart: {
+      type: 'line',
+      height: 350
+    },
+    xaxis: {
+      categories: []
+    },
+    stroke: {
+      curve: 'smooth'
+    },
+    title: {
+      text: 'Connections - Last 5 Days'
+    }
+  };
+
+  ngOnChanges(): void {
+    this.chartOptions.series[0].data = this.count;
+    this.chartOptions.xaxis.categories = this.days;
+  }
 
   constructor(private keycloakService: KeycloakService,private dialog: MatDialog) {
   }
@@ -59,6 +105,30 @@ export class AccountInfo implements OnInit{
       if (this.roles.includes('supplier')) this.role='You are a supplier';
       if (this.roles.includes('repairer')) this.role='You are a repairer';
     }
+    this.chartOptions.series[0].data = this.count;
+    this.chartOptions.xaxis.categories = this.days;
+
+    this.chartOptions = {
+      series: [
+        {
+          name: 'Connections',
+          data: this.count
+        }
+      ],
+      chart: {
+        type: 'line',
+        height: 350
+      },
+      xaxis: {
+        categories: this.days
+      },
+      stroke: {
+        curve: 'smooth'
+      },
+      title: {
+        text: 'Connections - Last 5 Days'
+      }
+    };
 
   }
 

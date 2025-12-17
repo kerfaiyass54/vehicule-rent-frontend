@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, inject, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, inject, OnInit, Output, ViewChild} from '@angular/core';
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {
   MatCell,
@@ -46,7 +46,7 @@ import {ToastrService} from "ngx-toastr";
   styleUrl: './login-history.css'
 })
 export class LoginHistory implements OnInit, AfterViewInit{
-
+  sessions:any[] = [];
   displayedColumns: string[] = ['id', 'name', 'time'];
   dataSource = new MatTableDataSource<any>([]);
   private _liveAnnouncer = inject(LiveAnnouncer);
@@ -55,6 +55,7 @@ export class LoginHistory implements OnInit, AfterViewInit{
   pageIndex = 0;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @Output() sentSessions = new EventEmitter<any[]>();
 
   email: any;
 
@@ -84,7 +85,12 @@ export class LoginHistory implements OnInit, AfterViewInit{
       },
       error: (err) => this.toastrService.error("There is an expected error! Try again later","ERROR")
     });
-
+    this.sessionService.getSessionsByEmail(this.email).subscribe(
+      (sessions)=>{
+        this.sessions = sessions;
+        this.sentSessions.emit(this.sessions);
+      }
+    );
   }
 
   applyFilter(event: Event) {

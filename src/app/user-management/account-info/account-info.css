@@ -5,6 +5,10 @@
   border-radius: 15px;
 }
 
+.container{
+  margin-top: 40px;
+}
+
 
 .info:hover{
   background-color: #0f2f40;
