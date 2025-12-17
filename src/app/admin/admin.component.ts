@@ -26,8 +26,6 @@ export class AdminComponent {
         {link: '/admin/repair', name: 'Repairs'},
         {link: '/admin/supplier', name: 'Suppliers'},
       ]},
-    {route: '/admin/dashboard', name: 'Dashboard', drop: false, sublinks :[
-      ]},
     {route: '/admin/location', name: 'Locations', drop: false, sublinks : [
       ]},
   ]
