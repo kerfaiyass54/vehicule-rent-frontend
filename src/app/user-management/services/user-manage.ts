@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {PaginatedResponse} from "../../models/paginatedResponse";
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,8 @@ export class UserManage {
   updateUser(userId: any, updateUser: any){
     return this.http.put<any>(this.baseUrlKeycloak + "user/" + userId + "/update", updateUser);
   }
+
+
 
 
 
