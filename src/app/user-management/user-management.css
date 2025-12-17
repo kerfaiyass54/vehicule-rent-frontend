@@ -5,7 +5,7 @@
   background: linear-gradient(135deg, #f9fafb, #ffffff);
   animation-name: fadeIn;
   animation-duration: 0.5s;
-
+  overflow: auto;
 }
 
 .custom-tab-group {
@@ -36,7 +36,7 @@
 }
 
 .tab-content {
-  padding: 70px;
+  padding: 20px;
   font-size: 1.1rem;
   color: #444;
   animation-name: fadeIn;
@@ -44,6 +44,7 @@
   position: relative;
   width: 100%;
   height: auto;
+  overflow: auto;
 }
 
 
