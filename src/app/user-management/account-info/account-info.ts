@@ -74,6 +74,7 @@ export class AccountInfo implements OnInit{
       height: 350
     },
     xaxis: {
+      type: 'category',
       categories: []
     },
     stroke: {
@@ -84,9 +85,16 @@ export class AccountInfo implements OnInit{
     }
   };
 
+
   ngOnChanges(): void {
-    this.chartOptions.series[0].data = this.count;
-    this.chartOptions.xaxis.categories = this.days;
+    this.chartOptions.series = [
+      { name: 'Connections', data: this.count }
+    ];
+
+    this.chartOptions.xaxis = {
+      type: 'category',
+      categories: this.days
+    };
   }
 
   constructor(private keycloakService: KeycloakService,private dialog: MatDialog) {
@@ -105,30 +113,15 @@ export class AccountInfo implements OnInit{
       if (this.roles.includes('supplier')) this.role='You are a supplier';
       if (this.roles.includes('repairer')) this.role='You are a repairer';
     }
-    this.chartOptions.series[0].data = this.count;
-    this.chartOptions.xaxis.categories = this.days;
+    this.chartOptions.series = [
+      { name: 'Connections', data: this.count }
+    ];
 
-    this.chartOptions = {
-      series: [
-        {
-          name: 'Connections',
-          data: this.count
-        }
-      ],
-      chart: {
-        type: 'line',
-        height: 350
-      },
-      xaxis: {
-        categories: this.days
-      },
-      stroke: {
-        curve: 'smooth'
-      },
-      title: {
-        text: 'Connections - Last 5 Days'
-      }
+    this.chartOptions.xaxis = {
+      type: 'category',
+      categories: this.days
     };
+
 
   }
 
