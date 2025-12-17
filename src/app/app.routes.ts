@@ -266,7 +266,7 @@ export const routes: Routes = [
       {
         path: '', component: RepairHome
       },{
-      path: 'homr', component: RepairHome
+      path: 'home', component: RepairHome
       },
       {
         path: 'update/:id',component:UpdateDemandComponent
