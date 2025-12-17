@@ -32,16 +32,6 @@ export class AdminComponent {
       ]},
   ]
 
-  constructor(private keycloak:KeycloakService) {
-
-  }
-
-
-  logout() {
-      this.keycloak.logout();
-  }
-
-
 
 
 
