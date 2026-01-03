@@ -104,6 +104,7 @@ export class AccountInfo implements OnInit{
     this.isLoggedIn = await this.keycloakService.isLoggedIn();
 
     if (this.isLoggedIn) {
+      console.log(this.keycloakService.getToken());
       this.userInfo = await this.keycloakService.loadUserProfile();
       this.id = this.userInfo.id;
       console.log(this.userInfo);

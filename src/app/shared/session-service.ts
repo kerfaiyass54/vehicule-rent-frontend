@@ -18,12 +18,12 @@ export class SessionService {
     return this.http.get<any[]>(`${this.api}`);
   }
 
-  getSessionsByDate(date: any) {
-    return this.http.get<any[]>(`${this.api}`+ date);
+  getSessionsByDate(date: string, id: string) {
+    return this.http.get<any[]>(`${this.api}by-date/${date}/${id}`);
   }
 
-  getSessionsByEmail(email: any) {
-    return this.http.get<any[]>(`${this.api}` + email);
+  getSessionsByEmail(email: string) {
+    return this.http.get<any[]>(`${this.api}by-email/${email}`);
   }
 
   getLoginSessions(page: number = 0,  size: number = 5, email: string){
