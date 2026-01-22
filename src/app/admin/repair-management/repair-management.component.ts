@@ -5,15 +5,14 @@ import {Router, RouterLink} from "@angular/router";
 import {RepairServiceAdminService} from "../Services/repair-service-admin.service";
 
 @Component({
-  selector: 'app-repair-management',
-  standalone: true,
-  imports: [
-    NavBarAdminComponent,
-    NgForOf,
-    RouterLink
-  ],
-  templateUrl: './repair-management.component.html',
-  styleUrl: './repair-management.component.css'
+    selector: 'app-repair-management',
+    imports: [
+        NavBarAdminComponent,
+        NgForOf,
+        RouterLink
+    ],
+    templateUrl: './repair-management.component.html',
+    styleUrl: './repair-management.component.css'
 })
 export class RepairManagementComponent implements OnInit{
   listRepairs: any[] = []

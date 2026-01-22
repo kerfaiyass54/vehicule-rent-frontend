@@ -3,14 +3,13 @@ import {NavBar} from "../UIs/nav-bar/nav-bar";
 import {RouterOutlet} from "@angular/router";
 
 @Component({
-  selector: 'app-client',
-  standalone: true,
-  imports: [
-    NavBar,
-    RouterOutlet
-  ],
-  templateUrl: './client.component.html',
-  styleUrl: './client.component.css'
+    selector: 'app-client',
+    imports: [
+        NavBar,
+        RouterOutlet
+    ],
+    templateUrl: './client.component.html',
+    styleUrl: './client.component.css'
 })
 export class ClientComponent {
 

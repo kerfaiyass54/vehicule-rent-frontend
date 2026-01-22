@@ -31,26 +31,25 @@ export type ChartOptions = {
 
 
 @Component({
-  selector: 'app-account-info',
-  imports: [
-    MatList,
-    MatListItem,
-    MatDivider,
-    MatFormField,
-    MatLabel,
-    FormsModule,
-    MatIcon,
-    MatInput,
-    MatIconButton,
-    MatFabButton,
-    RouterLink,
-    MatDialogModule,
-    MatButton,
-    NgApexchartsModule
-  ],
-  standalone: true,
-  templateUrl: './account-info.html',
-  styleUrl: './account-info.css'
+    selector: 'app-account-info',
+    imports: [
+        MatList,
+        MatListItem,
+        MatDivider,
+        MatFormField,
+        MatLabel,
+        FormsModule,
+        MatIcon,
+        MatInput,
+        MatIconButton,
+        MatFabButton,
+        RouterLink,
+        MatDialogModule,
+        MatButton,
+        NgApexchartsModule
+    ],
+    templateUrl: './account-info.html',
+    styleUrl: './account-info.css'
 })
 export class AccountInfo implements OnInit{
   isLoggedIn = false;

@@ -7,16 +7,15 @@ import {ToastrService} from "ngx-toastr";
 import {update} from "@angular-devkit/build-angular/src/tools/esbuild/angular/compilation/parallel-worker";
 
 @Component({
-  selector: 'app-update-supplier',
-  standalone: true,
+    selector: 'app-update-supplier',
     imports: [
         FormsModule,
         NgIf,
         ReactiveFormsModule,
         RouterLink
     ],
-  templateUrl: './update-supplier.component.html',
-  styleUrl: './update-supplier.component.css'
+    templateUrl: './update-supplier.component.html',
+    styleUrl: './update-supplier.component.css'
 })
 export class UpdateSupplierComponent implements OnInit{
   newSupplierForm: FormGroup;

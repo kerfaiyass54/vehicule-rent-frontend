@@ -6,15 +6,14 @@ import {NgIf} from "@angular/common";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
-  selector: 'app-add-location',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    RouterLink,
-    NgIf
-  ],
-  templateUrl: './add-location.component.html',
-  styleUrl: './add-location.component.css'
+    selector: 'app-add-location',
+    imports: [
+        ReactiveFormsModule,
+        RouterLink,
+        NgIf
+    ],
+    templateUrl: './add-location.component.html',
+    styleUrl: './add-location.component.css'
 })
 export class AddLocationComponent {
   newLocationForm: FormGroup;

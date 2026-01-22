@@ -3,11 +3,10 @@ import {SessionService} from "../shared/session-service";
 
 
 @Component({
-  selector: 'app-loading-page',
-  standalone: true,
-  imports: [],
-  templateUrl: './loading-page.component.html',
-  styleUrl: './loading-page.component.css'
+    selector: 'app-loading-page',
+    imports: [],
+    templateUrl: './loading-page.component.html',
+    styleUrl: './loading-page.component.css'
 })
 export class LoadingPageComponent implements OnInit{
 

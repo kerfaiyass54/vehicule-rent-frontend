@@ -7,16 +7,15 @@ import {LocationServiceAdminService} from "../../Services/location-service-admin
 import {ToastrService} from "ngx-toastr";
 
 @Component({
-  selector: 'app-update-client',
-  standalone: true,
-  imports: [
-    NgForOf,
-    NgIf,
-    ReactiveFormsModule,
-    RouterLink
-  ],
-  templateUrl: './update-client.component.html',
-  styleUrl: './update-client.component.css'
+    selector: 'app-update-client',
+    imports: [
+        NgForOf,
+        NgIf,
+        ReactiveFormsModule,
+        RouterLink
+    ],
+    templateUrl: './update-client.component.html',
+    styleUrl: './update-client.component.css'
 })
 export class UpdateClientComponent implements OnInit{
   updateClientForm: FormGroup;

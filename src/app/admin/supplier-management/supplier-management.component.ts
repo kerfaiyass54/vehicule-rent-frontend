@@ -5,14 +5,13 @@ import {SupplierServiceAdminService} from "../Services/supplier-service-admin.se
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-supplier-management',
-  standalone: true,
-  imports: [
-    NavBarAdminComponent,
-    NgForOf
-  ],
-  templateUrl: './supplier-management.component.html',
-  styleUrl: './supplier-management.component.css'
+    selector: 'app-supplier-management',
+    imports: [
+        NavBarAdminComponent,
+        NgForOf
+    ],
+    templateUrl: './supplier-management.component.html',
+    styleUrl: './supplier-management.component.css'
 })
 export class SupplierManagementComponent implements OnInit{
   listSuppliers: any[] = [];

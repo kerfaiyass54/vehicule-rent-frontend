@@ -6,16 +6,15 @@ import {NavBar} from "../UIs/nav-bar/nav-bar";
 
 
 @Component({
-  selector: 'app-admin',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    RouterOutlet,
-    RouterLink,
-    NavBar
-  ],
-  templateUrl: './admin.component.html',
-  styleUrl: './admin.component.css'
+    selector: 'app-admin',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        RouterOutlet,
+        RouterLink,
+        NavBar
+    ],
+    templateUrl: './admin.component.html',
+    styleUrl: './admin.component.css'
 })
 export class AdminComponent {
 

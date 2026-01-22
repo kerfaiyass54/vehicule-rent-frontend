@@ -9,29 +9,28 @@ import {ToastrService} from "ngx-toastr";
 import { trigger, style, animate, transition, state } from '@angular/animations';
 
 @Component({
-  selector: 'app-add-client',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    NgIf,
-    
-// TODO: `HttpClientModule` should not be imported into a component directly.
-// Please refactor the code to add `provideHttpClient()` call to the provider list in the
-// application bootstrap logic and remove the `HttpClientModule` import from this component.
-HttpClientModule, NgForOf, NgClass],
-  templateUrl: './add-client.component.html',
-  styleUrl: './add-client.component.css',
-  animations: [
-    trigger('fadeSlide', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(20px)' }),
-        animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0)' })),
-      ]),
-      transition(':leave', [
-        animate('300ms ease-in', style({ opacity: 0, transform: 'translateY(-20px)' })),
-      ]),
-    ]),
-  ],
+    selector: 'app-add-client',
+    imports: [
+        ReactiveFormsModule,
+        NgIf,
+        // TODO: `HttpClientModule` should not be imported into a component directly.
+        // Please refactor the code to add `provideHttpClient()` call to the provider list in the
+        // application bootstrap logic and remove the `HttpClientModule` import from this component.
+        HttpClientModule, NgForOf, NgClass
+    ],
+    templateUrl: './add-client.component.html',
+    styleUrl: './add-client.component.css',
+    animations: [
+        trigger('fadeSlide', [
+            transition(':enter', [
+                style({ opacity: 0, transform: 'translateY(20px)' }),
+                animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0)' })),
+            ]),
+            transition(':leave', [
+                animate('300ms ease-in', style({ opacity: 0, transform: 'translateY(-20px)' })),
+            ]),
+        ]),
+    ]
 })
 export class AddClientComponent implements OnInit{
 

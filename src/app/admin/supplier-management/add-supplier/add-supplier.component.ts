@@ -8,17 +8,16 @@ import {SupplierServiceAdminService} from "../../Services/supplier-service-admin
 import {ToastrService} from "ngx-toastr";
 
 @Component({
-  selector: 'app-add-supplier',
-  standalone: true,
-  imports: [
-    FormsModule,
-    NgForOf,
-    NgIf,
-    ReactiveFormsModule,
-    RouterLink
-  ],
-  templateUrl: './add-supplier.component.html',
-  styleUrl: './add-supplier.component.css'
+    selector: 'app-add-supplier',
+    imports: [
+        FormsModule,
+        NgForOf,
+        NgIf,
+        ReactiveFormsModule,
+        RouterLink
+    ],
+    templateUrl: './add-supplier.component.html',
+    styleUrl: './add-supplier.component.css'
 })
 export class AddSupplierComponent implements OnInit{
   newSupplierForm: FormGroup;

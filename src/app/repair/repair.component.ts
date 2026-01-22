@@ -3,14 +3,13 @@ import {NavBar} from "../UIs/nav-bar/nav-bar";
 import {RouterOutlet} from "@angular/router";
 
 @Component({
-  selector: 'app-repair',
-  standalone: true,
-  imports: [
-    NavBar,
-    RouterOutlet
-  ],
-  templateUrl: './repair.component.html',
-  styleUrl: './repair.component.css'
+    selector: 'app-repair',
+    imports: [
+        NavBar,
+        RouterOutlet
+    ],
+    templateUrl: './repair.component.html',
+    styleUrl: './repair.component.css'
 })
 export class RepairComponent {
 

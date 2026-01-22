@@ -4,14 +4,13 @@ import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
 
 @Component({
-  selector: 'app-location-details',
-  standalone: true,
-  imports: [
-    NgForOf,
-    RouterLink
-  ],
-  templateUrl: './location-details.component.html',
-  styleUrl: './location-details.component.css'
+    selector: 'app-location-details',
+    imports: [
+        NgForOf,
+        RouterLink
+    ],
+    templateUrl: './location-details.component.html',
+    styleUrl: './location-details.component.css'
 })
 export class LocationDetailsComponent implements OnInit{
 

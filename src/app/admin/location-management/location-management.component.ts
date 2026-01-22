@@ -5,15 +5,14 @@ import {Route, Router, RouterLink} from "@angular/router";
 import {LocationServiceAdminService} from "../Services/location-service-admin.service";
 
 @Component({
-  selector: 'app-location-management',
-  standalone: true,
-  imports: [
-    NavBarAdminComponent,
-    NgForOf,
-    RouterLink
-  ],
-  templateUrl: './location-management.component.html',
-  styleUrl: './location-management.component.css'
+    selector: 'app-location-management',
+    imports: [
+        NavBarAdminComponent,
+        NgForOf,
+        RouterLink
+    ],
+    templateUrl: './location-management.component.html',
+    styleUrl: './location-management.component.css'
 })
 export class LocationManagementComponent implements OnInit{
 

@@ -11,21 +11,20 @@ import {getKeycloak} from "../../shared/keycloak-init";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
-  selector: 'app-update-user',
-  imports: [
-    MatDialogContent,
-    MatDialogActions,
-    MatDialogClose,
-    MatDialogTitle,
-    MatButtonModule,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    ReactiveFormsModule
-  ],
-  standalone: true,
-  templateUrl: './update-user.html',
-  styleUrl: './update-user.css'
+    selector: 'app-update-user',
+    imports: [
+        MatDialogContent,
+        MatDialogActions,
+        MatDialogClose,
+        MatDialogTitle,
+        MatButtonModule,
+        MatFormField,
+        MatInput,
+        MatLabel,
+        ReactiveFormsModule
+    ],
+    templateUrl: './update-user.html',
+    styleUrl: './update-user.css'
 })
 export class UpdateUser implements OnInit{
 

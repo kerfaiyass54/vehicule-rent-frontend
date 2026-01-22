@@ -4,16 +4,15 @@ import {AccountInfo} from "./account-info/account-info";
 import {LoginHistory} from "./login-history/login-history";
 
 @Component({
-  selector: 'app-user-management',
-  imports: [
-    MatTabGroup,
-    MatTab,
-    AccountInfo,
-    LoginHistory
-  ],
-  standalone: true,
-  templateUrl: './user-management.html',
-  styleUrl: './user-management.css'
+    selector: 'app-user-management',
+    imports: [
+        MatTabGroup,
+        MatTab,
+        AccountInfo,
+        LoginHistory
+    ],
+    templateUrl: './user-management.html',
+    styleUrl: './user-management.css'
 })
 export class UserManagement implements OnInit{
   sessions: any[] = [];

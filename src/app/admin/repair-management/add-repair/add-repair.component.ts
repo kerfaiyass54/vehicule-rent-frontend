@@ -8,8 +8,7 @@ import {RepairServiceAdminService} from "../../Services/repair-service-admin.ser
 import {ToastrService} from "ngx-toastr";
 
 @Component({
-  selector: 'app-add-repair',
-  standalone: true,
+    selector: 'app-add-repair',
     imports: [
         FormsModule,
         NgForOf,
@@ -17,8 +16,8 @@ import {ToastrService} from "ngx-toastr";
         ReactiveFormsModule,
         RouterLink
     ],
-  templateUrl: './add-repair.component.html',
-  styleUrl: './add-repair.component.css'
+    templateUrl: './add-repair.component.html',
+    styleUrl: './add-repair.component.css'
 })
 export class AddRepairComponent implements OnInit{
   newRepairForm: FormGroup;

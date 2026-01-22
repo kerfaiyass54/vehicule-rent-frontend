@@ -5,13 +5,12 @@ import {KeycloakService} from "../shared/keycloak.service";
 
 
 @Component({
-  selector: 'app-error-page',
-  standalone: true,
-  imports: [
-    RouterLink
-  ],
-  templateUrl: './error-page.component.html',
-  styleUrl: './error-page.component.css'
+    selector: 'app-error-page',
+    imports: [
+        RouterLink
+    ],
+    templateUrl: './error-page.component.html',
+    styleUrl: './error-page.component.css'
 })
 export class ErrorPageComponent {
 

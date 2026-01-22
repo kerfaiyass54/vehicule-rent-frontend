@@ -3,14 +3,13 @@ import {NavBar} from "../UIs/nav-bar/nav-bar";
 import {RouterOutlet} from "@angular/router";
 
 @Component({
-  selector: 'app-supplier',
-  standalone: true,
-  imports: [
-    NavBar,
-    RouterOutlet
-  ],
-  templateUrl: './supplier.component.html',
-  styleUrl: './supplier.component.css'
+    selector: 'app-supplier',
+    imports: [
+        NavBar,
+        RouterOutlet
+    ],
+    templateUrl: './supplier.component.html',
+    styleUrl: './supplier.component.css'
 })
 export class SupplierComponent {
 

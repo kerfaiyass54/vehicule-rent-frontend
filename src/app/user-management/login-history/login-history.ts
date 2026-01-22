@@ -19,31 +19,30 @@ import {KeycloakService} from "../../shared/keycloak.service";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
-  selector: 'app-login-history',
-  imports: [
-    MatFormField,
-    MatLabel,
-    MatTable,
-    MatInput,
-    MatColumnDef,
-    MatHeaderCell,
-    MatCell,
-    MatHeaderRow,
-    MatHeaderCellDef,
-    MatCellDef,
-    MatHeaderRowDef,
-    MatRow,
-    MatRowDef,
-    MatNoDataRow,
-    MatPaginator,
-    CdkDrag,
-    CdkDropList,
-    MatSort,
-    MatSortHeader
-  ],
-  standalone: true,
-  templateUrl: './login-history.html',
-  styleUrl: './login-history.css'
+    selector: 'app-login-history',
+    imports: [
+        MatFormField,
+        MatLabel,
+        MatTable,
+        MatInput,
+        MatColumnDef,
+        MatHeaderCell,
+        MatCell,
+        MatHeaderRow,
+        MatHeaderCellDef,
+        MatCellDef,
+        MatHeaderRowDef,
+        MatRow,
+        MatRowDef,
+        MatNoDataRow,
+        MatPaginator,
+        CdkDrag,
+        CdkDropList,
+        MatSort,
+        MatSortHeader
+    ],
+    templateUrl: './login-history.html',
+    styleUrl: './login-history.css'
 })
 export class LoginHistory implements OnInit, AfterViewInit{
   sessions:any[] = [];

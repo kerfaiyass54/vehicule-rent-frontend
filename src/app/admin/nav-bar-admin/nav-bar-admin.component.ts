@@ -18,18 +18,17 @@ interface Language {
   flag: string;
 }
 @Component({
-  selector: 'app-nav-bar-admin',
-  standalone: true,
-  imports: [
-    LucideAngularModule,
-    NgClass,
-    NgForOf,
-    NgIf,
-    RouterLink,
-    FormsModule
-  ],
-  templateUrl: './nav-bar-admin.component.html',
-  styleUrl: './nav-bar-admin.component.css'
+    selector: 'app-nav-bar-admin',
+    imports: [
+        LucideAngularModule,
+        NgClass,
+        NgForOf,
+        NgIf,
+        RouterLink,
+        FormsModule
+    ],
+    templateUrl: './nav-bar-admin.component.html',
+    styleUrl: './nav-bar-admin.component.css'
 })
 export class NavBarAdminComponent {
   activeItem = 'Home';

@@ -4,15 +4,14 @@ import {KeycloakService} from "../../shared/keycloak.service";
 import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
-  selector: 'app-nav-bar',
-  imports: [
-    RouterLink,
-    NgForOf,
-    NgIf
-  ],
-  standalone: true,
-  templateUrl: './nav-bar.html',
-  styleUrl: './nav-bar.css'
+    selector: 'app-nav-bar',
+    imports: [
+        RouterLink,
+        NgForOf,
+        NgIf
+    ],
+    templateUrl: './nav-bar.html',
+    styleUrl: './nav-bar.css'
 })
 export class NavBar {
 

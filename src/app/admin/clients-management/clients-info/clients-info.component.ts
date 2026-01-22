@@ -13,20 +13,19 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 
 @Component({
-  selector: 'app-clients-info',
-  standalone: true,
-  imports: [
-    MatButtonModule,
-    MatExpansionModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDatepickerModule,
-  ],
-  templateUrl: './clients-info.component.html',
-  styleUrl: './clients-info.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideNativeDateAdapter()],
+    selector: 'app-clients-info',
+    imports: [
+        MatButtonModule,
+        MatExpansionModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+    ],
+    templateUrl: './clients-info.component.html',
+    styleUrl: './clients-info.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [provideNativeDateAdapter()]
 })
 export class ClientsInfoComponent implements  OnInit{
   client: Client | any | undefined;

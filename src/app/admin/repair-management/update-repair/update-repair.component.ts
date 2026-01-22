@@ -7,16 +7,15 @@ import {LocationServiceAdminService} from "../../Services/location-service-admin
 import {ToastrService} from "ngx-toastr";
 
 @Component({
-  selector: 'app-update-repair',
-  standalone: true,
+    selector: 'app-update-repair',
     imports: [
         NgForOf,
         NgIf,
         ReactiveFormsModule,
         RouterLink
     ],
-  templateUrl: './update-repair.component.html',
-  styleUrl: './update-repair.component.css'
+    templateUrl: './update-repair.component.html',
+    styleUrl: './update-repair.component.css'
 })
 export class UpdateRepairComponent implements OnInit {
   updateRepairForm:FormGroup;

@@ -18,30 +18,28 @@ import {Client} from "../../models/client";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
-  selector: 'app-clients-management',
-  standalone: true,
-  imports: [
-    
-// TODO: `HttpClientModule` should not be imported into a component directly.
-// Please refactor the code to add `provideHttpClient()` call to the provider list in the
-// application bootstrap logic and remove the `HttpClientModule` import from this component.
-HttpClientModule,
-    FormsModule,
-    MatTable,
-    MatHeaderCell,
-    MatCell,
-    MatHeaderRow,
-    MatRow,
-    MatPaginatorModule,
-    MatColumnDef,
-    MatHeaderCellDef,
-    MatCellDef,
-    MatHeaderRowDef,
-    MatRowDef,
-    RouterLink
-  ],
-  templateUrl: './clients-management.component.html',
-  styleUrl: './clients-management.component.css'
+    selector: 'app-clients-management',
+    imports: [
+        // TODO: `HttpClientModule` should not be imported into a component directly.
+        // Please refactor the code to add `provideHttpClient()` call to the provider list in the
+        // application bootstrap logic and remove the `HttpClientModule` import from this component.
+        HttpClientModule,
+        FormsModule,
+        MatTable,
+        MatHeaderCell,
+        MatCell,
+        MatHeaderRow,
+        MatRow,
+        MatPaginatorModule,
+        MatColumnDef,
+        MatHeaderCellDef,
+        MatCellDef,
+        MatHeaderRowDef,
+        MatRowDef,
+        RouterLink
+    ],
+    templateUrl: './clients-management.component.html',
+    styleUrl: './clients-management.component.css'
 })
 export class ClientsManagementComponent implements OnInit{
 

@@ -15,7 +15,7 @@ import {UserManage} from "../services/user-manage";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
-  selector: 'app-update-password',
+    selector: 'app-update-password',
     imports: [
         MatButton,
         MatDialogActions,
@@ -27,9 +27,8 @@ import {ToastrService} from "ngx-toastr";
         MatLabel,
         ReactiveFormsModule
     ],
-  standalone: true,
-  templateUrl: './update-password.html',
-  styleUrl: './update-password.css'
+    templateUrl: './update-password.html',
+    styleUrl: './update-password.css'
 })
 export class UpdatePassword implements OnInit{
 

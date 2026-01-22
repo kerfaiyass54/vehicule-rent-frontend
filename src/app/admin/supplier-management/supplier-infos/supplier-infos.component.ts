@@ -4,15 +4,14 @@ import {NgForOf, NgIf} from "@angular/common";
 import {SupplierServiceAdminService} from "../../Services/supplier-service-admin.service";
 
 @Component({
-  selector: 'app-supplier-infos',
-  standalone: true,
-  imports: [
-    RouterLink,
-    NgForOf,
-    NgIf
-  ],
-  templateUrl: './supplier-infos.component.html',
-  styleUrl: './supplier-infos.component.css'
+    selector: 'app-supplier-infos',
+    imports: [
+        RouterLink,
+        NgForOf,
+        NgIf
+    ],
+    templateUrl: './supplier-infos.component.html',
+    styleUrl: './supplier-infos.component.css'
 })
 export class SupplierInfosComponent implements OnInit{
   supplier:any;
