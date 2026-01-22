@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../Services/client-service-admin.service";
-import {HttpClientModule} from "@angular/common/http";
+import {} from "@angular/common/http";
 import {KeycloakService} from "../../shared/keycloak.service";
 import {FormsModule} from "@angular/forms";
 import {MatPaginator, MatPaginatorModule, PageEvent} from "@angular/material/paginator";
@@ -21,7 +21,11 @@ import {ToastrService} from "ngx-toastr";
   selector: 'app-clients-management',
   standalone: true,
   imports: [
-    HttpClientModule,
+    
+// TODO: `HttpClientModule` should not be imported into a component directly.
+// Please refactor the code to add `provideHttpClient()` call to the provider list in the
+// application bootstrap logic and remove the `HttpClientModule` import from this component.
+HttpClientModule,
     FormsModule,
     MatTable,
     MatHeaderCell,

@@ -3,7 +3,7 @@ import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} fr
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../../Services/client-service-admin.service";
-import {HttpClientModule} from "@angular/common/http";
+import {} from "@angular/common/http";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
 import {ToastrService} from "ngx-toastr";
 import { trigger, style, animate, transition, state } from '@angular/animations';
@@ -14,7 +14,11 @@ import { trigger, style, animate, transition, state } from '@angular/animations'
   imports: [
     ReactiveFormsModule,
     NgIf,
-    HttpClientModule, NgForOf, NgClass],
+    
+// TODO: `HttpClientModule` should not be imported into a component directly.
+// Please refactor the code to add `provideHttpClient()` call to the provider list in the
+// application bootstrap logic and remove the `HttpClientModule` import from this component.
+HttpClientModule, NgForOf, NgClass],
   templateUrl: './add-client.component.html',
   styleUrl: './add-client.component.css',
   animations: [

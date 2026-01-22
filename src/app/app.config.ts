@@ -2,7 +2,7 @@ import {APP_INITIALIZER, ApplicationConfig, importProvidersFrom} from '@angular/
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import {provideHttpClient, withInterceptors} from "@angular/common/http";
+import { provideHttpClient, withInterceptors } from "@angular/common/http";
 import {provideToastr} from "ngx-toastr";
 import {provideAnimations} from "@angular/platform-browser/animations";
 import {icons, LucideAngularModule} from "lucide-angular";
