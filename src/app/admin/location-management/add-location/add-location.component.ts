@@ -2,16 +2,15 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
 import {Router, RouterLink} from "@angular/router";
-import {NgIf} from "@angular/common";
+
 import {ToastrService} from "ngx-toastr";
 
 @Component({
     selector: 'app-add-location',
     imports: [
-        ReactiveFormsModule,
-        RouterLink,
-        NgIf
-    ],
+    ReactiveFormsModule,
+    RouterLink
+],
     templateUrl: './add-location.component.html',
     styleUrl: './add-location.component.css'
 })

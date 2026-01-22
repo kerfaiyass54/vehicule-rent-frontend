@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {NgForOf, NgIf} from "@angular/common";
+
 import {Router, RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../../Services/client-service-admin.service";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
@@ -10,12 +10,10 @@ import {ToastrService} from "ngx-toastr";
 @Component({
     selector: 'app-add-supplier',
     imports: [
-        FormsModule,
-        NgForOf,
-        NgIf,
-        ReactiveFormsModule,
-        RouterLink
-    ],
+    FormsModule,
+    ReactiveFormsModule,
+    RouterLink
+],
     templateUrl: './add-supplier.component.html',
     styleUrl: './add-supplier.component.css'
 })

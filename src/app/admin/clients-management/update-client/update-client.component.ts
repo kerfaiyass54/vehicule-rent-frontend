@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForOf, NgIf} from "@angular/common";
+
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../../Services/client-service-admin.service";
@@ -9,11 +9,9 @@ import {ToastrService} from "ngx-toastr";
 @Component({
     selector: 'app-update-client',
     imports: [
-        NgForOf,
-        NgIf,
-        ReactiveFormsModule,
-        RouterLink
-    ],
+    ReactiveFormsModule,
+    RouterLink
+],
     templateUrl: './update-client.component.html',
     styleUrl: './update-client.component.css'
 })

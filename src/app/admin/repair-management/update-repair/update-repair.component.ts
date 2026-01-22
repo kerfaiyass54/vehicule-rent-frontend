@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForOf, NgIf} from "@angular/common";
+
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Router, RouterLink} from "@angular/router";
 import {RepairServiceAdminService} from "../../Services/repair-service-admin.service";
@@ -9,11 +9,9 @@ import {ToastrService} from "ngx-toastr";
 @Component({
     selector: 'app-update-repair',
     imports: [
-        NgForOf,
-        NgIf,
-        ReactiveFormsModule,
-        RouterLink
-    ],
+    ReactiveFormsModule,
+    RouterLink
+],
     templateUrl: './update-repair.component.html',
     styleUrl: './update-repair.component.css'
 })

@@ -6,20 +6,22 @@
   <table class="table">
     <thead>
 
-    <th scope="col">Id</th>
-    <th scope="col">Name</th>
-    <th scope="col">Nationality</th>
-    <th scope="col">Infos</th>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Nationality</th>
+      <th scope="col">Infos</th>
 
     </thead>
-    <tbody *ngFor="let supp of listSuppliers">
-    <tr>
-      <td>{{supp.idSupp}}</td>
-      <td>{{supp.suppName}}</td>
-      <td>{{supp.nationality}}</td>
-      <td><button type="button" class="btn btn-info" (click)="goToInfos(supp.suppName)" >Check</button></td>
-    </tr>
-    </tbody>
+    @for (supp of listSuppliers; track supp) {
+      <tbody>
+        <tr>
+          <td>{{supp.idSupp}}</td>
+          <td>{{supp.suppName}}</td>
+          <td>{{supp.nationality}}</td>
+          <td><button type="button" class="btn btn-info" (click)="goToInfos(supp.suppName)" >Check</button></td>
+        </tr>
+      </tbody>
+    }
   </table>
 </div>
 

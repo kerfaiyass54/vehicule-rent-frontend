@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {NgClass, NgForOf, NgIf} from "@angular/common";
+import { NgClass } from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../../Services/client-service-admin.service";
 import {} from "@angular/common/http";
@@ -11,13 +11,10 @@ import { trigger, style, animate, transition, state } from '@angular/animations'
 @Component({
     selector: 'app-add-client',
     imports: [
-        ReactiveFormsModule,
-        NgIf,
-        // TODO: `HttpClientModule` should not be imported into a component directly.
-        // Please refactor the code to add `provideHttpClient()` call to the provider list in the
-        // application bootstrap logic and remove the `HttpClientModule` import from this component.
-        HttpClientModule, NgForOf, NgClass
-    ],
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgClass
+],
     templateUrl: './add-client.component.html',
     styleUrl: './add-client.component.css',
     animations: [

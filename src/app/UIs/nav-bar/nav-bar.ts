@@ -1,15 +1,13 @@
 import {Component, Input} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {KeycloakService} from "../../shared/keycloak.service";
-import {NgForOf, NgIf} from "@angular/common";
+
 
 @Component({
     selector: 'app-nav-bar',
     imports: [
-        RouterLink,
-        NgForOf,
-        NgIf
-    ],
+    RouterLink
+],
     templateUrl: './nav-bar.html',
     styleUrl: './nav-bar.css'
 })
