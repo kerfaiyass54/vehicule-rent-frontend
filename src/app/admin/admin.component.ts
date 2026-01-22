@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {RouterLink, RouterOutlet} from "@angular/router";
-import {KeycloakService} from "../shared/keycloak.service";
+import {RouterOutlet} from "@angular/router";
 import {NavBar} from "../UIs/nav-bar/nav-bar";
 
 
@@ -10,7 +9,6 @@ import {NavBar} from "../UIs/nav-bar/nav-bar";
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         RouterOutlet,
-        RouterLink,
         NavBar
     ],
     templateUrl: './admin.component.html',

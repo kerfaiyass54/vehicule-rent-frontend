@@ -20,10 +20,6 @@ import {ToastrService} from "ngx-toastr";
 @Component({
     selector: 'app-clients-management',
     imports: [
-        // TODO: `HttpClientModule` should not be imported into a component directly.
-        // Please refactor the code to add `provideHttpClient()` call to the provider list in the
-        // application bootstrap logic and remove the `HttpClientModule` import from this component.
-        HttpClientModule,
         FormsModule,
         MatTable,
         MatHeaderCell,

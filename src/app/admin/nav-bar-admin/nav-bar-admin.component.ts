@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import {RouterLink} from "@angular/router";
-import * as lucide from 'lucide';
 import {LucideAngularModule} from "lucide-angular";
 import { NgClass } from "@angular/common";
 import {FormsModule} from "@angular/forms";
@@ -22,7 +20,6 @@ interface Language {
     imports: [
     LucideAngularModule,
     NgClass,
-    RouterLink,
     FormsModule
 ],
     templateUrl: './nav-bar-admin.component.html',

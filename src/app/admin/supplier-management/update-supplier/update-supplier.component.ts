@@ -1,17 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 
-import {ActivatedRoute, Router, RouterLink} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {SupplierServiceAdminService} from "../../Services/supplier-service-admin.service";
 import {ToastrService} from "ngx-toastr";
-import {update} from "@angular-devkit/build-angular/src/tools/esbuild/angular/compilation/parallel-worker";
 
 @Component({
     selector: 'app-update-supplier',
     imports: [
     FormsModule,
     ReactiveFormsModule,
-    RouterLink
 ],
     templateUrl: './update-supplier.component.html',
     styleUrl: './update-supplier.component.css'

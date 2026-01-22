@@ -1,13 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {NavBarAdminComponent} from "../nav-bar-admin/nav-bar-admin.component";
-
 import {SupplierServiceAdminService} from "../Services/supplier-service-admin.service";
 import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-supplier-management',
     imports: [
-    NavBarAdminComponent
 ],
     templateUrl: './supplier-management.component.html',
     styleUrl: './supplier-management.component.css'

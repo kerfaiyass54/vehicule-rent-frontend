@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {Router, RouterLink} from "@angular/router";
+import {Router} from "@angular/router";
 import {RepairServiceAdminService} from "../../Services/repair-service-admin.service";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
 import {ToastrService} from "ngx-toastr";
@@ -10,7 +10,6 @@ import {ToastrService} from "ngx-toastr";
     selector: 'app-update-repair',
     imports: [
     ReactiveFormsModule,
-    RouterLink
 ],
     templateUrl: './update-repair.component.html',
     styleUrl: './update-repair.component.css'

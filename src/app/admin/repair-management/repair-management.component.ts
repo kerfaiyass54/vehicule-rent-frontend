@@ -1,14 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {NavBarAdminComponent} from "../nav-bar-admin/nav-bar-admin.component";
-
-import {Router, RouterLink} from "@angular/router";
+import {Router} from "@angular/router";
 import {RepairServiceAdminService} from "../Services/repair-service-admin.service";
 
 @Component({
     selector: 'app-repair-management',
     imports: [
-    NavBarAdminComponent,
-    RouterLink
+
 ],
     templateUrl: './repair-management.component.html',
     styleUrl: './repair-management.component.css'

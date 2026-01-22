@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import {Router, RouterLink} from "@angular/router";
-import { Location } from '@angular/common';
+import {Router} from "@angular/router";
 import {KeycloakService} from "../shared/keycloak.service";
 
 
 @Component({
     selector: 'app-error-page',
     imports: [
-        RouterLink
+
     ],
     templateUrl: './error-page.component.html',
     styleUrl: './error-page.component.css'

@@ -1,13 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {NavBarAdminComponent} from "../nav-bar-admin/nav-bar-admin.component";
-
-import {Route, Router, RouterLink} from "@angular/router";
+import { Router, RouterLink} from "@angular/router";
 import {LocationServiceAdminService} from "../Services/location-service-admin.service";
 
 @Component({
     selector: 'app-location-management',
     imports: [
-    NavBarAdminComponent,
     RouterLink
 ],
     templateUrl: './location-management.component.html',

@@ -3,7 +3,7 @@ import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} fr
 import { NgClass } from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../../Services/client-service-admin.service";
-import {} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
 import {ToastrService} from "ngx-toastr";
 import { trigger, style, animate, transition, state } from '@angular/animations';
