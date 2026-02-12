@@ -5,10 +5,11 @@ import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from "@angular/common/http";
 import {provideToastr} from "ngx-toastr";
 import {provideAnimations} from "@angular/platform-browser/animations";
-import {icons, LucideAngularModule} from "lucide-angular";
+import Aura from '@primeuix/themes/aura';
 
 import {initializeKeycloak} from "./shared/keycloak-init";
 import {authInterceptor} from "./shared/auth.interceptor";
+import {providePrimeNG} from "primeng/config";
 
 
 
@@ -19,5 +20,9 @@ export const appConfig: ApplicationConfig = {
       useFactory: initializeKeycloak,
       multi: true
     },provideHttpClient(),provideAnimations(),
-    provideToastr(), importProvidersFrom(LucideAngularModule.pick(icons))]
+    provideToastr(),providePrimeNG({
+      theme: {
+        preset: Aura
+      }
+    })]
 };

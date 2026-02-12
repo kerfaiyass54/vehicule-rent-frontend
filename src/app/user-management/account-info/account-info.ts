@@ -20,34 +20,24 @@ import {
   ApexTitleSubtitle,
   NgApexchartsModule
 } from 'ng-apexcharts';
+import {BarCharts} from "../../components/bar-charts/bar-charts";
 
-export type ChartOptions = {
-  series: ApexAxisChartSeries;
-  chart: ApexChart;
-  xaxis: ApexXAxis;
-  stroke: ApexStroke;
-  title: ApexTitleSubtitle;
-};
+
 
 
 @Component({
     selector: 'app-account-info',
-    imports: [
-        MatList,
-        MatListItem,
-        MatDivider,
-        MatFormField,
-        MatLabel,
-        FormsModule,
-        MatIcon,
-        MatInput,
-        MatIconButton,
-        MatFabButton,
-        RouterLink,
-        MatDialogModule,
-        MatButton,
-        NgApexchartsModule
-    ],
+  imports: [
+    MatList,
+    MatListItem,
+    MatDivider,
+    FormsModule,
+    MatIcon,
+    MatFabButton,
+    MatDialogModule,
+    NgApexchartsModule,
+    BarCharts
+  ],
     templateUrl: './account-info.html',
     styleUrl: './account-info.css'
 })
@@ -61,40 +51,11 @@ export class AccountInfo implements OnInit{
   @Input() sessionsTotal = 0;
   @Input() days: any[] = [];
   @Input() count:any[] = [];
-  chartOptions: ChartOptions = {
-    series: [
-      {
-        name: 'Connections',
-        data: []
-      }
-    ],
-    chart: {
-      type: 'line',
-      height: 350
-    },
-    xaxis: {
-      type: 'category',
-      categories: []
-    },
-    stroke: {
-      curve: 'smooth'
-    },
-    title: {
-      text: 'Connections - Last 5 Days'
-    }
-  };
+  colors: any[] = ['rgb(249, 115, 22)', 'rgb(6, 182, 212)', 'rgb(107, 114, 128)', 'rgb(139, 92, 246)'];
 
 
-  ngOnChanges(): void {
-    this.chartOptions.series = [
-      { name: 'Connections', data: this.count }
-    ];
 
-    this.chartOptions.xaxis = {
-      type: 'category',
-      categories: this.days
-    };
-  }
+
 
   constructor(private keycloakService: KeycloakService,private dialog: MatDialog) {
   }
@@ -113,14 +74,7 @@ export class AccountInfo implements OnInit{
       if (this.roles.includes('supplier')) this.role='You are a supplier';
       if (this.roles.includes('repairer')) this.role='You are a repairer';
     }
-    this.chartOptions.series = [
-      { name: 'Connections', data: this.count }
-    ];
 
-    this.chartOptions.xaxis = {
-      type: 'category',
-      categories: this.days
-    };
 
 
   }

@@ -11,13 +11,7 @@
     <mat-divider></mat-divider>
     <mat-list-item><div ><h2 class="text-center role info">Total of logins: {{sessionsTotal}}</h2></div></mat-list-item>
     <mat-divider></mat-divider>
-    <apx-chart
-      [series]="chartOptions.series"
-      [chart]="chartOptions.chart"
-      [xaxis]="chartOptions.xaxis"
-      [stroke]="chartOptions.stroke"
-      [title]="chartOptions.title">
-    </apx-chart>
+
 
     <mat-divider></mat-divider>
   </mat-list>
@@ -43,6 +37,7 @@
           </div>
         </div>
       </div>
+  <app-bar-charts [label]="'Logins for the last 4 days'" [labels]="days" [data]="count" [colors]="colors"></app-bar-charts>
 
 </div>
 

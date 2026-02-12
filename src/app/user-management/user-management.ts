@@ -26,27 +26,7 @@ export class UserManagement implements OnInit{
 
   setSessions(e: any[]){
     this.sessions = e;
-    this.getLast5DaysConnections();
   }
 
-  getLast5DaysConnections() {
-    const today = new Date();
-    const days = [];
-
-    for (let i = 4; i >= 0; i--) {
-      const d = new Date(today);
-      d.setDate(today.getDate() - i);
-      days.push(d.toISOString().split("T")[0]);
-    }
-
-    const counts = days.map(day =>
-      this.sessions.filter(s =>
-        s.sessionStart.startsWith(day)
-      ).length
-    );
-
-    this.daysList = days;
-    this.count = counts;
-  }
 
 }
