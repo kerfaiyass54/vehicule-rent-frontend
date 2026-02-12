@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, EventEmitter, inject, OnInit, Output, ViewChild} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { SessionDetailsDialog } from '../session-details-dialog/session-details-dialog';
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {
@@ -43,8 +43,8 @@ import {MatButton, MatFabButton} from "@angular/material/button";
     CdkDropList,
     MatSort,
     MatSortHeader,
-    MatFabButton,
-    MatButton
+    MatButton,
+    MatDialogModule
   ],
     templateUrl: './login-history.html',
     styleUrl: './login-history.css'
@@ -79,12 +79,13 @@ export class LoginHistory implements OnInit, AfterViewInit{
 
   }
 
-  openDetails(session: any) {
+  openDetails(session: any): void {
     this.dialog.open(SessionDetailsDialog, {
-      width: '400px',
-      data: session
+      width: '600px',
+      data: { id: session.id }
     });
   }
+
 
 
   async ngOnInit() {

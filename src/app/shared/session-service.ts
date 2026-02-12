@@ -18,6 +18,10 @@ export class SessionService {
     return this.http.get<any[]>(`${this.api}`);
   }
 
+  getSessionInformation(id: any){
+    return this.http.get<any>(this.api + id);
+  }
+
   getSessionsByDate(date: string, id: string) {
     return this.http.get<any[]>(`${this.api}by-date/${date}/${id}`);
   }
