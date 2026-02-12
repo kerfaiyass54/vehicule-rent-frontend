@@ -1,9 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SessionService } from '../../shared/session-service';
+import {MatIcon} from "@angular/material/icon";
+import {UpdatePassword} from "../update-password/update-password";
 
 @Component({
   selector: 'app-session-details-dialog',
@@ -12,7 +14,8 @@ import { SessionService } from '../../shared/session-service';
     CommonModule,
     MatDialogModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatIcon
   ],
   templateUrl: './session-details-dialog.html',
   styleUrl: './session-details-dialog.css'
@@ -23,7 +26,7 @@ export class SessionDetailsDialog implements OnInit {
   loading = true;
 
   constructor(
-    private sessionService: SessionService,
+    private sessionService: SessionService,private dialog: MatDialog,
     public dialogRef: MatDialogRef<SessionDetailsDialog>,
     @Inject(MAT_DIALOG_DATA) public data: { id: string }
   ) {}
@@ -42,5 +45,13 @@ export class SessionDetailsDialog implements OnInit {
 
   close(): void {
     this.dialogRef.close();
+  }
+
+  openChangePassword(){
+    this.dialog.open(UpdatePassword, {
+      width: '700px',
+      maxWidth: '95vw',
+      disableClose: true
+    });
   }
 }

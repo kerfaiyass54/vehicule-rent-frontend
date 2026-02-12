@@ -79,7 +79,7 @@ export class UpdatePassword implements OnInit{
       this.userManager.updatePassword(this.id,pass).subscribe(
         ()=>{
           this.toastr.success("SUCCESS","Password changed");
-
+          window.location.reload();
         }
       )
     }
