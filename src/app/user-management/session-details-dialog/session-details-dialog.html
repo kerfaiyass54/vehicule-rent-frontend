@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Session Details</h2>
+
+<mat-dialog-content>
+  <p><strong>ID:</strong> {{ data.id }}</p>
+  <p><strong>Username:</strong> {{ data.username }}</p>
+  <p><strong>Email:</strong> {{ data.email }}</p>
+  <p><strong>Session Start:</strong> {{ data.sessionStart | date:'medium' }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

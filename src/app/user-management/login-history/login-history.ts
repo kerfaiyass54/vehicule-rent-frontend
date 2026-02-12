@@ -1,4 +1,6 @@
 import {AfterViewInit, Component, EventEmitter, inject, OnInit, Output, ViewChild} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { SessionDetailsDialog } from '../session-details-dialog/session-details-dialog';
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {
   MatCell,
@@ -17,36 +19,39 @@ import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {SessionService} from "../../shared/session-service";
 import {KeycloakService} from "../../shared/keycloak.service";
 import {ToastrService} from "ngx-toastr";
+import {MatButton, MatFabButton} from "@angular/material/button";
 
 @Component({
     selector: 'app-login-history',
-    imports: [
-        MatFormField,
-        MatLabel,
-        MatTable,
-        MatInput,
-        MatColumnDef,
-        MatHeaderCell,
-        MatCell,
-        MatHeaderRow,
-        MatHeaderCellDef,
-        MatCellDef,
-        MatHeaderRowDef,
-        MatRow,
-        MatRowDef,
-        MatNoDataRow,
-        MatPaginator,
-        CdkDrag,
-        CdkDropList,
-        MatSort,
-        MatSortHeader
-    ],
+  imports: [
+    MatFormField,
+    MatLabel,
+    MatTable,
+    MatInput,
+    MatColumnDef,
+    MatHeaderCell,
+    MatCell,
+    MatHeaderRow,
+    MatHeaderCellDef,
+    MatCellDef,
+    MatHeaderRowDef,
+    MatRow,
+    MatRowDef,
+    MatNoDataRow,
+    MatPaginator,
+    CdkDrag,
+    CdkDropList,
+    MatSort,
+    MatSortHeader,
+    MatFabButton,
+    MatButton
+  ],
     templateUrl: './login-history.html',
     styleUrl: './login-history.css'
 })
 export class LoginHistory implements OnInit, AfterViewInit{
   sessions:any[] = [];
-  displayedColumns: string[] = ['id', 'name', 'time'];
+  displayedColumns: string[] = ['id', 'name', 'time', 'action'];
   dataSource = new MatTableDataSource<any>([]);
   private _liveAnnouncer = inject(LiveAnnouncer);
   totalElements = 0;
@@ -70,9 +75,17 @@ export class LoginHistory implements OnInit, AfterViewInit{
     }
   }
 
-  constructor(private toastrService: ToastrService,private sessionService: SessionService,private keycloakService: KeycloakService) {
+  constructor(private toastrService: ToastrService,private sessionService: SessionService,private keycloakService: KeycloakService,private dialog: MatDialog) {
 
   }
+
+  openDetails(session: any) {
+    this.dialog.open(SessionDetailsDialog, {
+      width: '400px',
+      data: session
+    });
+  }
+
 
   async ngOnInit() {
     this.dataSource.sort = this.sort;
@@ -109,6 +122,8 @@ export class LoginHistory implements OnInit, AfterViewInit{
       error: (err) => this.toastrService.error("There is an expected error! Try again later","ERROR")
   });
   }
+
+
 
   onPageChange(event: any): void {
     this.pageIndex = event.pageIndex;
