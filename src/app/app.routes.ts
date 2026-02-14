@@ -75,6 +75,7 @@ import {roleRedirectGuard} from "./shared/role-redirect.guard";
 import {RepairHome} from "./repair/repair-home/repair-home";
 import {SupplierHome} from "./supplier/supplier-home/supplier-home";
 import {ClientHome} from "./client/client-home/client-home";
+import {SelectRole} from "./select-role/select-role";
 
 
 
@@ -303,6 +304,15 @@ export const routes: Routes = [
       }
     ]
   },
+  {
+    path:'select-role',
+    component: SelectRole,
+    canActivate: [authGuard],
+    data: { roles: [] },
+    title:"Select role"
+  },
+
+
   {
     path:'not-authorized',
     component: NotAuthorizedComponent,

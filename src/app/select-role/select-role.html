@@ -1,0 +1,11 @@
+<app-nav-bar [mainRoute]="mainRoute" [list]="list"></app-nav-bar>
+
+<h2>Select your role</h2>
+
+@for(role of roles; track $index){
+  <button (click)="selectRole(role)">
+    {{ role }}
+  </button>
+}
+
+

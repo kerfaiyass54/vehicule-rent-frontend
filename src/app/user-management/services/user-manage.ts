@@ -42,6 +42,10 @@ export class UserManage {
     return this.http.put<any>(this.baseUrlKeycloak + "user/" + userId + "/update", updateUser);
   }
 
+  assignRole(userId: any, role: any){
+    return this.http.get<any>(this.baseUrlKeycloak + "role?userId=" + userId + "&roleName=" + role);
+  }
+
 
 
 
