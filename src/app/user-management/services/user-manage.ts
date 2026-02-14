@@ -9,11 +9,17 @@ export class UserManage {
 
   baseUrlKeycloak = "http://localhost:8100/keycloak/"
 
+  passwordCheck = "http://127.0.0.1:8000/predict"
+
   constructor(private http:HttpClient) {}
 
 
   createUser(user: any){
     return this.http.post<any>(this.baseUrlKeycloak, user);
+  }
+
+  predict(password: any) {
+    return this.http.post(this.passwordCheck, { password });
   }
 
   getUsers(){

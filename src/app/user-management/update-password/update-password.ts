@@ -38,6 +38,7 @@ export class UpdatePassword implements OnInit{
   email: any;
   roles: any[] = [];
   role: any;
+  passStrength:any = '';
 
   constructor(private dialogRef: MatDialogRef<UpdatePassword>,private fb: FormBuilder,
               private keycloakService: KeycloakService, private userManager: UserManage, private toastr:ToastrService) {
@@ -86,6 +87,15 @@ export class UpdatePassword implements OnInit{
     else{
       this.toastr.error("ERROR","The passwords are not the same!");
     }
+  }
+
+
+  evaluatePassword(pass:any){
+    this.userManager.predict(pass.newPassword).subscribe(
+      (response: any)=>{
+        this.passStrength = response.strength;
+      }
+    )
   }
 
 }
