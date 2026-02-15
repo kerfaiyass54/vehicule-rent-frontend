@@ -4,12 +4,19 @@ import {getKeycloak} from "../shared/keycloak-init";
 import {UserManage} from "../user-management/services/user-manage";
 import {KeycloakService} from "../shared/keycloak.service";
 import {ToastrService} from "ngx-toastr";
+import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-select-role',
-    imports: [
-        NavBar
-    ],
+  imports: [
+    NavBar,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatButton
+  ],
   templateUrl: './select-role.html',
   styleUrl: './select-role.css',
 })

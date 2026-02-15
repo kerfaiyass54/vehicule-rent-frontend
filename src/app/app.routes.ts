@@ -87,7 +87,7 @@ import {SelectRole} from "./select-role/select-role";
 export const routes: Routes = [
   {
     path: '', component: LoadingPageComponent,
-    canActivate: [roleRedirectGuard,authGuard]
+    canActivate: [authGuard, roleRedirectGuard]
   },
   {
     path:'client',
