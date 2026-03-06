@@ -2,35 +2,44 @@
 
 <mat-dialog-content>
 
-  <!-- Loading Spinner -->
-  @if(loading){
-    <mat-spinner diameter="40"></mat-spinner>
+  <!-- Loading -->
+  @if (loading) {
+    <div class="loading-container">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
   } @else {
+
+    <!-- Username -->
     <div class="detail-row">
       <span class="label">Username:</span>
       <span>{{ session.username }}</span>
     </div>
 
+    <!-- Email -->
     <div class="detail-row">
       <span class="label">Email:</span>
       <span>{{ session.email }}</span>
     </div>
 
+    <!-- Session Start -->
     <div class="detail-row">
       <span class="label">Session Start:</span>
       <span>{{ session.sessionStart | date:'medium' }}</span>
     </div>
 
+    <!-- IP Address -->
     <div class="detail-row">
       <span class="label">IP Address:</span>
       <span>{{ session.ipAddress }}</span>
     </div>
 
+    <!-- Device -->
     <div class="detail-row">
       <span class="label">Device:</span>
       <span>{{ session.deviceType }}</span>
     </div>
 
+    <!-- Location -->
     <div class="detail-row">
       <span class="label">Country:</span>
       <span>{{ session.country }}</span>
@@ -41,48 +50,65 @@
       <span>{{ session.city }}</span>
     </div>
 
+    <!-- User Agent -->
     <div class="detail-row">
       <span class="label">User Agent:</span>
       <span class="user-agent">{{ session.userAgent }}</span>
     </div>
 
+    <!-- Risk Score -->
     <div class="detail-row">
       <span class="label">Risk Score:</span>
-      <span [ngClass]="{
-        'risk-low': session.riskScore < 30,
-        'risk-medium': session.riskScore >= 30 && session.riskScore < 70,
-        'risk-high': session.riskScore >= 70
-      }">
+      <span
+        [ngClass]="{
+          'risk-low': session.riskScore < 30,
+          'risk-medium': session.riskScore >= 30 && session.riskScore < 70,
+          'risk-high': session.riskScore >= 70
+        }">
         {{ session.riskScore }}
       </span>
     </div>
 
+    <!-- Suspicious -->
     <div class="detail-row">
       <span class="label">Suspicious:</span>
-      <span [ngClass]="session.suspicious ? 'suspicious-yes' : 'suspicious-no'">
+      <span
+        [ngClass]="session.suspicious ? 'suspicious-yes' : 'suspicious-no'">
         {{ session.suspicious ? 'Yes' : 'No' }}
       </span>
     </div>
-    @if(session.suspicious){
+
+    <!-- Suspicious Reason -->
+    @if (session.suspicious) {
       <div class="detail-row suspicious-box">
         <span class="label">Reason:</span>
         <span>{{ session.suspiciousReason }}</span>
       </div>
     }
 
-
   }
-
-
 
 </mat-dialog-content>
 
+<!-- Dialog Actions -->
 <mat-dialog-actions align="end">
-  <button mat-raised-button color="primary" (click)="close()">
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="close()">
     Close
   </button>
-  <button mat-raised-button color="accent" class="custom-btn" (click)="openChangePassword()">
+
+  <button
+    mat-raised-button
+    color="accent"
+    class="custom-btn"
+    (click)="openChangePassword()">
+
     <mat-icon>lock</mat-icon>
     Update Password
+
   </button>
+
 </mat-dialog-actions>

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, EventEmitter, inject, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, inject, OnInit, Output, ViewChild, ChangeDetectionStrategy} from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { SessionDetailsDialog } from '../session-details-dialog/session-details-dialog';
 import {MatFormField, MatLabel} from "@angular/material/form-field";
@@ -19,9 +19,10 @@ import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {SessionService} from "../../shared/session-service";
 import {KeycloakService} from "../../shared/keycloak.service";
 import {ToastrService} from "ngx-toastr";
-import {MatButton, MatFabButton} from "@angular/material/button";
+import {MatButton} from "@angular/material/button";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-login-history',
   imports: [
     MatFormField,

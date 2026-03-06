@@ -1,23 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {MatList, MatListItem} from "@angular/material/list";
 import {MatDivider} from "@angular/material/divider";
-import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {MatIcon} from "@angular/material/icon";
-import {MatInput} from "@angular/material/input";
-import {MatButton, MatFabButton, MatIconButton} from "@angular/material/button";
-import {RouterLink} from "@angular/router";
+import {MatFabButton} from "@angular/material/button";
 import {UpdateUser} from "../update-user/update-user";
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {KeycloakService} from "../../shared/keycloak.service";
 import {UpdatePassword} from "../update-password/update-password";
 import {DeleteAccountDialog} from "../delete-account-dialog/delete-account-dialog";
 import {
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexXAxis,
-  ApexStroke,
-  ApexTitleSubtitle,
   NgApexchartsModule
 } from 'ng-apexcharts';
 import {BarCharts} from "../../components/bar-charts/bar-charts";
@@ -26,6 +18,7 @@ import {BarCharts} from "../../components/bar-charts/bar-charts";
 
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-account-info',
   imports: [
     MatList,
@@ -36,7 +29,6 @@ import {BarCharts} from "../../components/bar-charts/bar-charts";
     MatFabButton,
     MatDialogModule,
     NgApexchartsModule,
-    BarCharts
   ],
     templateUrl: './account-info.html',
     styleUrl: './account-info.css'
@@ -51,7 +43,6 @@ export class AccountInfo implements OnInit{
   @Input() sessionsTotal = 0;
   @Input() days: any[] = [];
   @Input() count:any[] = [];
-  colors: any[] = ['rgb(249, 115, 22)', 'rgb(6, 182, 212)', 'rgb(107, 114, 128)', 'rgb(139, 92, 246)'];
 
 
 

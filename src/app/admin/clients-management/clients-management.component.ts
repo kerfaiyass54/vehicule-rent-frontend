@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild, ChangeDetectionStrategy} from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
 import {ClientServiceAdminService} from "../Services/client-service-admin.service";
 import {} from "@angular/common/http";
@@ -18,6 +18,7 @@ import {Client} from "../../models/client";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-clients-management',
     imports: [
         FormsModule,

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
 import {MatButton} from "@angular/material/button";
 import {UserManage} from "../services/user-manage";
@@ -6,6 +6,7 @@ import {KeycloakService} from "../../shared/keycloak.service";
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-delete-account-dialog',
     imports: [
         MatDialogActions,
@@ -23,9 +24,9 @@ export class DeleteAccountDialog implements OnInit{
   isLoggedIn = false;
   role: any;
   email: any;
-  roles: any[] = [];
+  roles: string[] = [];
 
-  constructor(private dialogRef: MatDialogRef<DeleteAccountDialog>, private userManage: UserManage, private keycloakService: KeycloakService) {}
+  constructor(private userManage: UserManage, private keycloakService: KeycloakService) {}
 
   async ngOnInit() {
     this.isLoggedIn = await this.keycloakService.isLoggedIn();

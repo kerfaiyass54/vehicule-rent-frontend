@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
@@ -7,6 +7,7 @@ import {LocationServiceAdminService} from "../../Services/location-service-admin
 import {ToastrService} from "ngx-toastr";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-update-repair',
     imports: [
     ReactiveFormsModule,

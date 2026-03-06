@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import { NgClass } from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
@@ -9,6 +9,7 @@ import {ToastrService} from "ngx-toastr";
 import { trigger, style, animate, transition, state } from '@angular/animations';
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-add-client',
     imports: [
     ReactiveFormsModule,

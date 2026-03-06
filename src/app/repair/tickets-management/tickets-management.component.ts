@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component , ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-tickets-management',
     imports: [],
     templateUrl: './tickets-management.component.html',

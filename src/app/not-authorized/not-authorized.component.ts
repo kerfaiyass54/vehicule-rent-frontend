@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component , ChangeDetectionStrategy} from '@angular/core';
 import {KeycloakService} from "../shared/keycloak.service";
 import {Router} from "@angular/router";
 
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-not-authorized',
     imports: [],
     templateUrl: './not-authorized.component.html',

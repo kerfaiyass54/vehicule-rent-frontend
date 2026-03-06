@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component , ChangeDetectionStrategy} from '@angular/core';
 import {Router} from "@angular/router";
 import {KeycloakService} from "../shared/keycloak.service";
 
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-error-page',
     imports: [
 

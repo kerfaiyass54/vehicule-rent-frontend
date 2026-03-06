@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component , ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-update-budget',
     imports: [],
     templateUrl: './update-budget.component.html',

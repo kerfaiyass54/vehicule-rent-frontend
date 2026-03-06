@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , ChangeDetectionStrategy} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
 import {Router, RouterLink} from "@angular/router";
@@ -6,6 +6,7 @@ import {Router, RouterLink} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-add-location',
     imports: [
     ReactiveFormsModule,

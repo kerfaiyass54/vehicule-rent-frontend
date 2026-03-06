@@ -1,9 +1,10 @@
-import {Component, inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
+import {Component, inject, Input, OnInit, PLATFORM_ID, ChangeDetectionStrategy} from '@angular/core';
 import {isPlatformBrowser} from "@angular/common";
 import { ChartModule } from 'primeng/chart';
 
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-bar-charts',
   imports: [
     ChartModule

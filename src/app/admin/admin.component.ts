@@ -5,8 +5,8 @@ import {NavBar} from "../UIs/nav-bar/nav-bar";
 
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-admin',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         RouterOutlet,
         NavBar

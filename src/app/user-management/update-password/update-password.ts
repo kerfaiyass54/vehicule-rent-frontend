@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {MatButton} from "@angular/material/button";
 import {
   MatDialogActions,
@@ -15,6 +15,7 @@ import {UserManage} from "../services/user-manage";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-update-password',
     imports: [
         MatButton,
@@ -35,10 +36,10 @@ export class UpdatePassword implements OnInit{
   id: any;
   isLoggedIn = false;
   changePass: FormGroup;
-  email: any;
-  roles: any[] = [];
-  role: any;
-  passStrength:any = '';
+  email: string | undefined;
+  roles: string[] = [];
+  role: string = '';
+  passStrength: number = 0;
 
   constructor(private dialogRef: MatDialogRef<UpdatePassword>,private fb: FormBuilder,
               private keycloakService: KeycloakService, private userManager: UserManage, private toastr:ToastrService) {

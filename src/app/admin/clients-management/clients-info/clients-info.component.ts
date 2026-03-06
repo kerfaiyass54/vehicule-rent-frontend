@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-clients-info',
     imports: [
         MatButtonModule,
@@ -24,7 +25,6 @@ import {MatInputModule} from '@angular/material/input';
     ],
     templateUrl: './clients-info.component.html',
     styleUrl: './clients-info.component.css',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [provideNativeDateAdapter()]
 })
 export class ClientsInfoComponent implements  OnInit{

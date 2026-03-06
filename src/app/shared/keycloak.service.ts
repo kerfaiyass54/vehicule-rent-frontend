@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable , ChangeDetectionStrategy} from '@angular/core';
 
 import { KeycloakProfile } from 'keycloak-js';
 import {getKeycloak} from "./keycloak-init";

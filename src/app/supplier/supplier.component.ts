@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component , ChangeDetectionStrategy} from '@angular/core';
 import {NavBar} from "../UIs/nav-bar/nav-bar";
 import {RouterOutlet} from "@angular/router";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-supplier',
     imports: [
         NavBar,

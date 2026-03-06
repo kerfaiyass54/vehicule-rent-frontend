@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {SupplierServiceAdminService} from "../Services/supplier-service-admin.service";
 import {Router} from "@angular/router";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-supplier-management',
     imports: [
 ],

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit , ChangeDetectionStrategy} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -8,6 +8,7 @@ import {MatIcon} from "@angular/material/icon";
 import {UpdatePassword} from "../update-password/update-password";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-session-details-dialog',
   standalone: true,
   imports: [

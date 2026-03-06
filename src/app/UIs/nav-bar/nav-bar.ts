@@ -1,9 +1,10 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {KeycloakService} from "../../shared/keycloak.service";
 
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-nav-bar',
     imports: [
     RouterLink

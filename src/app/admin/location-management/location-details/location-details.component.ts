@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {LocationServiceAdminService} from "../../Services/location-service-admin.service";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-location-details',
     imports: [
     RouterLink

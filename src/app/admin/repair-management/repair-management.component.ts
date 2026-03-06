@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {Router} from "@angular/router";
 import {RepairServiceAdminService} from "../Services/repair-service-admin.service";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-repair-management',
     imports: [
 

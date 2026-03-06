@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {NavBar} from "../UIs/nav-bar/nav-bar";
 import {getKeycloak} from "../shared/keycloak-init";
 import {UserManage} from "../user-management/services/user-manage";
@@ -8,6 +8,7 @@ import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/mat
 import {MatButton} from "@angular/material/button";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-select-role',
   imports: [
     NavBar,

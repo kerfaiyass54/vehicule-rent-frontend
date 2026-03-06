@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormField, MatLabel} from "@angular/material/form-field";
@@ -11,6 +11,7 @@ import {getKeycloak} from "../../shared/keycloak-init";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-update-user',
     imports: [
         MatDialogContent,
@@ -30,11 +31,11 @@ export class UpdateUser implements OnInit{
 
   userForm: FormGroup;
   userInfo?: any;
-  emails:any[] = [];
+  emails:string[] = [];
   users:any[] = [];
   isLoggedIn = false;
   role = '';
-  roles:any[] = [];
+  roles:string[] = [];
   emailUser:any;
   id: any;
 

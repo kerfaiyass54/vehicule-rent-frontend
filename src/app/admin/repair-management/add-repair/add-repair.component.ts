@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 
 import {Router, RouterLink} from "@angular/router";
@@ -8,6 +8,7 @@ import {RepairServiceAdminService} from "../../Services/repair-service-admin.ser
 import {ToastrService} from "ngx-toastr";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-add-repair',
     imports: [
     FormsModule,

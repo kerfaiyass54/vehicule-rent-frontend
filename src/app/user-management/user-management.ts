@@ -1,10 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
 import {AccountInfo} from "./account-info/account-info";
 import {LoginHistory} from "./login-history/login-history";
 
 @Component({
+changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-user-management',
+  standalone: true,
     imports: [
         MatTabGroup,
         MatTab,

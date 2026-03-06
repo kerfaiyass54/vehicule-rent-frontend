@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable , ChangeDetectionStrategy} from '@angular/core';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import {Client} from "../../models/client";
 import {PaginatedResponse} from "../../models/paginatedResponse";
