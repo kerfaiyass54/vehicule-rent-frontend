@@ -1,6 +1,5 @@
 import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {HttpClient} from "@angular/common/http";
 import {SessionService} from "./shared/session-service";
 
 @Component({
@@ -15,7 +14,7 @@ export class AppComponent implements OnInit{
 
   title = 'vehicule-rent-front';
 
-  constructor(private http: HttpClient, private sessionService:SessionService) {
+  constructor(private sessionService:SessionService) {
   }
 
   ngOnInit() {

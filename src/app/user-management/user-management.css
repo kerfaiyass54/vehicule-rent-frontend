@@ -1,26 +1,32 @@
-/* Main Container */
+/* ===============================
+   Main Container
+================================= */
 .main-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   background: linear-gradient(135deg, #f9fafb, #ffffff);
   overflow: auto;
-  animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s ease;
 }
 
-/* Tab Group */
+/* ===============================
+   Tab Group
+================================= */
 .custom-tab-group {
   width: 100%;
   height: 800px;
-  background: #ffffff;
+  background: #fff;
   border-radius: 50px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Center Tabs */
+/* ===============================
+   Tabs Layout
+================================= */
 ::ng-deep .mat-mdc-tab-labels {
   justify-content: center !important;
-  animation: fadeIn 0.9s;
+  animation: fadeIn 0.9s ease;
 }
 
 /* Tab Labels */
@@ -38,19 +44,22 @@
   font-size: 1.3rem !important;
 }
 
-/* Tab Content */
+/* ===============================
+   Tab Content
+================================= */
 .tab-content {
   padding: 20px;
   width: 100%;
-  height: auto;
   position: relative;
   overflow: auto;
   font-size: 1.1rem;
   color: #444;
-  animation: fadeIn 1.5s;
+  animation: fadeIn 1.5s ease;
 }
 
-/* Animation */
+/* ===============================
+   Animations
+================================= */
 @keyframes fadeIn {
   from {
     opacity: 0;

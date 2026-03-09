@@ -1,11 +1,9 @@
-/* Loading */
 .loading-container {
   display: flex;
   justify-content: center;
   padding: 40px;
 }
 
-/* Details layout */
 .details-container {
   display: flex;
   flex-direction: column;
@@ -13,59 +11,57 @@
   padding: 10px 0;
 }
 
-/* Row layout */
 .detail-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 10px;
-  padding: 6px 0;
   border-bottom: 1px solid #eee;
+  padding: 6px 0;
 }
 
-/* Labels */
 .label {
-  min-width: 120px;
   font-weight: 600;
   color: #444;
+  min-width: 120px;
 }
 
-/* User agent text */
 .user-agent {
+  word-break: break-word;
   max-width: 250px;
   font-size: 13px;
   color: #666;
-  word-break: break-word;
 }
 
-/* Risk & Suspicious base styles */
-.risk-low,
-.risk-medium,
-.risk-high,
-.suspicious-yes,
-.suspicious-no {
+/* Risk Colors */
+.risk-low {
+  color: #2e7d32;
   font-weight: 600;
 }
 
-/* Risk levels */
-.risk-low { color: #2e7d32; }
-.risk-medium { color: #f9a825; }
+.risk-medium {
+  color: #f9a825;
+  font-weight: 600;
+}
+
 .risk-high {
   color: #c62828;
   font-weight: 700;
 }
 
-/* Suspicious status */
+/* Suspicious */
 .suspicious-yes {
   color: #c62828;
   font-weight: 700;
 }
 
-.suspicious-no { color: #2e7d32; }
+.suspicious-no {
+  color: #2e7d32;
+  font-weight: 600;
+}
 
-/* Suspicious highlight box */
 .suspicious-box {
+  background-color: #ffebee;
   padding: 8px;
   border-radius: 6px;
-  background-color: #ffebee;
 }
