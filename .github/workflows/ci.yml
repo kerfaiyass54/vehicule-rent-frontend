@@ -1,0 +1,58 @@
+name: CI Pipeline - VRA frontend
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+
+
+  frontend:
+    name: Build Angular Frontend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          cd blog-frontend
+          npm install
+
+      - name: Build Angular
+        run: npm run build -- --configuration production
+
+
+  quality-frontend:
+    name: Analyse Angular Code Quality
+    runs-on: ubuntu-latest
+    needs: frontend
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Sonar Scanner
+        run: npm install -g sonar-scanner
+
+      - name: SonarCloud Scan Frontend
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=kerfaiyass54_vehicule-rent-frontend \
+            -Dsonar.organization=kerfaiyass54 \
+            -Dsonar.sources=src \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
