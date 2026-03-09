@@ -23,7 +23,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd blog-frontend
           npm install
 
       - name: Build Angular
