@@ -37,7 +37,7 @@ With modern UI components, responsive design, and secure authentication via Keyc
 **Core Technologies:**
 - **Framework**: Angular 21
 - **Language**: TypeScript
-- **UI Components**: Angular Material, PrimeNG, Bootstrap 5
+- **UI Components**: Angular Material, Bootstrap 5
 - **State Management**: RxJS
 - **Authentication**: Keycloak.js
 
