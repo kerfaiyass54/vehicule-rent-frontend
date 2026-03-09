@@ -40,7 +40,6 @@ With modern UI components, responsive design, and secure authentication via Keyc
 - **UI Components**: Angular Material, PrimeNG, Bootstrap 5
 - **State Management**: RxJS
 - **Authentication**: Keycloak.js
-- **Charts**: ApexCharts, Chart.js
 
 **Development Tools:**
 - **Build System**: Angular CLI

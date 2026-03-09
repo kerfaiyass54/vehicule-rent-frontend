@@ -9,10 +9,7 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {KeycloakService} from "../../shared/keycloak.service";
 import {UpdatePassword} from "../update-password/update-password";
 import {DeleteAccountDialog} from "../delete-account-dialog/delete-account-dialog";
-import {
-  NgApexchartsModule
-} from 'ng-apexcharts';
-import {BarCharts} from "../../components/bar-charts/bar-charts";
+
 
 
 
@@ -28,7 +25,6 @@ changeDetection: ChangeDetectionStrategy.OnPush,
     MatIcon,
     MatFabButton,
     MatDialogModule,
-    NgApexchartsModule,
   ],
     templateUrl: './account-info.html',
     styleUrl: './account-info.css'
