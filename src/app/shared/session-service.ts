@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable , ChangeDetectionStrategy} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,11 @@ export class SessionService {
   constructor(private http: HttpClient) {}
 
   saveSession() {
-    return this.http.post(`${this.api}save`, {}).subscribe();
+    return this.http.post(this.api, {});
   }
 
   getSessions() {
-    return this.http.get<any[]>(`${this.api}`);
+    return this.http.get<any[]>(this.api);
   }
 
   getSessionInformation(id: any){
@@ -23,21 +23,26 @@ export class SessionService {
   }
 
   getSessionsByDate(date: string, id: string) {
-    return this.http.get<any[]>(`${this.api}by-date/${date}/${id}`);
+    let params = new HttpParams()
+      .set('date', date)
+      .set('id', id);
+
+    return this.http.get<any[]>(this.api + "by-date", { params });
   }
 
   getSessionsByEmail(email: string) {
-    return this.http.get<any[]>(`${this.api}by-email/${email}`);
+    let params = new HttpParams().set('email', email);
+
+    return this.http.get<any[]>(this.api + "by-email", { params });
   }
 
-  getLoginSessions(page: number = 0,  size: number = 5, email: string){
+  getLoginSessions(page: number = 0, size: number = 5, email: string){
     let params = new HttpParams()
       .set('page', page)
       .set('size', size)
       .set('email', email);
-    return this.http.get<any>(this.api + "list/sessions", {params});
+
+    return this.http.get<any>(this.api + "list/sessions", { params });
   }
-
-
 
 }
