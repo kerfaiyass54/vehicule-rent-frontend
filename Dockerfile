@@ -1,17 +1,29 @@
-FROM node:22-alpine
+# -------- Stage 1: Build Angular App --------
+FROM node:22-alpine AS build
 
-RUN npm install -g @angular/cli
+WORKDIR /app
 
-WORKDIR /vehicule-front
+# Copy dependency files
+COPY package*.json ./
 
-COPY . .
-
+# Install dependencies
 RUN npm install
 
-EXPOSE 4200
+# Copy project files
+COPY . .
 
-CMD ["ng","serve", "-o"]
+# Build Angular for production
+RUN npm run build --configuration=production
 
 
+# -------- Stage 2: Serve with Nginx --------
+FROM nginx:alpine
 
+# Copy built Angular app to Nginx
+COPY --from=build /app/dist /usr/share/nginx/html
 
+# Expose port
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
